@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Sidebar Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#dc2626",
+              sidebar: "#f8fafc",
+              content: "#ffffff",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50 font-sans">
+   
+       <!-- Header -->
+
+<div class="bg-white sticky top-0 z-50">
+      <nav
+      class=" max-w-[1560px]  mx-auto shadow-sm border-b border-gray-200 border-black/10  ">
+      <div class="max-full mx-auto px-4 sm:px-6 lg:px-0">
+        <div class="flex justify-between items-center h-16">
+
+
+          <!-- Logo and Language -->
+          <div class="flex items-center gap-10">
+            <a href="index.html">
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/2d316bb90db8bdfd99985c7d8b9a3db4557ec01d?width=310"
+                alt="Future University in Egypt" class="h-12 w-auto" />
+            </a>
+
+            <!-- Language Selector -->
+            <div class="relative">
+              <button id="languageBtn"
+                class="bg-university-red text-white px-2 lg:px-4 py-2 rounded text-sm font-medium flex items-center hover:bg-red-700 transition-colors">
+                Language: English
+                <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="languageDropdown"
+                class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">English</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Arabic</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+
+
+            <!-- Navigation Links -->
+            <div class="flex items-center space-x-6">
+              <a href="#" class="text-gray-700 hover:text-university-red font-medium transition-colors">Home</a>
+
+              <!-- Student Guide Dropdown -->
+              <div class="relative">
+                <button class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                  id="studentGuideBtn">
+                  Student Guide
+                  <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div id="studentGuideDropdown"
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Admission Guide</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Course Registration</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Student Services</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Campus Life</a>
+                </div>
+              </div>
+
+              <!-- Study Plans Dropdown -->
+              <div class="relative">
+                <button class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                  id="studyPlansBtn">
+                  Study Plans
+                  <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div id="studyPlansDropdown"
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Undergraduate</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Graduate</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Doctoral</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Certificate Programs</a>
+                </div>
+              </div>
+
+              <!-- Academic Calendar Dropdown -->
+              <div class="relative">
+                <button class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                  id="academicCalendarBtn">
+                  Academic Calendar
+                  <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div id="academicCalendarDropdown"
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fall Semester</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Spring Semester</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summer Session</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Important Dates</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button id="mobileMenuBtn"
+              class="text-gray-700 hover:text-university-red focus:outline-none focus:text-university-red transition-colors">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
+                <path id="closeIcon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-200">
+        <div class="px-4 pt-2 pb-3 space-y-1">
+          <!-- Language Selector Mobile -->
+          <div class="mb-4">
+            <button id="mobileLanguageBtn"
+              class="w-full bg-university-red text-white px-4 py-2 rounded text-sm font-medium flex items-center justify-between hover:bg-red-700 transition-colors">
+              Language: English
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobileLanguageDropdown" class="mt-2 bg-gray-50 rounded-md hidden">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">English</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">Arabic</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">French</a>
+            </div>
+          </div>
+
+          <a href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">Home</a>
+
+          <!-- Mobile Student Guide -->
+          <div>
+            <button id="mobileStudentGuideBtn"
+              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+              Student Guide
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobileStudentGuideDropdown" class="ml-4 mt-2 space-y-1 hidden">
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Admission
+                Guide</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Course
+                Registration</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Student
+                Services</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Campus
+                Life</a>
+            </div>
+          </div>
+
+          <!-- Mobile Study Plans -->
+          <div>
+            <button id="mobileStudyPlansBtn"
+              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+              Study Plans
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobileStudyPlansDropdown" class="ml-4 mt-2 space-y-1 hidden">
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Undergraduate</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Graduate</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Doctoral</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Certificate
+                Programs</a>
+            </div>
+          </div>
+
+          <!-- Mobile Academic Calendar -->
+          <div>
+            <button id="mobileAcademicCalendarBtn"
+              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+              Academic Calendar
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobileAcademicCalendarDropdown" class="ml-4 mt-2 space-y-1 hidden">
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Fall
+                Semester</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Spring
+                Semester</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Summer
+                Session</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Important
+                Dates</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+</div>
+
+   
+
+    <!-- Hero Section -->
+    <section class="relative h-64 md:h-80 bg-cover bg-center" style="background-image: url('./images/h1.png');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
+            <div class="text-center text-white">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">
+                    Student <span class="text-[#FACC15]">Guide</span>
+                </h1>
+                <p class="text-lg md:text-xl">Everything you need to know about student life at Future University</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobileMenuBtn"
+      class="lg:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-md shadow-md"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- Overlay for mobile -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden"
+    ></div>
+
+    <!-- <h1 class="bg-red-200">neww</h1> -->
+
+    <!-- Main Content Wrapper -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Sidebar -->
+        <div
+          id="sidebar"
+          class="lg:static fixed left-0 top-0 h-[400px] max-h-auto w-80 border-2 m-2 border-gray-200 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-40 overflow-y-auto"
+        >
+          <div class="p-6">
+            <!-- <h1 class="text-2xl font-bold text-gray-800 mb-8">
+              Navigation Menu
+            </h1> -->
+
+            <!-- Menu Items -->
+            <nav class="space-y-2">
+              <!-- Study System -->
+              <div class="menu-group border-l-4 border-none">
+                <button
+                  class="menu-toggle w-full flex items-center justify-between p-3 text-left rounded-r-md hover:bg-red-100 transition-colors duration-200"
+                  data-target="study-system"
+                  data-main-content="study-system-section"
+                >
+                  <span class="font-semibold text-gray-800">Study System</span>
+                  <svg
+                    class="w-5 h-5 transform transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  class="submenu ml-4 mt-2 space-y-1 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <button
+                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                    data-content="credit-hour-system"
+                  >
+                    Credit Hour System
+                  </button>
+                  <button
+                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                    data-content="credit-definition"
+                  >
+                    Definition of a Credit Hour
+                  </button>
+                  <button
+                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                    data-content="academic-semesters"
+                  >
+                    Academic Semesters
+                  </button>
+                </div>
+              </div>
+
+              <!-- General Policies -->
+              <div class="menu-group border-l-4 border-none">
+                <button
+                  class="menu-toggle w-full flex items-center justify-between p-3 text-left hover:bg-gray-100 rounded transition-colors duration-200"
+                  data-target="general-policies"
+                  data-main-content="general-policies-section"
+                >
+                  <span class="font-semibold text-gray-800"
+                    >General Policies and Procedures</span
+                  >
+                  <svg
+                    class="w-5 h-5 transform transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  class="submenu ml-4 mt-2 space-y-1 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <button
+                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                    data-content="enrollment-policies"
+                  >
+                    Enrollment Policies
+                  </button>
+                  <button
+                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                    data-content="attendance-requirements"
+                  >
+                    Attendance Requirements
+                  </button>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <main class="lg:w-3/4">
+          <div class="bg-white rounded-lg shadow-sm border p-6">
+            <!-- Main Content -->
+            <div class="min-h-screen">
+              <div class="">
+                <!-- Breadcrumb -->
+                <nav class="mb-6">
+                  <ol class="flex items-center space-x-2 text-sm text-gray-500">
+                    <li>
+                      <a href="#" class="hover:text-primary transition-colors"
+                        >Home</a
+                      >
+                    </li>
+                    <li><span class="mx-2">›</span></li>
+                    <li id="breadcrumb-current" class="text-gray-800">
+                      Student Guide
+                    </li>
+                  </ol>
+                </nav>
+
+                <!-- Content Area -->
+                <div id="content-area" class="bg-white">
+                  <!-- Default Content -->
+                  <!-- <div id="default-content" class="content-section opacity-100 transition-opacity duration-300">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-6">Welcome to the Student Guide</h1>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                        Select a menu item from the sidebar to view detailed information about our academic policies, procedures, and systems.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
+                            <h3 class="font-semibold text-blue-800 mb-2">Quick Navigation</h3>
+                            <p class="text-blue-600 text-sm">Use the sidebar to explore different sections of our academic guide.</p>
+                        </div>
+                        <div class="p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg border border-green-100">
+                            <h3 class="font-semibold text-green-800 mb-2">Comprehensive Information</h3>
+                            <p class="text-green-600 text-sm">Find detailed policies, procedures, and academic requirements.</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                  <!-- Study System Section (All Data) -->
+                  <section
+                    id="study-system-section"
+                    class="content-section opacity-100 transition-opacity duration-300 overflow-y-auto"
+                  >
+                    <!-- All subcontents as divs -->
+                    <div id="credit-hour-system" class="mb-8">
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Credit Hour System
+                      </h2>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        FUE adopts the Credit Hour System, the most widely
+                        adopted academic system in universities worldwide. This
+                        system is based on study flexibility and allows students
+                        to organize their study plans according to their
+                        abilities and circumstances, under close academic
+                        supervision.
+                      </p>
+                    </div>
+
+                    <div id="credit-definition" class="mb-8">
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Definition of a Credit Hour
+                      </h2>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        A credit hour is a unit of measurement for academic
+                        study and is equivalent to:
+                      </p>
+
+                      <div class="space-y-4 mb-6">
+                        <div class="flex items-start space-x-3">
+                          <p class="text-gray-700">
+                            • One hour of theoretical lectures per week
+                            throughout the semester, or
+                          </p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                          <!-- <div class="w-2 h-2 bg-primary rounded-full mt-2"></div> -->
+                          <p class="text-gray-700">
+                            • Two to three hours per week of practical classes
+                            or exercises.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="p-6">
+                        <h3 class="font-semibold mb-3">Example:</h3>
+                        <p class="mb-3">
+                          If a course is 3 credit hours, the actual teaching
+                          hours corresponding to these credit hours would be at
+                          least as follows:
+                        </p>
+                        <ul class="space-y-1 ml-4">
+                          <li>• 3 lecture hours</li>
+                          <li>
+                            • 2 lecture hours and 2 hours of practical classes,
+                            exercises, or labs.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div id="academic-semesters" class="mb-8">
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Academic Semesters
+                      </h2>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • The academic year consists of two main semesters (Fall
+                        and Spring), with the possibility of offering an
+                        optional summer semester for certain courses.
+                      </p>
+                    </div>
+
+                    <div id="" class="mb-8">
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Minimum and Maximum Credit Hours
+                      </h2>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • Minimum credit hours per semester: 12 credit hours
+                      </p>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • Maximum credit hours: This is determined by the
+                        student's cumulative GPA. It may reach 18 or 21 credit
+                        hours for students with a high cumulative GPA
+                      </p>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • In the summer semester: Registration usually does not
+                        exceed 6-9 credit hours. An additional 3 "overload"
+                        credit hours may be registered if the student is
+                        expected to graduate in the upcoming academic year.
+                      </p>
+                    </div>
+
+                    <!-- Definition of Semester GPA: -->
+                    <div id="" class="mb-8">
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Definition of Semester GPA:
+                      </h2>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • The Semester GPA is the average of the points a
+                        student earns in all courses registered and studied
+                        during a specific academic semester (Fall, Spring, or
+                        Summer). It's calculated on a 4.0 scale.
+                      </p>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • The Semester GPA represents the student's academic
+                        performance level in that semester only, without
+                        considering previous or subsequent semesters.
+                      </p>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • It's calculated using a Grade Points system based on
+                        the grades a student receives in each course.
+                      </p>
+
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Steps to Calculate Semester GPA:
+                      </h2>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        1. Multiply the number of credit hours for each course
+                        by the grade points the student earned in that course.
+                      </p>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        2. Sum the results for all courses the student studied
+                        in the same semester.
+                      </p>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        3. Divide the total grade points by the total number of
+                        credit hours registered in that semester.
+                      </p>
+                    </div>
+
+                    <!-- Illustrative Example: -->
+                    <div id="" class="mb-8">
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Illustrative Example:
+                      </h2>
+
+                      <!-- Grading Scale -->
+                      <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                        1. Grading Scale and Corresponding Points:
+                      </h3>
+                      <div class="overflow-x-auto mb-6">
+                        <table
+                          class="w-full border border-gray-300 rounded-lg overflow-hidden"
+                        >
+                          <thead class="bg-red-100">
+                            <tr>
+                              <th class="px-4 py-2 text-left text-gray-800">
+                                Grade
+                              </th>
+                              <th class="px-4 py-2 text-left text-gray-800">
+                                Points (out of 4.0)
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody class="divide-y divide-gray-200">
+                            <tr>
+                              <td class="px-4 py-2">A</td>
+                              <td class="px-4 py-2">4.0</td>
+                            </tr>
+                            <tr>
+                              <td class="px-4 py-2">B+</td>
+                              <td class="px-4 py-2">3.5</td>
+                            </tr>
+                            <tr>
+                              <td class="px-4 py-2">B</td>
+                              <td class="px-4 py-2">3.0</td>
+                            </tr>
+                            <tr>
+                              <td class="px-4 py-2">C+</td>
+                              <td class="px-4 py-2">2.5</td>
+                            </tr>
+                            <tr>
+                              <td class="px-4 py-2">C</td>
+                              <td class="px-4 py-2">2.0</td>
+                            </tr>
+                            <tr>
+                              <td class="px-4 py-2">D</td>
+                              <td class="px-4 py-2">1.0</td>
+                            </tr>
+                            <tr>
+                              <td class="px-4 py-2">F</td>
+                              <td class="px-4 py-2">0</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <!-- Student Result -->
+                      <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                        2. Student’s Result
+                      </h3>
+                      <div class="overflow-x-auto mb-6">
+                        <table
+                          class="w-full border border-gray-300 rounded-lg overflow-hidden"
+                        >
+                          <thead class="bg-red-100">
+                            <tr>
+                              <th class="px-4 py-2 text-left text-gray-800">
+                                Course
+                              </th>
+                              <th class="px-4 py-2 text-left text-gray-800">
+                                Credit Hours
+                              </th>
+                              <th class="px-4 py-2 text-left text-gray-800">
+                                Grade
+                              </th>
+                              <th class="px-4 py-2 text-left text-gray-800">
+                                Grade Points Calculation
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody class="divide-y divide-gray-200">
+                            <tr>
+                              <td class="px-4 py-2">1</td>
+                              <td class="px-4 py-2">3</td>
+                              <td class="px-4 py-2">B (3.0)</td>
+                              <td class="px-4 py-2">3 * 3.0 = 9.0</td>
+                            </tr>
+                            <tr>
+                              <td class="px-4 py-2">2</td>
+                              <td class="px-4 py-2">2</td>
+                              <td class="px-4 py-2">A (4.0)</td>
+                              <td class="px-4 py-2">2 * 4.0 = 8.0</td>
+                            </tr>
+                            <tr>
+                              <td class="px-4 py-2">3</td>
+                              <td class="px-4 py-2">3</td>
+                              <td class="px-4 py-2">C+ (2.5)</td>
+                              <td class="px-4 py-2">3 * 2.5 = 7.5</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <!-- Calculation -->
+                      <div class="text-gray-700 space-y-2 mb-4">
+                        <p>• Total Grade Points = 9.0 + 8.0 + 7.5 = 24.5</p>
+                        <p>• Total Credit Hours = 3 + 2 + 3 = 8</p>
+                        <p>
+                          • Semester GPA = 24.5 ÷ 8 =
+                          <span class="font-bold">3.06 out of 4</span>
+                        </p>
+                      </div>
+
+                      <p class="text-red-600 font-semibold">
+                        ** Note: The grading tables for each faculty are
+                        provided in Part Six of the guide
+                      </p>
+                    </div>
+
+                    <!-- Cumulative Grade Point Average (CGPA) -->
+                    <div id="" class="mb-8">
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Cumulative Grade Point Average (CGPA)
+                      </h2>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • The Cumulative GPA (CGPA) is the average of a
+                        student's academic performance across all courses they
+                        have studied since enrolling at the university.
+                      </p>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • It's calculated using a Grade Points system, based on
+                        the grades a student receives in each course studied
+                        since enrolling at the university.
+                      </p>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • The CGPA is calculated using the same method as the
+                        Semester GPA, but it includes all courses studied since
+                        the student's enrollment.
+                      </p>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • The difference between the Semester GPA and the
+                        Cumulative GPA is that the Semester GPA measures a
+                        student's performance in just one semester, while the
+                        Cumulative GPA measures a student's performance across
+                        all semesters since enrolling at the university. The
+                        Cumulative GPA is calculated based on all courses taken
+                        in all previous semesters.
+                      </p>
+
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Importance of the Cumulative GPA
+                      </h2>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • It determines the student's academic performance
+                        level.
+                      </p>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • It affects the student's ability to register for a
+                        higher number of credit hours per semester. A student
+                        with a CGPA below 2.0 will register for fewer credit
+                        hours until their CGPA improves, which may delay their
+                        graduation date.
+                      </p>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • It is part of the graduation requirements, as a
+                        student cannot graduate with a CGPA below 2.0.
+                      </p>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        • It affects the student's opportunity to enroll in
+                        postgraduate studies after graduation.
+                      </p>
+                    </div>
+
+                    <!-- Academic Advising and Course Registration Policies -->
+                    <div id="" class="mb-8">
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Academic Advising and Course Registration Policies
+                      </h2>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        FUE is committed to providing a comprehensive
+                        educational environment that supports students
+                        academically and personally, ensuring they receive
+                        appropriate guidance throughout their university
+                        journey. Academic advising is considered one of the
+                        fundamental pillars of the university education system,
+                        aiming to help students with proper academic planning
+                        and guide them in selecting suitable courses that align
+                        with their abilities and interests, while fulfilling the
+                        graduation requirements for their respective majors
+                      </p>
+                      <p class="text-gray-600 leading-relaxed mb-6">
+                        The University is also committed to establishing clear
+                        and organized policies for the course registration
+                        process. This ensures fairness and transparency,
+                        enhances student adherence to approved academic
+                        regulations, and grants them the necessary flexibility
+                        to manage their study plans under the direct supervision
+                        of specialized faculty members in academic advising.
+                      </p>
+                    </div>
+
+                    <!-- Objectives of Academic Advising -->
+                    <div class="mb-8">
+                      <!-- Objectives -->
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Objectives of Academic Advising
+                      </h2>
+                      <p class="text-gray-700 mb-4">
+                        The academic advising system at FUE aims to:
+                      </p>
+                      <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-8">
+                        <li>
+                          Assist students in planning their academic journey
+                        </li>
+                        <li>
+                          Support students in selecting appropriate courses
+                          according to their study plan
+                        </li>
+                        <li>
+                          Monitor students' academic performance and provide
+                          suitable guidance
+                        </li>
+                        <li>
+                          Enhance students' awareness of their academic rights
+                          and responsibilities
+                        </li>
+                        <li>
+                          Provide psychological, social, and academic support
+                          for new students and those transferring from other
+                          universities.
+                        </li>
+                      </ul>
+
+                      <!-- Mechanisms -->
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Academic Advising Mechanisms
+                      </h2>
+                      <ul class="list-disc pl-6 text-gray-600 space-y-3">
+                        <li>
+                          An academic advisor is assigned to each student upon
+                          their enrollment at the university.
+                        </li>
+                        <li>
+                          The academic advisor holds regular meetings with the
+                          student to discuss:
+                          <ul class="list-disc pl-6 mt-2 space-y-1">
+                            <li>The study plan</li>
+                            <li>Academic difficulties</li>
+                            <li>Course selection</li>
+                            <li>Personal and professional development</li>
+                          </ul>
+                        </li>
+                        <li>
+                          The academic advisor serves as the primary reference
+                          for the student regarding:
+                          <ul class="list-disc pl-6 mt-2 space-y-1">
+                            <li>Registration</li>
+                            <li>Course Add/Drop</li>
+                            <li>Transferring between majors</li>
+                            <li>
+                              Guidance for practical training hours or
+                              graduation projects
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- Course Registration -->
+                    <div class="mb-8">
+                      <!-- Course Registration -->
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Course Registration
+                      </h2>
+
+                      <!-- Registration Procedures -->
+                      <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                        Registration Procedures:
+                      </h3>
+                      <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-4">
+                        <li>
+                          Course registration is opened electronically through
+                          the university’s system at the beginning of each
+                          semester or through the academic advisor.
+                        </li>
+                        <li>
+                          Students must adhere to their approved study plan and
+                          consult their academic advisor before registering.
+                        </li>
+                        <li>
+                          Students must adhere to the permitted number of credit
+                          hours for each semester, based on their Cumulative
+                          GPA:
+                          <ul class="list-disc pl-6 mt-2 space-y-1">
+                            <li>
+                              <span class="font-semibold">High GPA:</span>
+                              Students are allowed to register up to the maximum
+                              number of credit hours.
+                            </li>
+                            <li>
+                              <span class="font-semibold">Low GPA:</span>
+                              Students may be required to reduce the number of
+                              registered credit hours to help them raise their
+                              Cumulative GPA.
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+
+                      <!-- Add/Drop -->
+                      <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                        Add/Drop
+                      </h3>
+                      <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-4">
+                        <li>
+                          Students are allowed to modify their course schedule
+                          during the add/drop period.
+                        </li>
+                        <li>
+                          After the add/drop period ends, any modifications are
+                          subject to exceptional approval from the faculty
+                          administration.
+                        </li>
+                      </ul>
+
+                      <!-- Course Withdrawal -->
+                      <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                        Course Withdrawal
+                      </h3>
+                      <p class="text-gray-600 mb-4">
+                        Students are allowed to withdraw from a course during
+                        the designated period, with a "W" (Withdrawal) grade
+                        recorded on the academic transcript, without affecting
+                        the cumulative GPA.
+                      </p>
+
+                      <!-- Retaking a Course -->
+                      <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                        Retaking a Course to Improve Cumulative GPA:
+                      </h3>
+                      <p class="text-gray-600">
+                        Retaking a course requires attendance at all its
+                        activities, including lectures, exercises, and exams.
+                        Students have the right to retake a course they have
+                        previously passed in order to improve their cumulative
+                        GPA, in accordance with the regulations of each faculty.
+                      </p>
+                    </div>
+
+                    <!-- Student Responsibilities During Registration -->
+
+                    <div class="mb-8">
+                      <!-- Student Responsibilities -->
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Student Responsibilities During Registration
+                      </h2>
+                      <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-8">
+                        <li>
+                          Adhering to the academic calendar announced by the
+                          university
+                        </li>
+                        <li>
+                          Continuously checking the university email and the
+                          online portal.
+                        </li>
+                        <li>
+                          Consulting the academic advisor when facing any
+                          academic challenges.
+                        </li>
+                        <li>
+                          Complying with registration policies and not exceeding
+                          limits without official approvals.
+                        </li>
+                      </ul>
+
+                      <!-- Attendance Policy -->
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Attendance Policy
+                      </h2>
+
+                      <!-- Requirements -->
+                      <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                        Requirements for Final Exam Eligibility
+                      </h3>
+                      <h4 class="font-semibold text-gray-700 mb-1">
+                        Minimum Attendance Requirement
+                      </h4>
+                      <p class="text-gray-600 mb-2">
+                        Students must attend at least 75% of lectures and
+                        practical sessions for each registered course. If a
+                        student’s absence rate in any course exceeds 25%:
+                      </p>
+                      <ul class="list-disc pl-6 text-gray-600 space-y-1 mb-6">
+                        <li>
+                          The student will receive two warnings, after which the
+                          Faculty Council has the right to bar the student from
+                          taking the final exam.
+                        </li>
+                      </ul>
+
+                      <!-- Absence -->
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Absence from the Final Exam
+                      </h2>
+
+                      <h4 class="font-semibold text-gray-700 mb-1">
+                        Unexcused Absence
+                      </h4>
+                      <ul class="list-disc pl-6 text-gray-600 space-y-1 mb-4">
+                        <li>
+                          The student will automatically receive a failing grade
+                          (F) for the course.
+                        </li>
+                      </ul>
+
+                      <h4 class="font-semibold text-gray-700 mb-1">
+                        Excused Absence:
+                      </h4>
+                      <ul class="list-disc pl-6 text-gray-600 space-y-1">
+                        <li>
+                          The student will receive an Incomplete grade (I).
+                        </li>
+                      </ul>
+
+                      <h4 class="font-semibold text-gray-700 mb-1 mt-2">
+                        Requirements:
+                      </h4>
+                      <ul class="list-disc pl-6 text-gray-600 space-y-1 mb-4">
+                        <li>
+                          Submitting an accepted excuse within 48 hours of the
+                          exam date
+                        </li>
+                        <li>
+                          Obtaining approval for the excuse from the Faculty
+                          Council
+                        </li>
+                        <li>
+                          Achieving at least 60% of the coursework mark, and 75%
+                          for the Faculty of Oral and Dental Medicine.
+                        </li>
+                      </ul>
+                    </div>
+                  </section>
+
+                  <!-- General Policies Section (All Data) -->
+                  <section
+                    id="general-policies-section"
+                    class="content-section opacity-0 hidden transition-opacity duration-300 overflow-y-auto max-h-screen"
+                  >
+                    <h1 class="text-3xl font-bold text-primary mb-6">
+                      General Policies and Procedures
+                    </h1>
+                    <!-- All subcontents as divs -->
+                    <div id="enrollment-policies" class="mb-8">
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Enrollment Policies
+                      </h2>
+                      <p class="text-gray-600 leading-relaxed">
+                        Detailed information about enrollment procedures and
+                        requirements...
+                      </p>
+                    </div>
+
+                    <div id="attendance-requirements" class="mb-8">
+                      <h2 class="text-2xl font-bold text-primary mb-4">
+                        Attendance Requirements
+                      </h2>
+                      <p class="text-gray-600 leading-relaxed">
+                        Information about mandatory attendance policies and
+                        procedures...
+                      </p>
+                    </div>
+                  </section>
+
+                  <!-- Individual content divs for submenus (hidden, used for single view) -->
+                  <div
+                    id="single-content-wrapper"
+                    class="content-section opacity-0 hidden transition-opacity duration-300 overflow-y-auto max-h-screen"
+                  >
+                    <!-- This will be populated dynamically with single div -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+
+    
+    <!-- Footer -->
+    <footer class="bg-[#A10F14] text-white py-16">
+      <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0">
+        <div class="grid lg:grid-cols-3 gap-12">
+          <!-- Logo and Description -->
+          <div class="space-y-6">
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/c7940c3d5ab907b4ee635cd3bd8f84a79fbc3a28?width=520"
+              alt="Future University in Egypt" class="h-20 w-auto" />
+            <p class="text-white/90 leading-relaxed">
+              Future University in Egypt is dedicated to providing quality
+              education and preparing students for successful careers in a
+              global environment.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="space-y-6">
+            <h3 class="text-xl font-medium">Quick Links</h3>
+            <div class="space-y-3">
+              <a href="/" class="block hover:text-gray-300 transition-colors">Home</a>
+              <a href="/student-guide" class="block hover:text-gray-300 transition-colors">Student Guide</a>
+              <a href="/study-plans" class="block hover:text-gray-300 transition-colors">Study Plans</a>
+              <a href="/academic-calendar" class="block hover:text-gray-300 transition-colors">Academic Calendar</a>
+            </div>
+          </div>
+
+          <!-- Contact Us -->
+          <div class="space-y-6">
+            <h3 class="text-xl font-medium">Contact Us</h3>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <i data-lucide="map-pin" class="w-5 h-5 text-white mt-0.5 flex-shrink-0"></i>
+                <span class="leading-relaxed">Future University Campus, End of 90th St., Fifth
+                  Settlement, New Cairo</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="phone" class="w-5 h-5 text-white"></i>
+                <span>+20 2 26189900</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="mail" class="w-5 h-5 text-white"></i>
+                <span>info@fue.edu.eg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-12 mt-12 border-t border-white/20">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-white/90">
+              © 2025 FUTURE UNIVERSITY IN EGYPT. All rights reserved.
+            </p>
+            <div class="flex gap-6">
+              <a href="/privacy" class="text-white/90 hover:text-white transition-colors">Privacy Policy</a>
+              <a href="/terms" class="text-white/90 hover:text-white transition-colors">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- js code ============================ -->
+
+    <script>
+      // Mobile menu functionality
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("overlay");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("-translate-x-full");
+        overlay.classList.toggle("hidden");
+      });
+
+      overlay.addEventListener("click", () => {
+        sidebar.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      });
+
+      // Menu toggle functionality
+      const menuToggles = document.querySelectorAll(".menu-toggle");
+
+      menuToggles.forEach((toggle) => {
+        toggle.addEventListener("click", (e) => {
+          const submenu = toggle.nextElementSibling;
+          const arrow = toggle.querySelector("svg");
+          const isOpen =
+            submenu.style.maxHeight && submenu.style.maxHeight !== "0px";
+          const mainContentId = toggle.getAttribute("data-main-content");
+
+          // Close all other submenus
+          document.querySelectorAll(".submenu").forEach((menu) => {
+            if (menu !== submenu) {
+              menu.style.maxHeight = "0px";
+              menu.previousElementSibling.querySelector("svg").style.transform =
+                "rotate(0deg)";
+            }
+          });
+
+          if (isOpen) {
+            submenu.style.maxHeight = "0px";
+            arrow.style.transform = "rotate(0deg)";
+          } else {
+            submenu.style.maxHeight = submenu.scrollHeight + "px";
+            arrow.style.transform = "rotate(180deg)";
+          }
+
+          // Show the full section for main menu click
+          const contentSections = document.querySelectorAll(".content-section");
+          contentSections.forEach((section) => {
+            section.classList.remove("opacity-100");
+            section.classList.add("opacity-0");
+            setTimeout(() => {
+              section.classList.add("hidden");
+            }, 300);
+          });
+
+          setTimeout(() => {
+            const targetSection = document.getElementById(mainContentId);
+            if (targetSection) {
+              targetSection.classList.remove("hidden");
+              setTimeout(() => {
+                targetSection.classList.remove("opacity-0");
+                targetSection.classList.add("opacity-100");
+              }, 50);
+            }
+          }, 300);
+
+          // Update menu group border
+          document.querySelectorAll(".menu-group").forEach((group) => {
+            group.classList.remove("border-primary");
+            group.classList.add("border-none");
+          });
+          toggle.parentElement.classList.add("border-primary");
+          toggle.parentElement.classList.remove("border-none");
+
+          // Update breadcrumb
+          const contentTitle = toggle.querySelector("span").textContent.trim();
+          document.getElementById("breadcrumb-current").textContent =
+            contentTitle;
+
+          // Close mobile menu
+          if (window.innerWidth < 1024) {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+          }
+        });
+      });
+
+      // Submenu item functionality
+      const submenuItems = document.querySelectorAll(".submenu-item");
+
+      submenuItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const contentId = item.getAttribute("data-content");
+          const contentTitle = item.textContent.trim();
+
+          // Hide all content sections
+          const contentSections = document.querySelectorAll(".content-section");
+          contentSections.forEach((section) => {
+            section.classList.remove("opacity-100");
+            section.classList.add("opacity-0");
+            setTimeout(() => {
+              section.classList.add("hidden");
+            }, 300);
+          });
+
+          // Clone the specific div and show it in the single wrapper
+          const targetContent = document
+            .getElementById(contentId)
+            .cloneNode(true);
+          const singleWrapper = document.getElementById(
+            "single-content-wrapper"
+          );
+          singleWrapper.innerHTML = ""; // Clear previous
+          singleWrapper.appendChild(targetContent);
+
+          setTimeout(() => {
+            singleWrapper.classList.remove("hidden");
+            setTimeout(() => {
+              singleWrapper.classList.remove("opacity-0");
+              singleWrapper.classList.add("opacity-100");
+            }, 50);
+          }, 300);
+
+          // Update menu group border
+          document.querySelectorAll(".menu-group").forEach((group) => {
+            group.classList.remove("border-primary");
+            group.classList.add("border-none");
+          });
+          item.closest(".menu-group").classList.add("border-primary");
+          item.closest(".menu-group").classList.remove("border-none");
+
+          // Update breadcrumb
+          document.getElementById("breadcrumb-current").textContent =
+            contentTitle;
+
+          // Update active state
+          submenuItems.forEach((menuItem) => {
+            menuItem.classList.remove("bg-primary", "text-white");
+            menuItem.classList.add(
+              "text-gray-600",
+              "hover:text-primary",
+              "hover:bg-gray-50"
+            );
+          });
+
+          item.classList.add("bg-primary", "text-white");
+          item.classList.remove(
+            "text-gray-600",
+            "hover:text-primary",
+            "hover:bg-gray-50"
+          );
+
+          // Close mobile menu
+          if (window.innerWidth < 1024) {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+          }
+        });
+      });
+
+      // Initialize first submenu as open and active
+      document.addEventListener("DOMContentLoaded", () => {
+        const firstToggle = document.querySelector(".menu-toggle");
+        const firstSubmenu = firstToggle.nextElementSibling;
+        const firstArrow = firstToggle.querySelector("svg");
+
+        firstSubmenu.style.maxHeight = firstSubmenu.scrollHeight + "px";
+        firstArrow.style.transform = "rotate(180deg)";
+        firstToggle.parentElement.classList.add("border-primary");
+        firstToggle.parentElement.classList.remove("border-none");
+      });
+    </script>
+  </body>
+</html>

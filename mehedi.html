@@ -1,0 +1,2587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Sidebar Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#B11116",
+                        sidebar: "#f8fafc",
+                        content: "#2F2F2F",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+
+    <div class="bg-white sticky top-0 z-50">
+        <nav class="max-w-[1560px] mx-auto shadow-sm border-b border-gray-200 border-black/10">
+            <div class="max-full mx-auto px-4 sm:px-6 lg:px-0">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Logo and Language -->
+                    <div class="flex items-center gap-10">
+                        <a href="index.html">
+                            <img src="https://api.builder.io/api/v1/image/assets/TEMP/2d316bb90db8bdfd99985c7d8b9a3db4557ec01d?width=310"
+                                alt="Future University in Egypt" class="h-12 w-auto" />
+                        </a>
+
+                        <!-- Language Selector -->
+                        <div class="relative">
+                            <button id="languageBtn"
+                                class="bg-university-red text-white px-2 lg:px-4 py-2 rounded text-sm font-medium flex items-center hover:bg-red-700 transition-colors">
+                                Language: English
+                                <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div id="languageDropdown"
+                                class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">English</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Arabic</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <!-- Navigation Links -->
+                        <div class="flex items-center space-x-6">
+                            <a href="#"
+                                class="text-gray-700 hover:text-university-red font-medium transition-colors">Home</a>
+
+                            <!-- Student Guide Dropdown -->
+                            <div class="relative">
+                                <button
+                                    class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                                    id="studentGuideBtn">
+                                    Student Guide
+                                    <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div id="studentGuideDropdown"
+                                    class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Admission
+                                        Guide</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Course
+                                        Registration</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Student
+                                        Services</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Campus
+                                        Life</a>
+                                </div>
+                            </div>
+
+                            <!-- Study Plans Dropdown -->
+                            <div class="relative">
+                                <button
+                                    class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                                    id="studyPlansBtn">
+                                    Study Plans
+                                    <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div id="studyPlansDropdown"
+                                    class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Undergraduate</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Graduate</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Doctoral</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Certificate
+                                        Programs</a>
+                                </div>
+                            </div>
+
+                            <!-- Academic Calendar Dropdown -->
+                            <div class="relative">
+                                <button
+                                    class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                                    id="academicCalendarBtn">
+                                    Academic Calendar
+                                    <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div id="academicCalendarDropdown"
+                                    class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fall
+                                        Semester</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Spring
+                                        Semester</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summer
+                                        Session</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Important
+                                        Dates</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobileMenuBtn"
+                            class="text-gray-700 hover:text-university-red focus:outline-none focus:text-university-red transition-colors">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                                <path id="closeIcon" class="hidden" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-200">
+                <div class="px-4 pt-2 pb-3 space-y-1">
+                    <!-- Language Selector Mobile -->
+                    <div class="mb-4">
+                        <button id="mobileLanguageBtn"
+                            class="w-full bg-university-red text-white px-4 py-2 rounded text-sm font-medium flex items-center justify-between hover:bg-red-700 transition-colors">
+                            Language: English
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="mobileLanguageDropdown" class="mt-2 bg-gray-50 rounded-md hidden">
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">English</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">Arabic</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">French</a>
+                        </div>
+                    </div>
+
+                    <a href="#"
+                        class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">Home</a>
+
+                    <!-- Mobile Student Guide -->
+                    <div>
+                        <button id="mobileStudentGuideBtn"
+                            class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+                            Student Guide
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="mobileStudentGuideDropdown" class="ml-4 mt-2 space-y-1 hidden">
+                            <a href="#"
+                                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Admission
+                                Guide</a>
+                            <a href="#"
+                                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Course
+                                Registration</a>
+                            <a href="#"
+                                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Student
+                                Services</a>
+                            <a href="#"
+                                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Campus
+                                Life</a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Study Plans -->
+                    <div>
+                        <button id="mobileStudyPlansBtn"
+                            class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+                            Study Plans
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="mobileStudyPlansDropdown" class="ml-4 mt-2 space-y-1 hidden">
+                            <a href="#"
+                                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Undergraduate</a>
+                            <a href="#"
+                                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Graduate</a>
+                            <a href="#"
+                                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Doctoral</a>
+                            <a href="#"
+                                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Certificate
+                                Programs</a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Academic Calendar -->
+                    <div>
+                        <button id="mobileAcademicCalendarBtn"
+                            class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+                            Academic Calendar
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="mobileAcademicCalendarDropdown" class="ml-4 mt-2 space-y-1 hidden">
+                            <a href="#"
+                                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Fall
+                                Semester</a>
+                            <a href="#"
+                                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Spring
+                                Semester</a>
+                            <a href="#"
+                                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Summer
+                                Session</a>
+                            <a href="#"
+                                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Important
+                                Dates</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-64 md:h-[700px] bg-cover bg-center" style="background-image: url('./images/h1.png')">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
+            <div class="text-center text-white">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">
+                    Student <span class="text-[#FACC15]">Guide</span>
+                </h1>
+                <p class="text-lg md:text-xl">
+                    Everything you need to know about student life at Future University
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobileMenuBtn" class="lg:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-md shadow-md">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+
+    <!-- Overlay for mobile -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden"></div>
+
+    <!-- <h1 class="bg-red-200">neww</h1> -->
+
+    <!-- Main Content Wrapper -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Sidebar -->
+            <div id="sidebar"
+                class="lg:sticky top-[100px] h-[500px] w-80 border-2 m-2 border-gray-200 transition-transform duration-300 ease-in-out z-40 overflow-y-auto">
+                <div class="p-6">
+                    <!-- <h1 class="text-2xl font-bold text-gray-800 mb-8">
+              Navigation Menu
+            </h1> -->
+
+                    <!-- Menu Items -->
+                    <nav class="space-y-2">
+                        <!-- Study System -->
+                        <div class="menu-group border-l-4 border-none">
+                            <button
+                                class="menu-toggle w-full flex items-center justify-between p-3 text-left rounded-r-md hover:bg-red-100 transition-colors duration-200"
+                                data-target="study-system" data-main-content="study-system-section">
+                                <span class="font-semibold text-gray-800">Study System</span>
+                                <svg class="w-5 h-5 transform transition-transform duration-200" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div
+                                class="submenu ml-4 mt-2 space-y-1 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="credit-hour-system">
+                                    Credit Hour System
+                                </button>
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="credit-definition">
+                                    Definition of a Credit Hour
+                                </button>
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="academic-semesters">
+                                    Academic Semesters
+                                </button>
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="student-assesment-policy">
+                                    Student Assessment Policy
+                                </button>
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="student_examination_regulations">
+                                    Student Examination Regulations
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <!-- General Policies -->
+                        <div class="menu-group border-l-4 border-none">
+                            <button
+                                class="menu-toggle w-full flex items-center justify-between p-3 text-left hover:bg-gray-100 rounded transition-colors duration-200"
+                                data-target="general-policies" data-main-content="general-policies-section">
+                                <span class="font-semibold text-gray-800">General Policies and Procedures</span>
+                                <svg class="w-5 h-5 transform transition-transform duration-200" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div
+                                class="submenu ml-4 mt-2 space-y-1 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="admission-policy-at-fue">
+                                    Admission Policy at FUE
+                                </button>
+
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="general-framework-of-admission-policies">
+                                    General Framework of Admission Policies
+                                </button>
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="fue-application-procedures">
+                                    FUE Application Procedures
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Student Rights and Responsibilities -->
+                        <div class="menu-group border-l-4 border-none">
+                            <button
+                                class="menu-toggle w-full flex items-center justify-between p-3 text-left hover:bg-gray-100 rounded transition-colors duration-200"
+                                data-target="student-rights-and-responsibilities"
+                                data-main-content="student-rights-and-responsibilities-section">
+                                <span class="font-semibold text-gray-800">Student Rights and Responsibilities</span>
+                                <svg class="w-5 h-5 transform transition-transform duration-200" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div
+                                class="submenu ml-4 mt-2 space-y-1 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="student-conduct">
+                                    Student Conduct
+                                </button>
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="Complaints-and-Grievance-System">
+                                    Complaints and Grievance System
+                                </button>
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="Student-Rights">
+                                    Student Rights
+                                </button>
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="Student-Responsibilities">
+                                    Student Responsibilities
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <!-- Online Communication Platforms -->
+                        <div class="menu-group border-l-4 border-none">
+                            <button
+                                class="menu-toggle w-full flex items-center justify-between p-3 text-left hover:bg-gray-100 rounded transition-colors duration-200"
+                                data-target="online-communication-platforms"
+                                data-main-content="online-communication-platforms-section">
+                                <span class="font-semibold text-gray-800">Online Communication Platforms</span>
+                                <svg class="w-5 h-5 transform transition-transform duration-200" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div
+                                class="submenu ml-4 mt-2 space-y-1 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="modle-platform">
+                                    Moodle Platform
+                                </button>
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="Student-Portal">
+                                    Student Portal
+                                </button>
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="University-Email">
+                                    University Email
+                                </button>
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="Zoom-Platform-for-Virtual-Lectures">
+                                    Zoom Platform for Virtual Lectures
+                                </button>
+                                <button
+                                    class="submenu-item block w-full text-left p-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors duration-150"
+                                    data-content="Technical-Support">
+                                    Technical Support
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+
+            <main class="lg:w-3/4">
+                <div class="bg-white rounded-lg shadow-sm border p-6">
+                    <!-- Main Content -->
+                    <div class="min-h-screen">
+                        <div class="">
+                            <!-- Breadcrumb -->
+                            <nav class="mb-6">
+                                <ol class="flex items-center space-x-2 text-sm text-gray-500">
+                                    <li>
+                                        <a href="#" class="hover:text-primary transition-colors">Home</a>
+                                    </li>
+                                    <li><span class="mx-2">›</span></li>
+                                    <li id="breadcrumb-current" class="text-gray-800">
+                                        Student Guide
+                                    </li>
+                                </ol>
+                            </nav>
+
+                            <!-- Content Area -->
+                            <div id="content-area" class="bg-white">
+                                <!-- Default Content -->
+                                <!-- <div id="default-content" class="content-section opacity-100 transition-opacity duration-300">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-6">Welcome to the Student Guide</h1>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                        Select a menu item from the sidebar to view detailed information about our academic policies, procedures, and systems.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
+                            <h3 class="font-semibold text-blue-800 mb-2">Quick Navigation</h3>
+                            <p class="text-blue-600 text-sm">Use the sidebar to explore different sections of our academic guide.</p>
+                        </div>
+                        <div class="p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg border border-green-100">
+                            <h3 class="font-semibold text-green-800 mb-2">Comprehensive Information</h3>
+                            <p class="text-green-600 text-sm">Find detailed policies, procedures, and academic requirements.</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                                <!-- Study System Section (All Data) -->
+                                <section id="study-system-section"
+                                    class="content-section opacity-100 transition-opacity duration-300 overflow-y-auto">
+                                    <!-- All subcontents as divs -->
+                                    <div id="credit-hour-system" class="mb-8">
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Credit Hour System
+                                        </h2>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            FUE adopts the Credit Hour System, the most widely
+                                            adopted academic system in universities worldwide. This
+                                            system is based on study flexibility and allows students
+                                            to organize their study plans according to their
+                                            abilities and circumstances, under close academic
+                                            supervision.
+                                        </p>
+                                    </div>
+
+                                    <div id="credit-definition" class="mb-8">
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Definition of a Credit Hour
+                                        </h2>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            A credit hour is a unit of measurement for academic
+                                            study and is equivalent to:
+                                        </p>
+
+                                        <div class="space-y-4 mb-6">
+                                            <div class="flex items-start space-x-3">
+                                                <p class="text-gray-700">
+                                                    • One hour of theoretical lectures per week
+                                                    throughout the semester, or
+                                                </p>
+                                            </div>
+                                            <div class="flex items-start space-x-3">
+                                                <!-- <div class="w-2 h-2 bg-primary rounded-full mt-2"></div> -->
+                                                <p class="text-gray-700">
+                                                    • Two to three hours per week of practical classes
+                                                    or exercises.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="p-6">
+                                            <h3 class="font-semibold mb-3">Example:</h3>
+                                            <p class="mb-3">
+                                                If a course is 3 credit hours, the actual teaching
+                                                hours corresponding to these credit hours would be at
+                                                least as follows:
+                                            </p>
+                                            <ul class="space-y-1 ml-4">
+                                                <li>• 3 lecture hours</li>
+                                                <li>
+                                                    • 2 lecture hours and 2 hours of practical classes,
+                                                    exercises, or labs.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div id="academic-semesters" class="mb-8">
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Academic Semesters
+                                        </h2>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • The academic year consists of two main semesters (Fall
+                                            and Spring), with the possibility of offering an
+                                            optional summer semester for certain courses.
+                                        </p>
+                                    </div>
+
+                                    <div id="" class="mb-8">
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Minimum and Maximum Credit Hours
+                                        </h2>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • Minimum credit hours per semester: 12 credit hours
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • Maximum credit hours: This is determined by the
+                                            student's cumulative GPA. It may reach 18 or 21 credit
+                                            hours for students with a high cumulative GPA
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • In the summer semester: Registration usually does not
+                                            exceed 6-9 credit hours. An additional 3 "overload"
+                                            credit hours may be registered if the student is
+                                            expected to graduate in the upcoming academic year.
+                                        </p>
+                                    </div>
+
+                                    <!-- Definition of Semester GPA: -->
+                                    <div id="" class="mb-8">
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Definition of Semester GPA:
+                                        </h2>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • The Semester GPA is the average of the points a
+                                            student earns in all courses registered and studied
+                                            during a specific academic semester (Fall, Spring, or
+                                            Summer). It's calculated on a 4.0 scale.
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • The Semester GPA represents the student's academic
+                                            performance level in that semester only, without
+                                            considering previous or subsequent semesters.
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • It's calculated using a Grade Points system based on
+                                            the grades a student receives in each course.
+                                        </p>
+
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Steps to Calculate Semester GPA:
+                                        </h2>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            1. Multiply the number of credit hours for each course
+                                            by the grade points the student earned in that course.
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            2. Sum the results for all courses the student studied
+                                            in the same semester.
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            3. Divide the total grade points by the total number of
+                                            credit hours registered in that semester.
+                                        </p>
+                                    </div>
+
+                                    <!-- Illustrative Example: -->
+                                    <div id="" class="mb-8">
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Illustrative Example:
+                                        </h2>
+
+                                        <!-- Grading Scale -->
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                                            1. Grading Scale and Corresponding Points:
+                                        </h3>
+                                        <div class="overflow-x-auto mb-6">
+                                            <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
+                                                <thead class="bg-red-100">
+                                                    <tr>
+                                                        <th class="px-4 py-2 text-left text-gray-800">
+                                                            Grade
+                                                        </th>
+                                                        <th class="px-4 py-2 text-left text-gray-800">
+                                                            Points (out of 4.0)
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="divide-y divide-gray-200">
+                                                    <tr>
+                                                        <td class="px-4 py-2">A</td>
+                                                        <td class="px-4 py-2">4.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-4 py-2">B+</td>
+                                                        <td class="px-4 py-2">3.5</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-4 py-2">B</td>
+                                                        <td class="px-4 py-2">3.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-4 py-2">C+</td>
+                                                        <td class="px-4 py-2">2.5</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-4 py-2">C</td>
+                                                        <td class="px-4 py-2">2.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-4 py-2">D</td>
+                                                        <td class="px-4 py-2">1.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-4 py-2">F</td>
+                                                        <td class="px-4 py-2">0</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <!-- Student Result -->
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                                            2. Student’s Result
+                                        </h3>
+                                        <div class="overflow-x-auto mb-6">
+                                            <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
+                                                <thead class="bg-red-100">
+                                                    <tr>
+                                                        <th class="px-4 py-2 text-left text-gray-800">
+                                                            Course
+                                                        </th>
+                                                        <th class="px-4 py-2 text-left text-gray-800">
+                                                            Credit Hours
+                                                        </th>
+                                                        <th class="px-4 py-2 text-left text-gray-800">
+                                                            Grade
+                                                        </th>
+                                                        <th class="px-4 py-2 text-left text-gray-800">
+                                                            Grade Points Calculation
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="divide-y divide-gray-200">
+                                                    <tr>
+                                                        <td class="px-4 py-2">1</td>
+                                                        <td class="px-4 py-2">3</td>
+                                                        <td class="px-4 py-2">B (3.0)</td>
+                                                        <td class="px-4 py-2">3 * 3.0 = 9.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-4 py-2">2</td>
+                                                        <td class="px-4 py-2">2</td>
+                                                        <td class="px-4 py-2">A (4.0)</td>
+                                                        <td class="px-4 py-2">2 * 4.0 = 8.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-4 py-2">3</td>
+                                                        <td class="px-4 py-2">3</td>
+                                                        <td class="px-4 py-2">C+ (2.5)</td>
+                                                        <td class="px-4 py-2">3 * 2.5 = 7.5</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <!-- Calculation -->
+                                        <div class="text-gray-700 space-y-2 mb-4">
+                                            <p>• Total Grade Points = 9.0 + 8.0 + 7.5 = 24.5</p>
+                                            <p>• Total Credit Hours = 3 + 2 + 3 = 8</p>
+                                            <p>
+                                                • Semester GPA = 24.5 ÷ 8 =
+                                                <span class="font-bold">3.06 out of 4</span>
+                                            </p>
+                                        </div>
+
+                                        <p class="text-red-600 font-semibold">
+                                            ** Note: The grading tables for each faculty are
+                                            provided in Part Six of the guide
+                                        </p>
+                                    </div>
+
+                                    <!-- Cumulative Grade Point Average (CGPA) -->
+                                    <div id="" class="mb-8">
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Cumulative Grade Point Average (CGPA)
+                                        </h2>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • The Cumulative GPA (CGPA) is the average of a
+                                            student's academic performance across all courses they
+                                            have studied since enrolling at the university.
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • It's calculated using a Grade Points system, based on
+                                            the grades a student receives in each course studied
+                                            since enrolling at the university.
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • The CGPA is calculated using the same method as the
+                                            Semester GPA, but it includes all courses studied since
+                                            the student's enrollment.
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • The difference between the Semester GPA and the
+                                            Cumulative GPA is that the Semester GPA measures a
+                                            student's performance in just one semester, while the
+                                            Cumulative GPA measures a student's performance across
+                                            all semesters since enrolling at the university. The
+                                            Cumulative GPA is calculated based on all courses taken
+                                            in all previous semesters.
+                                        </p>
+
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Importance of the Cumulative GPA
+                                        </h2>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • It determines the student's academic performance
+                                            level.
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • It affects the student's ability to register for a
+                                            higher number of credit hours per semester. A student
+                                            with a CGPA below 2.0 will register for fewer credit
+                                            hours until their CGPA improves, which may delay their
+                                            graduation date.
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • It is part of the graduation requirements, as a
+                                            student cannot graduate with a CGPA below 2.0.
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            • It affects the student's opportunity to enroll in
+                                            postgraduate studies after graduation.
+                                        </p>
+                                    </div>
+
+                                    <!-- Academic Advising and Course Registration Policies -->
+                                    <div id="" class="mb-8">
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Academic Advising and Course Registration Policies
+                                        </h2>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            FUE is committed to providing a comprehensive
+                                            educational environment that supports students
+                                            academically and personally, ensuring they receive
+                                            appropriate guidance throughout their university
+                                            journey. Academic advising is considered one of the
+                                            fundamental pillars of the university education system,
+                                            aiming to help students with proper academic planning
+                                            and guide them in selecting suitable courses that align
+                                            with their abilities and interests, while fulfilling the
+                                            graduation requirements for their respective majors
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            The University is also committed to establishing clear
+                                            and organized policies for the course registration
+                                            process. This ensures fairness and transparency,
+                                            enhances student adherence to approved academic
+                                            regulations, and grants them the necessary flexibility
+                                            to manage their study plans under the direct supervision
+                                            of specialized faculty members in academic advising.
+                                        </p>
+                                    </div>
+
+                                    <!-- Objectives of Academic Advising -->
+                                    <div class="mb-8">
+                                        <!-- Objectives -->
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Objectives of Academic Advising
+                                        </h2>
+                                        <p class="text-gray-700 mb-4">
+                                            The academic advising system at FUE aims to:
+                                        </p>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-8">
+                                            <li>
+                                                Assist students in planning their academic journey
+                                            </li>
+                                            <li>
+                                                Support students in selecting appropriate courses
+                                                according to their study plan
+                                            </li>
+                                            <li>
+                                                Monitor students' academic performance and provide
+                                                suitable guidance
+                                            </li>
+                                            <li>
+                                                Enhance students' awareness of their academic rights
+                                                and responsibilities
+                                            </li>
+                                            <li>
+                                                Provide psychological, social, and academic support
+                                                for new students and those transferring from other
+                                                universities.
+                                            </li>
+                                        </ul>
+
+                                        <!-- Mechanisms -->
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Academic Advising Mechanisms
+                                        </h2>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-3">
+                                            <li>
+                                                An academic advisor is assigned to each student upon
+                                                their enrollment at the university.
+                                            </li>
+                                            <li>
+                                                The academic advisor holds regular meetings with the
+                                                student to discuss:
+                                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                                    <li>The study plan</li>
+                                                    <li>Academic difficulties</li>
+                                                    <li>Course selection</li>
+                                                    <li>Personal and professional development</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                The academic advisor serves as the primary reference
+                                                for the student regarding:
+                                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                                    <li>Registration</li>
+                                                    <li>Course Add/Drop</li>
+                                                    <li>Transferring between majors</li>
+                                                    <li>
+                                                        Guidance for practical training hours or
+                                                        graduation projects
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Course Registration -->
+                                    <div class="mb-8">
+                                        <!-- Course Registration -->
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Course Registration
+                                        </h2>
+
+                                        <!-- Registration Procedures -->
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                                            Registration Procedures:
+                                        </h3>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-4">
+                                            <li>
+                                                Course registration is opened electronically through
+                                                the university’s system at the beginning of each
+                                                semester or through the academic advisor.
+                                            </li>
+                                            <li>
+                                                Students must adhere to their approved study plan and
+                                                consult their academic advisor before registering.
+                                            </li>
+                                            <li>
+                                                Students must adhere to the permitted number of credit
+                                                hours for each semester, based on their Cumulative
+                                                GPA:
+                                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                                    <li>
+                                                        <span class="font-semibold mb-3 text-xl">High GPA:</span>
+                                                        Students are allowed to register up to the maximum
+                                                        number of credit hours.
+                                                    </li>
+                                                    <li>
+                                                        <span class="font-semibold mb-3 text-xl">Low GPA:</span>
+                                                        Students may be required to reduce the number of
+                                                        registered credit hours to help them raise their
+                                                        Cumulative GPA.
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+
+                                        <!-- Add/Drop -->
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                                            Add/Drop
+                                        </h3>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-4">
+                                            <li>
+                                                Students are allowed to modify their course schedule
+                                                during the add/drop period.
+                                            </li>
+                                            <li>
+                                                After the add/drop period ends, any modifications are
+                                                subject to exceptional approval from the faculty
+                                                administration.
+                                            </li>
+                                        </ul>
+
+                                        <!-- Course Withdrawal -->
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                                            Course Withdrawal
+                                        </h3>
+                                        <p class="text-gray-600 mb-4">
+                                            Students are allowed to withdraw from a course during
+                                            the designated period, with a "W" (Withdrawal) grade
+                                            recorded on the academic transcript, without affecting
+                                            the cumulative GPA.
+                                        </p>
+
+                                        <!-- Retaking a Course -->
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                                            Retaking a Course to Improve Cumulative GPA:
+                                        </h3>
+                                        <p class="text-gray-600">
+                                            Retaking a course requires attendance at all its
+                                            activities, including lectures, exercises, and exams.
+                                            Students have the right to retake a course they have
+                                            previously passed in order to improve their cumulative
+                                            GPA, in accordance with the regulations of each faculty.
+                                        </p>
+                                    </div>
+
+                                    <!-- Student Responsibilities During Registration -->
+
+                                    <div class="mb-8">
+                                        <!-- Student Responsibilities -->
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Student Responsibilities During Registration
+                                        </h2>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-8">
+                                            <li>
+                                                Adhering to the academic calendar announced by the
+                                                university
+                                            </li>
+                                            <li>
+                                                Continuously checking the university email and the
+                                                online portal.
+                                            </li>
+                                            <li>
+                                                Consulting the academic advisor when facing any
+                                                academic challenges.
+                                            </li>
+                                            <li>
+                                                Complying with registration policies and not exceeding
+                                                limits without official approvals.
+                                            </li>
+                                        </ul>
+
+                                        <!-- Attendance Policy -->
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Attendance Policy
+                                        </h2>
+
+                                        <!-- Requirements -->
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                                            Requirements for Final Exam Eligibility
+                                        </h3>
+                                        <h4 class="font-semibold text-gray-700 mb-1">
+                                            Minimum Attendance Requirement
+                                        </h4>
+                                        <p class="text-gray-600 mb-2">
+                                            Students must attend at least 75% of lectures and
+                                            practical sessions for each registered course. If a
+                                            student’s absence rate in any course exceeds 25%:
+                                        </p>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-1 mb-6">
+                                            <li>
+                                                The student will receive two warnings, after which the
+                                                Faculty Council has the right to bar the student from
+                                                taking the final exam.
+                                            </li>
+                                        </ul>
+
+                                        <!-- Absence -->
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Absence from the Final Exam
+                                        </h2>
+
+                                        <h4 class="font-semibold text-gray-700 mb-1">
+                                            Unexcused Absence
+                                        </h4>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-1 mb-4">
+                                            <li>
+                                                The student will automatically receive a failing grade
+                                                (F) for the course.
+                                            </li>
+                                        </ul>
+
+                                        <h4 class="font-semibold text-gray-700 mb-1">
+                                            Excused Absence:
+                                        </h4>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-1">
+                                            <li>
+                                                The student will receive an Incomplete grade (I).
+                                            </li>
+                                        </ul>
+
+                                        <h4 class="font-semibold text-gray-700 mb-1 mt-2">
+                                            Requirements:
+                                        </h4>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-1 mb-4">
+                                            <li>
+                                                Submitting an accepted excuse within 48 hours of the
+                                                exam date
+                                            </li>
+                                            <li>
+                                                Obtaining approval for the excuse from the Faculty
+                                                Council
+                                            </li>
+                                            <li>
+                                                Achieving at least 60% of the coursework mark, and 75%
+                                                for the Faculty of Oral and Dental Medicine.
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Incomplete Grade Procedures -->
+
+                                    <div class="mb-8">
+                                        <!-- Section Title -->
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Incomplete Grade Procedures
+                                        </h2>
+
+                                        <!-- Make-up Exam Deadline -->
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                                            Make-up Exam Deadline
+                                        </h3>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-1 mb-4">
+                                            <li>
+                                                The make-up exam must be completed no later than the
+                                                first week of the following semester.
+                                            </li>
+                                        </ul>
+
+                                        <!-- Final Grade Calculation -->
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                                            Final Grade Calculation
+                                        </h3>
+                                        <p class="text-gray-600 mb-2">
+                                            The final grade is determined based on:
+                                        </p>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-1 mb-4">
+                                            <li>The make-up exam mark</li>
+                                            <li>
+                                                In addition to previously recorded coursework marks.
+                                            </li>
+                                        </ul>
+
+                                        <!-- Important Notes -->
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                                            Important Notes:
+                                        </h3>
+                                        <ol class="list-decimal pl-6 text-gray-600 space-y-2">
+                                            <li>
+                                                Actual attendance (not just registration) is a
+                                                prerequisite for exam eligibility.
+                                            </li>
+                                            <li>
+                                                Medical excuses must be supported by official
+                                                documents from accredited authorities and the
+                                                university physician.
+                                            </li>
+                                            <li>
+                                                Exam postponement is only allowed in exceptional,
+                                                compelling cases and with the approval of the Faculty
+                                                Council.
+                                            </li>
+                                            <li>
+                                                Faculty of Oral and Dental Medicine: No student is
+                                                allowed more than one incomplete course per academic
+                                                year, or more than five throughout the study period.
+                                                Any exceptions to this must be presented to the
+                                                Faculty Council.
+                                            </li>
+                                        </ol>
+                                    </div>
+
+                                    <!-- Student Assessment Policy -->
+
+                                    <div id="student-assesment-policy" class="mb-8">
+                                        <!-- Section Title -->
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Student Assessment Policy
+                                        </h2>
+
+                                        <!-- Objectives -->
+                                        <h3 class="text-lg font-semibold text-red-600 mb-2">
+                                            Objectives of Student Assessment
+                                        </h3>
+                                        <p class="text-gray-600 mb-2">
+                                            FUE aims, through its assessment policy, to:
+                                        </p>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-1 mb-6">
+                                            <li>
+                                                Measure the extent to which students achieve targeted
+                                                learning outcomes.
+                                            </li>
+                                            <li>Promote active and continuous learning.</li>
+                                            <li>
+                                                Ensure fairness and transparency in evaluating student
+                                                performance.
+                                            </li>
+                                            <li>
+                                                Improve the educational process based on assessment
+                                                results.
+                                            </li>
+                                        </ul>
+
+                                        <!-- Types of Assessment -->
+                                        <h3 class="text-lg font-semibold text-red-600 mb-2">
+                                            Types of Student Assessment
+                                        </h3>
+
+                                        <!-- Formative (Continuous) Assessment -->
+                                        <h4 class="font-semibold text-gray-800 mb-1">
+                                            Formative (Continuous) Assessment:
+                                        </h4>
+                                        <p class="text-gray-600 mb-2">
+                                            This type of assessment is conducted during the study
+                                            period to guide and motivate students to achieve their
+                                            learning goals. It includes:
+                                        </p>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-1 mb-4">
+                                            <li>Mid-term exams</li>
+                                            <li>Quizzes</li>
+                                            <li>Assignments</li>
+                                            <li>Presentations</li>
+                                            <li>Projects and reports</li>
+                                        </ul>
+
+                                        <!-- Summative (Final) Assessment -->
+                                        <h4 class="font-semibold text-gray-800 mb-1">
+                                            Summative (Final) Assessment:
+                                        </h4>
+                                        <p class="text-gray-600 mb-2">
+                                            This assessment is conducted at the end of the semester
+                                            to measure the student's final academic achievement, and
+                                            it includes:
+                                        </p>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-1">
+                                            <li>Final exams</li>
+                                            <li>Oral or practical assessments (if applicable)</li>
+                                            <li>Graduation projects (if applicable)</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Student Examination Regulations -->
+
+                                    <div id="student_examination_regulations" class="mb-8">
+                                        <!-- Section Title -->
+                                        <h2 class="text-2xl font-bold text-primary mb-4">
+                                            Student Examination Regulations
+                                        </h2>
+
+                                        <!-- Examination Hall Entry Regulations -->
+                                        <h3 class="text-lg font-semibold text-red-600 mb-2">
+                                            Examination Hall Entry Regulations
+                                        </h3>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                                            <li>
+                                                Students are not permitted to enter the examination
+                                                hall without their university ID. If the ID is not
+                                                available, students must present a printout from the
+                                                electronic system proving their course registration,
+                                                along with a screenshot of their student profile from
+                                                the electronic system displaying their personal photo.
+                                            </li>
+                                            <li>
+                                                Entry into the examination hall is not permitted 30
+                                                minutes after the start of the exam, and no
+                                                alternative time will be provided.
+                                            </li>
+                                            <li>
+                                                Students must adhere to the examination hall specified
+                                                in the timetable and are not allowed to enter another
+                                                hall.
+                                            </li>
+                                            <li>
+                                                Mobile phones or any other technological devices (such
+                                                as smartwatches, headphones, etc.) are strictly
+                                                prohibited inside the examination halls. The
+                                                university provides a mechanism to store these devices
+                                                until the end of the exam.
+                                            </li>
+                                            <li>
+                                                Personal belongings and any papers must be left
+                                                outside the hall.
+                                            </li>
+                                            <li>
+                                                Invigilators and the head of the examination hall are
+                                                responsible for verifying all students' identities and
+                                                ensuring they sign the attendance sheet.
+                                            </li>
+                                            <li>
+                                                Exchanging tools or calculators inside the examination
+                                                hall is not permitted.
+                                            </li>
+                                            <li>
+                                                Leaving the examination hall is not allowed until half
+                                                of the exam time has passed.
+                                            </li>
+                                            <li>
+                                                To verify the identity of female students wearing a
+                                                niqab, the head of the committee (if female) will
+                                                verify their identity, or the head of the committee
+                                                will assign a female invigilator to do so.
+                                            </li>
+                                        </ul>
+
+                                        <!-- Cheating or Examination Misconduct Reports -->
+                                        <h3 class="text-lg font-semibold text-red-600 mb-2">
+                                            Cheating or Examination Misconduct Reports
+                                        </h3>
+                                        <p class="text-gray-600 mb-2">
+                                            A cheating report is filed against a student in the
+                                            following cases:
+                                        </p>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-4">
+                                            <li>
+                                                Being caught with a mobile phone or any technological
+                                                device in the exam hall, even if it wasn't used.
+                                            </li>
+                                            <li>
+                                                Being caught with papers containing course-related
+                                                material.
+                                            </li>
+                                            <li>
+                                                Writing on one's hand or any personal belongings.
+                                            </li>
+                                            <li>
+                                                A student talking or looking at a classmate's paper.
+                                            </li>
+                                            <li>
+                                                Any violation of exam rules and the instructions of
+                                                the committee head and invigilators.
+                                            </li>
+                                        </ul>
+
+                                        <!-- Penalties -->
+                                        <h4 class="font-semibold text-red-600 mb-2">
+                                            In case a cheating report is filed, the student shall be
+                                            penalized as follows:
+                                        </h4>
+                                        <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                                            <li>
+                                                If it's a mid-term or practical exam, the student
+                                                receives a zero for that exam.
+                                            </li>
+                                            <li>
+                                                If it's the final exam, the student fails the course
+                                                and receives an F grade for that course and the
+                                                subsequent course. If it's the last exam, the student
+                                                is considered to have failed the course preceding it
+                                                in the exams.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </section>
+
+                                <!-- General Policies Section (All Data) -->
+                                <section id="general-policies-section"
+                                    class="content-section opacity-0 hidden transition-opacity duration-300 overflow-y-auto">
+                                    <!-- <h1 class="text-3xl font-bold text-primary mb-6">
+                      General Policies and Procedures
+                    </h1> -->
+
+                                    <!-- All subcontents as divs -->
+                                    <div id="admission-policy-at-fue" class="mb-8">
+                                        <h1
+                                            class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                            4. General Policies and Procedures at FUE
+                                        </h1>
+                                        <div class="pl-6">
+                                            <p class="text-sm md:text-base text-content font-normal">
+                                                The university is committed to providing a stimulating
+                                                educational environment that fosters creativity and
+                                                critical thinking, and enhances students' academic and
+                                                professional capabilities. To achieve this, it adopts
+                                                well-considered policies and procedures aimed at:
+                                            </p>
+
+                                            <ul class="list-disc pl-6 text-gray-600 space-y-2 pt-2 pb-6 ml-4">
+                                                <li class="text-sm md:text-base text-content font-normal">
+                                                    Ensuring fairness and transparency in evaluating
+                                                    student performance.
+                                                </li>
+                                                <li class="text-sm md:text-base text-content font-normal">
+                                                    Achieving clear and specific learning outcomes.
+                                                </li>
+                                                <li class="text-sm md:text-base text-content font-normal">
+                                                    Encouraging active and continuous learning.
+                                                </li>
+                                                <li class="text-sm md:text-base text-content font-normal">
+                                                    Developing the educational process based on
+                                                    assessment results.
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <h2
+                                            class="text-lg md:text-xl lg:text-2xl text-primary font-bold leading-normal pb-4">
+                                            4.1.Admission Policy at FUE
+                                        </h2>
+                                        <p class="text-sm md:text-base text-content font-normal pl-10">
+                                            In line with the vision and mission of FUE, which aims
+                                            to prepare distinguished cadres capable of competing in
+                                            local, regional, and international labor markets, the
+                                            university has established a set of policies and
+                                            regulations governing the admission process. These
+                                            policies uphold the principles of transparency,
+                                            fairness, and equal opportunities for all applicants.
+                                            Through its admissions policies, the university seeks to
+                                            attract students who are academically and ethically
+                                            outstanding, possessing the qualities of creativity and
+                                            excellence, and the ability to contribute effectively to
+                                            community service and development.
+                                        </p>
+                                        <p class="text-sm md:text-base text-content font-normal pl-10">
+                                            FUE ensures that the admission process is based on clear
+                                            foundations and precise criteria. This guarantees
+                                            compliance with the laws and regulations approved by the
+                                            Ministry of Higher Education and Scientific Research,
+                                            while continuously developing these policies to align
+                                            with educational advancements and academic quality
+                                            requirements.
+                                        </p>
+                                    </div>
+
+                                    <div id="general-framework-of-admission-policies" class="mb-8">
+                                        <h2
+                                            class="text-lg md:text-xl lg:text-2xl text-primary font-bold leading-normal pb-4">
+                                            4.1.1. General Framework of Admission Policies
+                                        </h2>
+                                        <p class="text-sm md:text-base text-content font-normal pl-10">
+                                            FUE is committed to a clear and transparent admission
+                                            system that ensures equal opportunities for all students
+                                            seeking admission. This system adheres to the academic
+                                            standards approved by the Ministry of Higher Education
+                                            and Scientific Research in Egypt, as well as the
+                                            regulations governing admission to private universities.
+                                            The university strives to attract academically and
+                                            ethically outstanding students and to provide a
+                                            stimulating educational environment that supports
+                                            student diversity and meets their educational and
+                                            professional needs in line with the demands of local,
+                                            regional, and international labor markets.
+                                        </p>
+                                    </div>
+                                    <div id="fue-application-procedures" class="mb-8">
+                                        <h2
+                                            class="text-lg md:text-xl lg:text-2xl text-primary font-bold leading-normal pb-4">
+                                            4.1.2. FUE Application Procedures
+                                        </h2>
+                                        <div class="pl-10">
+                                            <h4 class="text-base lg:text-lg text-primary font-bold leading-normal pb-4">
+                                                1. Submitting the Application
+                                            </h4>
+                                            <p class="text-sm md:text-base text-content font-normal pl-5">
+                                                o Applicants must create an application file through
+                                                the university's official website: www.fue.edu.eg.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Student Rights and Responsibilities (All Data) -->
+                                <section id="student-rights-and-responsibilities-section"
+                                    class="content-section opacity-0 hidden transition-opacity duration-300 overflow-y-auto">
+                                    <!-- All subcontents as divs -->
+                                    <div id="student-conduct" class="mb-8">
+                                        <h2
+                                            class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                            5. Student Rights and Responsibilities
+                                        </h2>
+                                        <div class="pl-6">
+                                            <p class="text-sm md:text-base text-content font-normal">
+                                                FUE places great emphasis on fostering a fair and stimulating
+                                                educational environment
+                                                by clearly defining student rights and responsibilities. These rights
+                                                and responsibilities
+                                                are part of the Student Affairs Regulations, which govern the
+                                                relationship between the
+                                                student and the university.
+                                            </p>
+
+                                        </div>
+
+                                        <h2
+                                            class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4 pt-6 pl-5">
+                                            5.1.Student Conduct
+                                        </h2>
+                                        <div class="pl-6">
+                                            <p class="text-sm md:text-base text-content font-normal pl-5">
+                                                Student conduct is fundamental to promoting a safe and productive
+                                                learning
+                                                environment that respects ethical values and individual rights, ensuring
+                                                discipline and
+                                                responsibility among all students. These rules provide a comprehensive
+                                                framework
+                                                for guiding behavior both on and off campus during university-related
+                                                activities.
+                                            </p>
+
+                                        </div>
+
+                                        <!-- expected-student-behaviours as divs -->
+                                        <div id="expected-student-behaviours" class="mb-8">
+                                            <h2
+                                                class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                                5.1.1. Expected Student Behaviors
+                                            </h2>
+
+                                            <div class="space-y-6 text-black ml-6 mt-4">
+
+                                                <!-- In Lectures and Classrooms -->
+                                                <div>
+                                                    <p class="font-semibold mb-3 text-xl">• In Lectures and Classrooms:
+                                                    </p>
+                                                    <ul class="list-disc list-inside ml-6 space-y-2">
+                                                        <li class="list-none">○ Punctual attendance and active
+                                                            participation.</li>
+                                                        <li class="list-none">○ Respecting others' opinions and avoiding
+                                                            interruption.</li>
+                                                        <li class="list-none">○ Adhering to appropriate dress code on
+                                                            campus.</li>
+                                                    </ul>
+                                                </div>
+
+                                                <!-- On Campus -->
+                                                <div>
+                                                    <p class="font-semibold mb-3 text-xl">• On Campus:</p>
+                                                    <ul class="list-disc list-inside ml-6 space-y-2">
+                                                        <li class="list-none">○ Maintaining general cleanliness.</li>
+                                                        <li class="list-none">○ Refraining from smoking in
+                                                            non-designated
+                                                            areas.</li>
+                                                        <li class="list-none">○ Respecting others' privacy and not
+                                                            taking
+                                                            photos without permission.</li>
+                                                        <li class="list-none">○ Adhering to appropriate campus attire.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                                <!-- During Activities -->
+                                                <div>
+                                                    <p class="font-semibold mb-3 text-xl">• During Activities:</p>
+                                                    <ul class="list-disc list-inside ml-6 space-y-2">
+                                                        <li class="list-none">○ Adhering to instructions of event
+                                                            supervisors.</li>
+                                                        <li class="list-none">○ Avoiding behaviors that could endanger
+                                                            safety.</li>
+                                                    </ul>
+                                                </div>
+
+                                                <!-- On Digital Platforms -->
+                                                <div>
+                                                    <p class="font-semibold mb-3 text-xl">• On Digital Platforms:</p>
+                                                    <ul class="list-disc list-inside ml-6 space-y-2">
+                                                        <li class="list-none">○ Using university communication channels
+                                                            respectfully (email, learning platforms).</li>
+                                                        <li class="list-none">○ Refraining from publishing offensive or
+                                                            inappropriate content.</li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Prohibited-Behaviors as divs -->
+                                        <div id="Prohibited-Behaviors" class="mb-8">
+                                            <h2
+                                                class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                                5.1.2. Prohibited Behaviors
+                                            </h2>
+
+                                            <div class="space-y-6 text-black ml-6 mt-4">
+
+                                                <!-- Academic Violations: -->
+                                                <div>
+                                                    <p class="font-semibold mb-3 text-xl">• Academic Violations:</p>
+                                                    <ul class="list-disc list-inside ml-6 space-y-2">
+                                                        <li class="list-none">○ PCheating on exams or plagiarism.</li>
+                                                        <li class="list-none">○ Falsifying documents or signatures.</li>
+                                                    </ul>
+                                                </div>
+
+                                                <!-- Behavioral Violations: -->
+                                                <div>
+                                                    <p class="font-semibold mb-3 text-xl">• Behavioral Violations:</p>
+                                                    <ul class="list-disc list-inside ml-6 space-y-2">
+                                                        <li class="list-none">○ Sexual or verbal harassment.</li>
+                                                        <li class="list-none">○ Discrimination or racism.</li>
+                                                        <li class="list-none">○ Physical violence or threats.</li>
+                                                        <li class="list-none">○ Drug and alcohol abuse.</li>
+                                                    </ul>
+                                                </div>
+
+                                                <!-- Material Violations: -->
+                                                <div>
+                                                    <p class="font-semibold mb-3 text-xl">• Material Violations:</p>
+                                                    <ul class="list-disc list-inside ml-6 space-y-2">
+                                                        <li class="list-none">○ Damaging property.</li>
+                                                        <li class="list-none">○ Theft or unauthorized use of resources.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                                <!-- Security Violations: -->
+                                                <div>
+                                                    <p class="font-semibold mb-3 text-xl">• Security Violations:</p>
+                                                    <ul class="list-disc list-inside ml-6 space-y-2">
+                                                        <li class="list-none">○ Entering restricted areas without
+                                                            permission.</li>
+                                                        <li class="list-none">○ Possession of dangerous materials (such
+                                                            as
+                                                            weapons or drugs).</li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <!-- Procedures-for-Handling-Violations as divs -->
+                                        <div id="Procedures-for-Handling-Violations" class="mb-8">
+                                            <h2
+                                                class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                                5.1.3. Procedures for Handling Violations
+                                            </h2>
+
+                                            <div class="space-y-6 text-black ml-6 mt-4">
+
+                                                <!-- Investigation: -->
+                                                <div>
+                                                    <p class="font-semibold mb-3 text-xl">• Investigation:</p>
+                                                    <ul class="list-disc list-inside ml-6 space-y-2">
+                                                        <li class="list-none">○ A committee is formed to investigate
+                                                            serious
+                                                            violations.</li>
+                                                        <li class="list-none">○ The student is allowed to present their
+                                                            defense in writing or verbally.</li>
+                                                    </ul>
+                                                </div>
+
+                                                <!-- Penalties: -->
+                                                <div>
+                                                    <p class="font-semibold mb-3 text-xl">• Penalties:</p>
+                                                    <ul class="list-disc list-inside ml-6 space-y-2">
+                                                        <li class="list-none">○ Written Warning: For minor violations.
+                                                        </li>
+                                                        <li class="list-none">○ Temporary Suspension: For specified
+                                                            periods
+                                                            depending on the
+                                                            severity of the violation.</li>
+                                                        <li class="list-none">○ Final Expulsion: In repeated or serious
+                                                            cases (e.g., violence or threats).</li>
+
+                                                    </ul>
+                                                </div>
+
+                                                <!-- Appeal: -->
+                                                <div>
+                                                    <p class="font-semibold mb-3 text-xl">• Appeal:</p>
+                                                    <ul class="list-disc list-inside ml-6 space-y-2">
+                                                        <li class="list-none">○ The student has the right to appeal the
+                                                            decision within one week of its
+                                                            issuance.</li>
+                                                    </ul>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Complaints-and-Grievance-System as divs -->
+                                    <div id="Complaints-and-Grievance-System" class="mb-8">
+                                        <h2
+                                            class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                            5.2.Complaints and Grievance System
+                                        </h2>
+
+                                        <h2
+                                            class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4 pt-6 pl-5">
+                                            5.2.1. Channels for Submitting Complaints
+                                        </h2>
+                                        <div class="pl-6 mt-3 mb-4">
+                                            <div class="pl-6">
+                                                <ul class="list-disc list-outside space-y-2 ml-6">
+                                                    <li>Through a complaint box or electronically.</li>
+                                                    <li>Directly through heads of academic departments, either in
+                                                        writing or verbally.</li>
+                                                    <li>The Faculty Vice Dean for Education and Student Affairs for
+                                                        student grievances related to exams and academic issues.</li>
+                                                    <li>The Dean of the Faculty.</li>
+                                                    <li>The Vice President for Education and Student Affairs, if
+                                                        necessary, in the presence of the Faculty Dean.</li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Procedures for Handling Complaints and Grievances as divs -->
+                                        <div class="mb-8">
+                                            <h2
+                                                class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                                5.2.2. Procedures for Handling Complaints and Grievances
+                                            </h2>
+
+                                            <div class="space-y-6 text-black ml-6 mt-4">
+
+                                                <!--For the Complaint Box: -->
+                                                <div>
+                                                    <p class="font-semibold mb-3 text-xl">• For the Complaint Box:
+                                                    </p>
+                                                    <p>The complaint and suggestion box is opened periodically.
+                                                        Complaints and
+                                                        suggestions are reviewed and forwarded to the relevant
+                                                        authority, with follow-
+                                                        up by the Faculty Dean.</p>
+                                                </div>
+
+                                                <!-- For Complaints Submitted to Department Heads and the Vice Dean: -->
+                                                <div>
+                                                    <p class="font-semibold mb-3 text-xl">• For Complaints Submitted to
+                                                        Department Heads and the Vice Dean:</p>
+                                                    <ul class="list-[circle] list-outside ml-6 space-y-2">
+                                                        <li>
+                                                            Student complaints are received, recorded, and directed to
+                                                            the relevant
+                                                            authority for resolution, with follow-up on the resolution
+                                                            procedures.
+                                                        </li>
+                                                        <li>
+                                                            The Department Head or Vice Dean is authorized to handle
+                                                            complaints
+                                                            within their jurisdiction and take necessary actions to
+                                                            resolve them.
+                                                            In cases requiring the approval of the Department Council,
+                                                            the council may
+                                                            authorize the Department Head to proceed with resolving the
+                                                            issue without
+                                                            waiting for the council meeting, to expedite complaint
+                                                            resolution.
+                                                        </li>
+                                                        <li>
+                                                            For other complaints, the Department Head escalates the
+                                                            issue to the Vice
+                                                            Dean for Education and Student Affairs or the Dean depending
+                                                            on the
+                                                            nature of each complaint and then to the Vice President for
+                                                            Education and
+                                                            Student Affairs, accompanied by the Faculty Dean if
+                                                            necessary.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                                <!-- 5.2.3. Student Appeals Regarding Exam Results -->
+
+
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Student Appeals Regarding Exam Results as divs -->
+                                        <div class="mb-8">
+                                            <h2
+                                                class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                                5.2.3. Student Appeals Regarding Exam Results
+                                            </h2>
+                                            <p>There are specific rules for handling student appeals, following up on
+                                                their
+                                                implementation, and announcing their results, as follows:</p>
+
+                                            <div class="space-y-6 text-black ml-6 mt-4">
+                                                <div>
+                                                    <ol class="list-decimal list-outside ml-6 space-y-2">
+                                                        <li>
+                                                            Mid-term exam appeals must be submitted directly to the
+                                                            course instructors
+                                                            within one week of the results being announced to students.
+                                                        </li>
+                                                        <li>
+                                                            Final Exam Appeals Regulations:
+                                                            <ul class="list-disc list-outside ml-6 space-y-2 mt-2">
+                                                                <li>
+                                                                    The appeal period begins after the final result is
+                                                                    announced on the
+                                                                    electronic system and lasts for two weeks (one week
+                                                                    for the Faculty of
+                                                                    Commerce).
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ol>
+
+                                                </div>
+
+                                                <ul class="list-disc list-outside ml-6 space-y-2">
+                                                    <li>
+                                                        The student must submit their appeal using the designated form
+                                                        to the Faculty Vice
+                                                        Dean for Education and Student Affairs, stating their appeal
+                                                        regarding the course(s)
+                                                        for which a grade review is requested. This is then documented
+                                                        in a special record.
+                                                    </li>
+
+                                                    <li>
+                                                        The office of the Faculty Vice Dean for Education and Student
+                                                        Affairs submits the
+                                                        appeals to the relevant Examination Control Division Head or one
+                                                        of his/her assistants.
+                                                    </li>
+
+                                                    <li>
+                                                        The relevant Examination Control Division forms a committee to
+                                                        review the student's
+                                                        answer booklet. The review is conducted as follows:
+                                                        <ul class="list-[circle] list-outside ml-6 space-y-1 mt-2">
+                                                            <li>Ensuring that every part of the answer booklet has been
+                                                                corrected and assigned a mark.</li>
+                                                            <li>Ensuring all marks from inside the booklet are recorded
+                                                                on the cover of the answer booklet.</li>
+                                                            <li>Recalculating the total score by summing the marks of
+                                                                all questions.</li>
+                                                            <li>Ensuring that the correct score is recorded on the
+                                                                electronic control system.</li>
+                                                            <li>Ensuring formative assessment marks (practical,
+                                                                theoretical, and coursework, if applicable) and the
+                                                                total marks are recorded.</li>
+                                                            <li>The results of the appeal review are presented to the
+                                                                Faculty Vice Dean for Student Affairs for approval, with
+                                                                necessary legal actions taken if the student's complaint
+                                                                is confirmed to be valid.</li>
+                                                            <li>If there is a change in the student's marks, a grade
+                                                                amendment memo is prepared, signed by the course
+                                                                instructor, and submitted to the office of the Faculty
+                                                                Vice Dean for Education and Student Affairs to update
+                                                                the marks on the electronic system.</li>
+                                                            <li>The student is notified of the appeal result within a
+                                                                period not exceeding two weeks from the date of
+                                                                submitting the appeal.</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <!-- 5.3.Student-Rights as divs -->
+                                    <div id="Student-Rights" class="mb-8">
+                                        <h2
+                                            class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                            5.3.Student Rights
+                                        </h2>
+
+                                        <div class="space-y-6 text-black ml-6 mt-4">
+
+                                            <!-- Fair Academic Achievement: -->
+                                            <div>
+                                                <ul class="list-disc list-outside ml-6 space-y-4">
+                                                    <li>
+                                                        <span class="font-semibold">Fair Academic
+                                                            Achievement:</span>
+                                                        <p class="ml-2">
+                                                            Students have the right to receive high-quality
+                                                            education and an objective,
+                                                            fair assessment of their academic performance.
+                                                        </p>
+                                                    </li>
+
+                                                    <li>
+                                                        <span class="font-semibold">Access to Information:</span>
+                                                        <p class="ml-2">
+                                                            Students have the right to access university policies,
+                                                            course materials, and
+                                                            available opportunities, including details about
+                                                            academic programs and student
+                                                            services.
+                                                        </p>
+                                                    </li>
+
+                                                    <li>
+                                                        <span class="font-semibold">Communication with Faculty
+                                                            Members:</span>
+                                                        <p class="ml-2">
+                                                            Students have the right to utilize faculty members’
+                                                            office hours for academic
+                                                            advising and necessary support.
+                                                        </p>
+                                                    </li>
+
+                                                    <li>
+                                                        <span class="font-semibold">Participation in Student
+                                                            Activities:</span>
+                                                        <p class="ml-2">
+                                                            Students have the right to engage in cultural, sports,
+                                                            and social activities, as well
+                                                            as student elections, contributing to the development of
+                                                            their personal and
+                                                            leadership skills.
+                                                        </p>
+                                                    </li>
+
+                                                    <li>
+                                                        <span class="font-semibold">Health and Social Care:</span>
+                                                        <p class="ml-2">
+                                                            Students have the right to benefit from medical services
+                                                            available on campus,
+                                                            including medical clinics and health insurance.
+                                                        </p>
+                                                    </li>
+
+                                                    <li>
+                                                        <span class="font-semibold">Right to Grievance:</span>
+                                                        <p class="ml-2">
+                                                            Students have the right to submit complaints or
+                                                            grievances if they do not receive
+                                                            their established rights, and to have these reviewed by
+                                                            the relevant authorities.
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </div>
+
+                                    <!-- 5.4.Student-Responsibilities as divs -->
+                                    <div id="Student-Responsibilities" class="mb-8">
+                                        <h2
+                                            class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                            5.4.Student Responsibilities
+                                        </h2>
+
+                                        <div class="space-y-6 text-black ml-6 mt-4">
+
+                                            <!-- Fair Academic Achievement: -->
+                                            <div>
+                                                <ul class="list-disc list-outside ml-6 space-y-4">
+                                                    <li>
+                                                        <span class="font-semibold">Adherence to University
+                                                            Regulations:</span>
+                                                        <p class="ml-2">
+                                                            Complying with the systems and policies in force within
+                                                            the university, including
+                                                            codes of conduct and discipline.
+                                                        </p>
+                                                    </li>
+
+                                                    <li>
+                                                        <span class="font-semibold">Preservation of University
+                                                            Property:</span>
+                                                        <p class="ml-2">
+                                                            Safeguarding campus facilities and equipment, and
+                                                            avoiding any actions that may
+                                                            cause damage to them.
+                                                        </p>
+                                                    </li>
+
+                                                    <li>
+                                                        <span class="font-semibold">Mutual Respect:</span>
+                                                        <p class="ml-2">
+                                                            Treating faculty members, teaching assistants,
+                                                            employees, and colleagues with
+                                                            respect, and fostering a positive learning environment.
+                                                        </p>
+                                                    </li>
+
+                                                    <li>
+                                                        <span class="font-semibold">Serious Academic
+                                                            Achievement:</span>
+                                                        <p class="ml-2">
+                                                            Commitment to attending lectures, active participation
+                                                            in academic activities, and
+                                                            diligence in study.
+                                                        </p>
+                                                    </li>
+
+                                                    <li>
+                                                        <span class="font-semibold">Policy Compliance:</span>
+                                                        <p class="ml-2">
+                                                            Adhering to the general policies of the university.
+                                                        </p>
+                                                    </li>
+
+                                                    <li>
+                                                        <span class="font-semibold">Financial Commitment:</span>
+                                                        <p class="ml-2">
+                                                            Paying tuition fees within the specified deadlines.
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+
+                                <!-- Online Communication Platforms 7. (All Data) -->
+                                <section id="online-communication-platforms-section"
+                                    class="content-section opacity-0 hidden transition-opacity duration-300 overflow-y-auto">
+                                    <!-- <h1 class="text-3xl font-bold text-primary mb-6">
+                      General Policies and Procedures
+                    </h1> -->
+
+                                    <!-- All subcontents as divs -->
+                                    <div id="modle-platform" class="mb-8">
+                                        <h2
+                                            class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                            7. Online Communication Platforms
+                                        </h2>
+
+                                        <h2
+                                            class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4 pt-6 pl-5">
+                                            7.1. Moodle Platform
+                                        </h2>
+                                        <div class="pl-6">
+                                            <p class="text-sm md:text-base text-content font-normal pl-5">
+                                                <strong>Moodle </strong>is an electronic Learning Management System
+                                                (LMS) adopted by the
+                                                university. It's used to provide course content, manage lectures, submit
+                                                assignments,
+                                                conduct exams, and facilitate interaction between students and faculty
+                                                members.
+                                            </p>
+
+                                        </div>
+
+                                        <div>
+                                            <ul class="list-disc list-outside ml-6 space-y-4">
+                                                <!-- Importance of Moodle -->
+                                                <li>
+                                                    <span class="font-semibold my-2">Importance of Moodle for
+                                                        Students:</span>
+                                                    <p class="ml-2 my-2 text-xl font-bold">The platform offers a
+                                                        comprehensive learning
+                                                        environment, enabling students to:</p>
+                                                    <ul class="list-[circle] list-outside ml-6 space-y-1 mt-2">
+                                                        <li>Access learning materials (courses, presentations, videos).
+                                                        </li>
+                                                        <li>Submit assignments and receive feedback from faculty
+                                                            members.</li>
+                                                        <li>Take electronic exams.</li>
+                                                        <li>Access the academic schedule and announcements.</li>
+                                                        <li>Communicate with professors and colleagues through
+                                                            educational forums or messages.</li>
+                                                    </ul>
+                                                </li>
+
+                                                <!-- How to Access Moodle -->
+                                                <li>
+                                                    <span class="font-semibold">How to Access Moodle:</span>
+                                                    <ol class="list-decimal list-outside ml-6 space-y-2 mt-2">
+                                                        <li>
+                                                            <p>
+                                                                <a href="https://moodle.fue.edu.eg" target="_blank"
+                                                                    class="text-blue-600 underline">
+                                                                    https://moodle.fue.edu.eg
+                                                                </a>
+                                                                &nbsp;Visit the platform's official website via the
+                                                                link.
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            Enter your login credentials:
+                                                            <ul class="list-[circle] list-outside ml-6 space-y-1 mt-2">
+                                                                <li><span class="font-semibold">Username:</span>
+                                                                    [University ID]</li>
+                                                                <li><span class="font-semibold">Password:</span> [Sent
+                                                                    by the Information Systems Department or set during
+                                                                    registration]</li>
+                                                            </ul>
+                                                            <p class="ml-2 mt-2 font-semibold  text-red-600">
+                                                                It's recommended to change your password after the first
+                                                                login to maintain privacy.
+                                                                The password is unified across all platforms.
+                                                            </p>
+                                                        </li>
+                                                    </ol>
+                                                </li>
+
+                                                <!-- General Instructions -->
+                                                <li>
+                                                    <span class="font-semibold">General Instructions for Using the
+                                                        Platform:</span>
+                                                    <ul class="list-[circle] list-outside ml-6 space-y-1 mt-2">
+                                                        <li>Make sure to regularly follow up on your registered courses.
+                                                        </li>
+                                                        <li>Make sure you submit assignments on time.</li>
+                                                        <li>Make sure you have a stable internet connection before
+                                                            starting electronic exams.</li>
+                                                        <li>Monitor alerts and announcements for each course.</li>
+                                                        <li>Do not share your login credentials with anyone.</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
+                                    </div>
+
+                                    <!-- Student Portal as divs -->
+                                    <div id="Student-Portal" class="mb-8">
+                                        <h2
+                                            class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                            7.2. Student Portal
+                                        </h2>
+                                        <div class="pl-6 mt-3 mb-4">
+                                            <div>
+                                                <p class="mb-4">
+                                                    The Student Portal is a comprehensive digital platform developed by
+                                                    the university to
+                                                    enable students to access numerous academic and administrative
+                                                    services easily and
+                                                    securely, without the need to visit university offices in person.
+                                                </p>
+
+                                                <ul class="list-disc list-outside ml-6 space-y-4">
+                                                    <!-- Importance of the Student Portal -->
+                                                    <li>
+                                                        <span class="font-semibold">Importance of the Student
+                                                            Portal:</span>
+                                                        <p class="ml-2 mt-1 text-lg font-semibold">The portal enables
+                                                            students to easily
+                                                            manage their academic and administrative
+                                                            affairs. Its key services include:</p>
+
+                                                        <ul class="list-disc list-outside ml-6 space-y-1 mt-2">
+                                                            <li>Course registration during registration periods.</li>
+                                                            <li>Reviewing academic and exam schedules.</li>
+                                                            <li>Monitoring academic standing (GPA, credit hours,
+                                                                academic warnings, if any).</li>
+                                                            <li>Viewing grades and semester reports.</li>
+                                                            <li>Submitting electronic requests (withdrawal,
+                                                                postponement, grade review, etc.).</li>
+                                                            <li>Viewing tuition fees and invoices, and paying fees
+                                                                electronically.</li>
+                                                            <li>And other services.</li>
+                                                        </ul>
+                                                    </li>
+                                                    <!-- How to Access the Portal -->
+                                                    <li>
+                                                        <span class="font-semibold">How to Access the Portal:</span>
+                                                        <ol class="list-decimal list-outside ml-6 space-y-2 mt-2">
+                                                            <li>
+                                                                Visit the official university website and access the
+                                                                portal directly via the link:
+                                                                <a href="https://services.fue.edu.eg/LogIn.aspx?Type=1"
+                                                                    target="_blank" class="text-blue-600 underline">
+                                                                    https://services.fue.edu.eg/LogIn.aspx?Type=1
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                Enter your login credentials:
+                                                                <ul
+                                                                    class="list-[circle] list-outside ml-6 space-y-1 mt-2">
+                                                                    <li><span class="font-semibold">Username:</span>
+                                                                        [University ID]</li>
+                                                                    <li><span class="font-semibold">Password:</span>
+                                                                        [Sent by the Information Systems Department or
+                                                                        set during registration]</li>
+                                                                </ul>
+                                                                <p class="ml-2 mt-2 text-red-600 font-bold">
+                                                                    It's recommended to update your password
+                                                                    periodically to maintain information security.
+                                                                    The password is unified across all platforms.
+                                                                </p>
+                                                            </li>
+                                                        </ol>
+                                                    </li>
+                                                    <!-- General Instructions -->
+                                                    <li>
+                                                        <span class="font-semibold">General Instructions:</span>
+                                                        <ul class="list-[circle] list-outside ml-6 space-y-1 mt-2">
+                                                            <li>Make sure to check the portal regularly, especially
+                                                                during registration, withdrawal, and add/drop periods.
+                                                            </li>
+                                                            <li>Ensure course registration is completed according to the
+                                                                specified deadlines.</li>
+                                                            <li>Check your university email for any notifications or
+                                                                updates from Student Affairs.</li>
+                                                            <li>If any error occurs in course registration or data
+                                                                display, contact your faculty.</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <!-- University-Email as divs -->
+                                    <div id="University-Email" class="mb-8">
+                                        <h2
+                                            class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                            7.3. University Email
+                                        </h2>
+                                        <div>
+                                            <p class="mb-4">
+                                                The university email is the official communication method adopted
+                                                between the
+                                                student and the university. Through it, messages related to the academic
+                                                journey are
+                                                sent and received, such as official announcements, lecture schedules,
+                                                exam results, and
+                                                other important notifications.
+                                            </p>
+
+                                            <ul class="list-disc list-outside ml-6 space-y-4">
+                                                <!-- Importance of University Email -->
+                                                <li>
+                                                    <span class="font-semibold">Importance of University Email:</span>
+                                                    <ul class="list-[circle] list-outside ml-6 space-y-1 mt-2">
+                                                        <li>Receiving official notifications from the faculty or
+                                                            university.</li>
+                                                        <li>Communicating with faculty members and various departments.
+                                                        </li>
+                                                        <li>Sending academic and administrative inquiries.</li>
+                                                        <li>Enjoying large storage capacity and professional email
+                                                            services.</li>
+                                                    </ul>
+                                                </li>
+
+                                                <!-- How to Access University Email -->
+                                                <li>
+                                                    <span class="font-semibold">How to Access University Email:</span>
+                                                    <ol class="list-decimal list-outside ml-6 space-y-2 mt-2">
+                                                        <li>
+                                                            Go to the link:
+                                                            <a href="https://webmail.fue.edu.eg" target="_blank"
+                                                                class="text-blue-600 underline">
+                                                                webmail.fue.edu.eg
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            Log in using:
+                                                            <ul class="list-[circle] list-outside ml-6 space-y-1 mt-2">
+                                                                <li><span class="font-semibold">Username:</span>
+                                                                    University email in the format: StudentID@fue.edu.eg
+                                                                </li>
+                                                                <li><span class="font-semibold">Password:</span>
+                                                                    [Provided to the student upon account activation]
+                                                                </li>
+                                                            </ul>
+                                                            <p class="ml-2 mt-2 text-red-600 font-semibold">
+                                                                It is recommended to update your password after the
+                                                                first login to maintain account security.
+                                                                The password is unified across all platforms.
+                                                            </p>
+                                                        </li>
+                                                    </ol>
+                                                </li>
+
+                                                <!-- General Instructions -->
+                                                <li>
+                                                    <span class="font-semibold">General Instructions for Using
+                                                        University Email:</span>
+                                                    <ul class="list-[circle] list-outside ml-6 space-y-1 mt-2">
+                                                        <li>Check your university email daily to avoid missing any
+                                                            important information.</li>
+                                                        <li>Use your university email only for academic and official
+                                                            purposes.</li>
+                                                        <li>Do not share your login credentials with anyone.</li>
+                                                        <li>Adhere to professional etiquette when writing emails,
+                                                            especially when communicating with professors or
+                                                            departments.</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- Zoom Platform for Virtual Lectures as divs -->
+                                    <div id="Zoom-Platform-for-Virtual-Lectures" class="mb-8">
+                                        <h2
+                                            class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                            7.4. Zoom Platform for Virtual Lectures
+                                        </h2>
+
+                                        <div>
+                                            <p class="mb-4">
+                                                <strong>Zoom</strong> is an electronic platform used for conducting
+                                                virtual lectures and
+                                                meetings
+                                                online with audio and video. It's one of the primary tools adopted by
+                                                the university
+                                                for distance learning or hybrid (in-person + online) lectures.
+                                            </p>
+
+                                            <ul class="list-disc list-outside ml-6 space-y-4">
+                                                <!-- Importance of Zoom -->
+                                                <li>
+                                                    <span class="font-semibold">Importance of Zoom for Students:</span>
+                                                    <ul class="list-[circle] list-outside ml-6 space-y-1 mt-2">
+                                                        <li>Attend live lectures and seminars from anywhere.</li>
+                                                        <li>Interact with the lecturer and classmates via audio or chat.
+                                                        </li>
+                                                        <li>Ability to record lectures and refer to them later.</li>
+                                                        <li>Participate in group discussions or virtual presentations.
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+                                                <!-- How to Join Lectures -->
+                                                <li>
+                                                    <span class="font-semibold">How to Join Lectures via Zoom:</span>
+                                                    <ol class="list-decimal list-outside ml-6 space-y-2 mt-2">
+                                                        <li>
+                                                            Access the session link sent by the course instructor via
+                                                            the Moodle platform.
+                                                        </li>
+                                                        <li>
+                                                            You can join directly through:
+                                                            <ul class="list-[circle] list-outside ml-6 space-y-1 mt-2">
+                                                                <li>Your web browser.</li>
+                                                                <li>The Zoom app on your phone or computer.</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            When joining:
+                                                            <ul class="list-[circle] list-outside ml-6 space-y-1 mt-2">
+                                                                <li>It's recommended to log in using your university
+                                                                    email.</li>
+                                                                <li>Enter your full university name so you can be
+                                                                    identified in the session.</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ol>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
+                                    </div>
+                                    <!-- Technical-Support as divs -->
+                                    <div id="Technical-Support" class="mb-8">
+                                        <h2
+                                            class="text-xl md:text-2xl lg:text-3xl text-primary font-bold leading-normal pb-4">
+                                            7.5. Technical Support
+                                        </h2>
+
+                                        <div>
+                                            <p class="my-2">If you encounter any technical issues related to accessing
+                                                or using the
+                                                platforms, you can
+                                                contact the Technical Support department via:</p>
+                                            <ul class="list-disc list-outside ml-6 space-y-2">
+                                                <li>
+                                                    <span class="font-semibold">Technical Support:</span>
+                                                    <ul class="list-[circle] list-outside ml-6 space-y-1 mt-2">
+                                                        <li>Email: <a href="mailto:itsupport@fue.edu.eg"
+                                                                class="text-blue-600 underline">itsupport@fue.edu.eg</a>
+                                                        </li>
+                                                        <li>Go directly to the Information Technology Department on
+                                                            campus in Administrative Building 2.</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </section>
+                                
+                                <!-- Individual content divs for submenus (hidden, used for single view) -->
+                                <div id="single-content-wrapper"
+                                    class="content-section opacity-0 hidden transition-opacity duration-300 overflow-y-auto">
+                                    <!-- This will be populated dynamically with single div -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#A10F14] text-white py-16">
+        <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Logo and Description -->
+                <div class="space-y-6">
+                    <img src="https://api.builder.io/api/v1/image/assets/TEMP/c7940c3d5ab907b4ee635cd3bd8f84a79fbc3a28?width=520"
+                        alt="Future University in Egypt" class="h-20 w-auto" />
+                    <p class="text-white/90 leading-relaxed">
+                        Future University in Egypt is dedicated to providing quality
+                        education and preparing students for successful careers in a
+                        global environment.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-medium">Quick Links</h3>
+                    <div class="space-y-3">
+                        <a href="/" class="block hover:text-gray-300 transition-colors">Home</a>
+                        <a href="/student-guide" class="block hover:text-gray-300 transition-colors">Student Guide</a>
+                        <a href="/study-plans" class="block hover:text-gray-300 transition-colors">Study Plans</a>
+                        <a href="/academic-calendar" class="block hover:text-gray-300 transition-colors">Academic
+                            Calendar</a>
+                    </div>
+                </div>
+
+                <!-- Contact Us -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-medium">Contact Us</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-white mt-0.5 flex-shrink-0"></i>
+                            <span class="leading-relaxed">Future University Campus, End of 90th St., Fifth Settlement,
+                                New Cairo</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-white"></i>
+                            <span>+20 2 26189900</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-white"></i>
+                            <span>info@fue.edu.eg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-12 mt-12 border-t border-white/20">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-white/90">
+                        © 2025 FUTURE UNIVERSITY IN EGYPT. All rights reserved.
+                    </p>
+                    <div class="flex gap-6">
+                        <a href="/privacy" class="text-white/90 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="/terms" class="text-white/90 hover:text-white transition-colors">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- js code ============================ -->
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        mobileMenuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("-translate-x-full");
+            overlay.classList.toggle("hidden");
+        });
+
+        overlay.addEventListener("click", () => {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+        });
+
+        // Menu toggle functionality
+        const menuToggles = document.querySelectorAll(".menu-toggle");
+
+        menuToggles.forEach((toggle) => {
+            toggle.addEventListener("click", (e) => {
+                const submenu = toggle.nextElementSibling;
+                const arrow = toggle.querySelector("svg");
+                const isOpen =
+                    submenu.style.maxHeight && submenu.style.maxHeight !== "0px";
+                const mainContentId = toggle.getAttribute("data-main-content");
+
+                // Close all other submenus
+                document.querySelectorAll(".submenu").forEach((menu) => {
+                    if (menu !== submenu) {
+                        menu.style.maxHeight = "0px";
+                        menu.previousElementSibling.querySelector("svg").style.transform =
+                            "rotate(0deg)";
+                    }
+                });
+
+                if (isOpen) {
+                    submenu.style.maxHeight = "0px";
+                    arrow.style.transform = "rotate(0deg)";
+                } else {
+                    submenu.style.maxHeight = submenu.scrollHeight + "px";
+                    arrow.style.transform = "rotate(180deg)";
+                }
+
+                // Show the full section for main menu click
+                const contentSections = document.querySelectorAll(".content-section");
+                contentSections.forEach((section) => {
+                    section.classList.remove("opacity-100");
+                    section.classList.add("opacity-0");
+                    setTimeout(() => {
+                        section.classList.add("hidden");
+                    }, 300);
+                });
+
+                setTimeout(() => {
+                    const targetSection = document.getElementById(mainContentId);
+                    if (targetSection) {
+                        targetSection.classList.remove("hidden");
+                        setTimeout(() => {
+                            targetSection.classList.remove("opacity-0");
+                            targetSection.classList.add("opacity-100");
+                        }, 50);
+                    }
+                }, 300);
+
+                // Update menu group border
+                document.querySelectorAll(".menu-group").forEach((group) => {
+                    group.classList.remove("border-primary");
+                    group.classList.add("border-none");
+                });
+                toggle.parentElement.classList.add("border-primary");
+                toggle.parentElement.classList.remove("border-none");
+
+                // Update breadcrumb
+                const contentTitle = toggle.querySelector("span").textContent.trim();
+                document.getElementById("breadcrumb-current").textContent =
+                    contentTitle;
+
+                // Close mobile menu
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.add("-translate-x-full");
+                    overlay.classList.add("hidden");
+                }
+            });
+        });
+
+        // Submenu item functionality
+        const submenuItems = document.querySelectorAll(".submenu-item");
+
+        submenuItems.forEach((item) => {
+            item.addEventListener("click", () => {
+                const contentId = item.getAttribute("data-content");
+                const contentTitle = item.textContent.trim();
+
+                // Hide all content sections
+                const contentSections = document.querySelectorAll(".content-section");
+                contentSections.forEach((section) => {
+                    section.classList.remove("opacity-100");
+                    section.classList.add("opacity-0");
+                    setTimeout(() => {
+                        section.classList.add("hidden");
+                    }, 300);
+                });
+
+                // Clone the specific div and show it in the single wrapper
+                const targetContent = document
+                    .getElementById(contentId)
+                    .cloneNode(true);
+                const singleWrapper = document.getElementById(
+                    "single-content-wrapper"
+                );
+                singleWrapper.innerHTML = ""; // Clear previous
+                singleWrapper.appendChild(targetContent);
+
+                setTimeout(() => {
+                    singleWrapper.classList.remove("hidden");
+                    setTimeout(() => {
+                        singleWrapper.classList.remove("opacity-0");
+                        singleWrapper.classList.add("opacity-100");
+                    }, 50);
+                }, 300);
+
+                // Update menu group border
+                document.querySelectorAll(".menu-group").forEach((group) => {
+                    group.classList.remove("border-primary");
+                    group.classList.add("border-none");
+                });
+                item.closest(".menu-group").classList.add("border-primary");
+                item.closest(".menu-group").classList.remove("border-none");
+
+                // Update breadcrumb
+                document.getElementById("breadcrumb-current").textContent =
+                    contentTitle;
+
+                // Update active state
+                submenuItems.forEach((menuItem) => {
+                    menuItem.classList.remove("bg-primary", "text-white");
+                    menuItem.classList.add(
+                        "text-gray-600",
+                        "hover:text-primary",
+                        "hover:bg-gray-50"
+                    );
+                });
+
+                item.classList.add("bg-primary", "text-white");
+                item.classList.remove(
+                    "text-gray-600",
+                    "hover:text-primary",
+                    "hover:bg-gray-50"
+                );
+
+                // Close mobile menu
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.add("-translate-x-full");
+                    overlay.classList.add("hidden");
+                }
+            });
+        });
+
+        // Initialize first submenu as open and active
+        document.addEventListener("DOMContentLoaded", () => {
+            const firstToggle = document.querySelector(".menu-toggle");
+            const firstSubmenu = firstToggle.nextElementSibling;
+            const firstArrow = firstToggle.querySelector("svg");
+
+            firstSubmenu.style.maxHeight = firstSubmenu.scrollHeight + "px";
+            firstArrow.style.transform = "rotate(180deg)";
+            firstToggle.parentElement.classList.add("border-primary");
+            firstToggle.parentElement.classList.remove("border-none");
+        });
+    </script>
+</body>
+
+</html>

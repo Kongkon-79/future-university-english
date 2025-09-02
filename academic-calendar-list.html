@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Future University | Academic Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .fc-daygrid-day-number {
+        color: #374151;
+      }
+
+      .fc-daygrid-day.fc-day-today {
+        background-color: #fefcbf;
+      }
+
+      .fc .fc-daygrid-day-top {
+        flex-direction: column;
+      }
+
+      .custom-event {
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        margin-top: 2px;
+      }
+
+      .registration-event {
+        background-color: #3b82f6;
+        color: white;
+      }
+
+      .orientation-event {
+        background-color: #dc2626;
+        color: white;
+      }
+
+      .class-begin-event {
+        background-color: #10b981;
+        color: white;
+      }
+
+      .fc-daygrid-day-events {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      #eventList {
+        display: none;
+      }
+
+      #eventList table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+
+      #eventList th,
+      #eventList td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      #eventList th {
+        background-color: #f3f4f6;
+        font-weight: bold;
+      }
+
+      .active-btn {
+        background-color: #facc15 !important;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var calendarEl = document.getElementById("calendar");
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: "dayGridMonth",
+          initialDate: "2025-08-19",
+          headerToolbar: {
+            left: "",
+            center: "title",
+            right: "prev,next",
+          },
+          events: [
+            {
+              title: "Fall Semester Registration",
+              date: "2025-08-06",
+              className: "custom-event registration-event",
+            },
+            {
+              title: "Orientation Days",
+              date: "2025-08-14",
+              className: "custom-event orientation-event",
+            },
+            {
+              title: "Orientation Days",
+              date: "2025-08-15",
+              className: "custom-event orientation-event",
+            },
+            {
+              title: "Orientation Days",
+              date: "2025-08-16",
+              className: "custom-event orientation-event",
+            },
+            {
+              title: "Classes Begin",
+              date: "2025-08-20",
+              className: "custom-event class-begin-event",
+            },
+            {
+              title: "Fall Semester Registration",
+              date: "2025-09-06",
+              className: "custom-event registration-event",
+            },
+            {
+              title: "Orientation Days",
+              date: "2025-09-14",
+              className: "custom-event orientation-event",
+            },
+            {
+              title: "Orientation Days",
+              date: "2025-09-15",
+              className: "custom-event orientation-event",
+            },
+            {
+              title: "Orientation Days",
+              date: "2025-09-16",
+              className: "custom-event orientation-event",
+            },
+            {
+              title: "Classes Begin",
+              date: "2025-09-20",
+              className: "custom-event class-begin-event",
+            },
+            {
+              title: "Fall Semester Registration",
+              date: "2025-10-06",
+              className: "custom-event registration-event",
+            },
+            {
+              title: "Orientation Days",
+              date: "2025-10-14",
+              className: "custom-event orientation-event",
+            },
+            {
+              title: "Orientation Days",
+              date: "2025-10-15",
+              className: "custom-event orientation-event",
+            },
+            {
+              title: "Orientation Days",
+              date: "2025-10-16",
+              className: "custom-event orientation-event",
+            },
+            {
+              title: "Classes Begin",
+              date: "2025-10-20",
+              className: "custom-event class-begin-event",
+            },
+          ],
+          dayCellContent: function (arg) {
+            return { html: arg.dayNumberText };
+          },
+          dayCellDidMount: function (info) {
+            const dayEvents = info.el.querySelector(".fc-daygrid-day-events");
+            if (dayEvents) {
+              dayEvents.style.marginTop = "2rem";
+              dayEvents.style.display = "flex";
+              dayEvents.style.flexDirection = "column-reverse";
+            }
+          },
+        });
+        calendar.render();
+
+        // Toggle between calendar and list view
+        const dayBtn = document.getElementById("dayBtn");
+        const listBtn = document.getElementById("listBtn");
+        const calendarDiv = document.getElementById("calendar");
+        const eventListDiv = document.getElementById("eventList");
+
+        // Set initial state
+        calendarDiv.style.display = "block";
+        eventListDiv.style.display = "none";
+        dayBtn.classList.add("active-btn");
+        listBtn.classList.remove("active-btn");
+
+        dayBtn.addEventListener("click", function () {
+          calendarDiv.style.display = "block";
+          eventListDiv.style.display = "none";
+          dayBtn.classList.add("active-btn");
+          listBtn.classList.remove("active-btn");
+        });
+
+        listBtn.addEventListener("click", function () {
+          calendarDiv.style.display = "none";
+          eventListDiv.style.display = "block";
+          listBtn.classList.add("active-btn");
+          dayBtn.classList.remove("active-btn");
+        });
+      });
+    </script>
+  </head>
+
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <nav
+      class="bg-white shadow-sm w-full border-b border-gray-200 border-black/10 sticky top-0 z-50"
+    >
+      <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo and Language -->
+          <div class="flex items-center gap-10">
+            <a href="index.html">
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/2d316bb90db8bdfd99985c7d8b9a3db4557ec01d?width=310"
+                alt="Future University in Egypt"
+                class="h-12 w-auto"
+              />
+            </a>
+            <!-- Language Selector -->
+            <div class="relative">
+              <button
+                id="languageBtn"
+                class="bg-university-red text-white px-2 lg:px-4 py-2 rounded text-sm font-medium flex items-center hover:bg-red-700 transition-colors"
+              >
+                Language: English
+                <svg
+                  class="ml-2 h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div
+                id="languageDropdown"
+                class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden"
+              >
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >English</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >Arabic</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <!-- Navigation Links -->
+            <div class="flex items-center space-x-6">
+              <a
+                href="#"
+                class="text-gray-700 hover:text-university-red font-medium transition-colors"
+                >Home</a
+              >
+
+              <!-- Student Guide Dropdown -->
+              <div class="relative">
+                <button
+                  class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                  id="studentGuideBtn"
+                >
+                  Student Guide
+                  <svg
+                    class="ml-1 h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  id="studentGuideDropdown"
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden"
+                >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Admission Guide</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Course Registration</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Student Services</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Campus Life</a
+                  >
+                </div>
+              </div>
+
+              <!-- Study Plans Dropdown -->
+              <div class="relative">
+                <button
+                  class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                  id="studyPlansBtn"
+                >
+                  Study Plans
+                  <svg
+                    class="ml-1 h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  id="studyPlansDropdown"
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden"
+                >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Undergraduate</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Graduate</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Doctoral</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Certificate Programs</a
+                  >
+                </div>
+              </div>
+
+              <!-- Academic Calendar Dropdown -->
+              <div class="relative">
+                <button
+                  class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                  id="academicCalendarBtn"
+                >
+                  Academic Calendar
+                  <svg
+                    class="ml-1 h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  id="academicCalendarDropdown"
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden"
+                >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Fall Semester</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Spring Semester</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Summer Session</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Important Dates</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button
+              id="mobileMenuBtn"
+              class="text-gray-700 hover:text-university-red focus:outline-none focus:text-university-red transition-colors"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  id="menuIcon"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+                <path
+                  id="closeIcon"
+                  class="hidden"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div
+        id="mobileMenu"
+        class="md:hidden hidden bg-white border-t border-gray-200"
+      >
+        <div class="px-4 pt-2 pb-3 space-y-1">
+          <!-- Language Selector Mobile -->
+          <div class="mb-4">
+            <button
+              id="mobileLanguageBtn"
+              class="w-full bg-university-red text-white px-4 py-2 rounded text-sm font-medium flex items-center justify-between hover:bg-red-700 transition-colors"
+            >
+              Language: English
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+            <div
+              id="mobileLanguageDropdown"
+              class="mt-2 bg-gray-50 rounded-md hidden"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+                >English</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+                >Arabic</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+                >French</a
+              >
+            </div>
+          </div>
+
+          <a
+            href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors"
+            >Home</a
+          >
+
+          <!-- Mobile Student Guide -->
+          <div>
+            <button
+              id="mobileStudentGuideBtn"
+              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors"
+            >
+              Student Guide
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+            <div
+              id="mobileStudentGuideDropdown"
+              class="ml-4 mt-2 space-y-1 hidden"
+            >
+              <a
+                href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                >Admission Guide</a
+              >
+              <a
+                href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                >Course Registration</a
+              >
+              <a
+                href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                >Student Services</a
+              >
+              <a
+                href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                >Campus Life</a
+              >
+            </div>
+          </div>
+
+          <!-- Mobile Study Plans -->
+          <div>
+            <button
+              id="mobileStudyPlansBtn"
+              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors"
+            >
+              Study Plans
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+            <div
+              id="mobileStudyPlansDropdown"
+              class="ml-4 mt-2 space-y-1 hidden"
+            >
+              <a
+                href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                >Undergraduate</a
+              >
+              <a
+                href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                >Graduate</a
+              >
+              <a
+                href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                >Doctoral</a
+              >
+              <a
+                href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                >Certificate Programs</a
+              >
+            </div>
+          </div>
+
+          <!-- Mobile Academic Calendar -->
+          <div>
+            <button
+              id="mobileAcademicCalendarBtn"
+              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors"
+            >
+              Academic Calendar
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+            <div
+              id="mobileAcademicCalendarDropdown"
+              class="ml-4 mt-2 space-y-1 hidden"
+            >
+              <a
+                href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                >Fall Semester</a
+              >
+              <a
+                href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                >Spring Semester</a
+              >
+              <a
+                href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                >Summer Session</a
+              >
+              <a
+                href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                >Important Dates</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="relative h-64 md:h-96 lg:h-[568px] bg-cover bg-center"
+      style="background-image: url('./images/academiv.jpg')"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div
+        class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center"
+      >
+        <div class="text-center text-white">
+          <h1 class="text-3xl md:text-5xl font-bold mb-4">
+            Academic <span class="text-[#FACC15]">Calendar</span>
+          </h1>
+          <p class="text-lg md:text-xl">
+            Explore our diverse range of academic programs designed to prepare
+            you for success in your chosen field
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0 py-8">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Sidebar -->
+        <aside
+          class="sidebar w-[482px] rounded-[8px] px-5 py-[28px] md:py-[40px] lg:py-[57px] -mt-8"
+        >
+          <!-- Fall 2025 Semester Summary -->
+          <div class="faculty-section">
+            <div
+              class="faculty-header active"
+              onclick="toggleFaculty('dental', event)"
+            >
+              <span>Fall 2025 Semester Summary</span>
+              <span class="toggle-icon">▲</span>
+            </div>
+            <div class="faculty-content active" id="dental-content">
+              <a href="#registration1">
+                <div class="level-item active" onclick="showLevel('level1')">
+                  Registration
+                </div>
+              </a>
+              <a href="#orientation1">
+                <div class="level-item" onclick="showLevel('level12')">
+                  Orientation
+                </div>
+              </a>
+              <a href="#Classes_for_the_first_semester1">
+                <div class="level-item" onclick="showLevel('level3')">
+                  Classes for the first semester
+                </div>
+              </a>
+              <a href="#Mid-term_Examinations1">
+                <div class="level-item" onclick="showLevel('level4')">
+                  Mid-term Examinations
+                </div>
+              </a>
+
+              <a href="#withdrawal1">
+                <div class="level-item" onclick="showLevel('level5')">
+                  withdrawal
+                </div>
+              </a>
+
+              <a href="#Final_Examinations1">
+                <div class="level-item" onclick="showLevel('level6')">
+                  Final Exams
+                </div>
+              </a>
+
+              <a href="#holiday1">
+                <div class="level-item" onclick="showLevel('level7')">
+                  holiday
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Fall 2025 Highlights -->
+          <div class="faculty-section">
+            <div
+              class="faculty-header"
+              onclick="toggleFaculty('engineering', event)"
+            >
+              <span>Fall 2025 Highlights</span>
+              <span class="toggle-icon">▶</span>
+            </div>
+            <div class="faculty-content" id="engineering-content">
+              <div class="level-item" onclick="showLevel('eng-level1', event)">
+                Fall Semester Registration
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('eng-level1-2', event)"
+              >
+                Armed Forces Day
+              </div>
+              <div class="level-item" onclick="showLevel('eng-level2', event)">
+                Mid-Term Exams
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('eng-level2-2', event)"
+              >
+                Final Exams
+              </div>
+              <div class="level-item" onclick="showLevel('eng-level3', event)">
+                Classes Begin
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('eng-level3-2', event)"
+              >
+                Last Date for Add & Drop
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('eng-level4-2', event)"
+              >
+                Last Date for Withdrawal
+              </div>
+              <div class="level-item" onclick="showLevel('eng-level5', event)">
+                Coptic Christmas
+              </div>
+            </div>
+          </div>
+
+          <!-- Fall 2025 Semester Details -->
+          <div class="faculty-section">
+            <div
+              class="faculty-header"
+              onclick="toggleFaculty('computer', event)"
+            >
+              <span>Fall 2025 Semester Details</span>
+              <span class="toggle-icon">▶</span>
+            </div>
+            <div class="faculty-content" id="computer-content">
+              <div class="level-item" onclick="showLevel('comp-level1', event)">
+                Online Registration
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('comp-level1-2', event)"
+              >
+                Fall Semester Registration
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('comp-level1-2', event)"
+              >
+                Classes Begin
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('comp-level1-2', event)"
+              >
+                Last Date for Add and Drop
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('comp-level1-2', event)"
+              >
+                Mid-Term Exams
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('comp-level1-2', event)"
+              >
+                Last Date for Withdrawal
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('comp-level1-2', event)"
+              >
+                Final Exam
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('comp-level1-2', event)"
+              >
+                Mid-Year Vacation
+              </div>
+            </div>
+          </div>
+
+          <!-- Spring 2026 Semester Summary -->
+          <div class="faculty-section">
+            <div
+              class="faculty-header"
+              onclick="toggleFaculty('economics', event)"
+            >
+              <span>Spring 2026 Semester Summary</span>
+              <span class="toggle-icon">▶</span>
+            </div>
+            <div class="faculty-content" id="economics-content">
+              <div class="level-item" onclick="showLevel('eco-level1', event)">
+                Registration
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('eco-level1-2', event)"
+              >
+                Classes Begin
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('eco-level1-2', event)"
+              >
+                Study Duration
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('eco-level1-2', event)"
+              >
+                Midterm Exams
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('eco-level1-2', event)"
+              >
+                Last date for withdrawal
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('eco-level1-2', event)"
+              >
+                Final Exams
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('eco-level1-2', event)"
+              >
+                Vacations
+              </div>
+            </div>
+          </div>
+
+          <!-- Spring 2026 Highlights -->
+          <div class="faculty-section">
+            <div
+              class="faculty-header"
+              onclick="toggleFaculty('commerce', event)"
+            >
+              <span>Spring 2026 Highlights</span>
+              <span class="toggle-icon">▶</span>
+            </div>
+            <div class="faculty-content" id="commerce-content">
+              <div class="level-item" onclick="showLevel('com-level1', event)">
+                Online Registration
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Ramadan
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Eid Al-Fitr
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Coptic Easter
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Sinai Liberation Day
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Final Exams
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Islamic New Year
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Classes Begin
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Last Date for Add and Drop
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Mid-Term
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Sham El-Naseem
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Last Date for Withdrawal
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Eid Al-Adha
+              </div>
+            </div>
+          </div>
+
+          <!-- Spring 2026 Semester Details -->
+          <div class="faculty-section">
+            <div
+              class="faculty-header"
+              onclick="toggleFaculty('spring2026', event)"
+            >
+              <span>Spring 2026 Semester Details</span>
+              <span class="toggle-icon">▶</span>
+            </div>
+            <div class="faculty-content" id="spring2026-content">
+              <div class="level-item" onclick="showLevel('com-level1', event)">
+                Online Registration
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Classes Begin
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Ramadan
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Ramadan
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Last date for Add and Drop
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Ramadan
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Ramadan
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Ramadan
+              </div>
+              <div
+                script.js
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Mid-Term Exams
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Last Date for Withdrawal
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Final Exams
+              </div>
+            </div>
+          </div>
+
+          <!-- Summer 2026 Semester Summary -->
+          <div class="faculty-section">
+            <div
+              class="faculty-header"
+              onclick="toggleFaculty('summer2026', event)"
+            >
+              <span>Summer 2026 Semester Summary</span>
+              <span class="toggle-icon">▶</span>
+            </div>
+            <div class="faculty-content" id="summer2026-content">
+              <div class="level-item" onclick="showLevel('com-level1', event)">
+                Registration
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Classes Begin
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Study Duration
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Midterm Exams
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Final Exams
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Vacations
+              </div>
+            </div>
+          </div>
+
+          <!-- Summer 2026 Highlights -->
+          <div class="faculty-section">
+            <div
+              class="faculty-header"
+              onclick="toggleFaculty('summer2026highlights', event)"
+            >
+              <span>Summer 2026 Highlights</span>
+              <span class="toggle-icon">▶</span>
+            </div>
+            <div class="faculty-content" id="summer2026highlights-content">
+              <div class="level-item" onclick="showLevel('com-level1', event)">
+                Online Registration
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Mid-Term Exam
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Final Exam
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Classes Begin
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                23 July Revolution
+              </div>
+            </div>
+          </div>
+
+          <!-- Summer 2026 Semester Details -->
+          <div class="faculty-section">
+            <div
+              class="faculty-header"
+              onclick="toggleFaculty('summer2026details', event)"
+            >
+              <span>Summer 2026 Semester Details</span>
+              <span class="toggle-icon">▶</span>
+            </div>
+            <div class="faculty-content" id="summer2026details-content">
+              <div class="level-item" onclick="showLevel('com-level1', event)">
+                Online Registration
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Classes Begin
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Midterm Exams
+              </div>
+              <div
+                class="level-item"
+                onclick="showLevel('com-level1-2', event)"
+              >
+                Final Exams
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="lg:w-3/4">
+          <!-- Breadcrumb -->
+          <nav class="mb-[48px]">
+            <div class="flex items-center space-x-2 text-sm">
+              <a href="#" class="text-gray-600 hover:text-university-red"
+                >Home</a
+              >
+              <svg
+                class="h-4 w-4 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span class="text-gray-900">Academic Calendar</span>
+            </div>
+          </nav>
+          <h1 class="text-2xl font-bold mb-[48px] text-[#B11116]">
+            First Semester: Fall 2025
+          </h1>
+          <div
+            class="bg-red-600 text-white !bg-[#B11116] h-[85px] p-2 rounded-t-lg flex justify-between items-center"
+          >
+            <div class="flex items-center">
+              <svg
+                class="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              <span>Fall 2025 Semester Summary:</span>
+            </div>
+            <div>
+              <button
+                id="dayBtn"
+                class="bg-yellow-400 text-black px-3 py-1 rounded active-btn"
+              >
+                Day
+              </button>
+              <button
+                id="listBtn"
+                class="bg-yellow-400 text-black px-3 py-1 rounded"
+              >
+                List
+              </button>
+            </div>
+          </div>
+
+          <div id="calendar" class="bg-white rounded-b-lg shadow-sm p-4"></div>
+          <div
+            id="eventList"
+            class="bg-white rounded-xl shadow-lg overflow-hidden hidden"
+          >
+            <!-- <div class="bg-[#B11116] p-6 flex justify-between items-center">
+              <div class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                <h3 class="text-white text-[16px] md:text-lg font-medium">
+                  Academic Calendar 2025-2026
+                </h3>
+              </div>
+
+              <button class="flex items-center gap-2 bg-[#B11116] text-white px-4 py-2 rounded-md hover:bg-[#A10F14] transition-colors">
+                <span class="text-xs md:text-sm font-medium">View Full Calendar</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </button>
+            </div> -->
+
+            <div class="p-5 md:p-10 space-y-6">
+              <!-- Registration -->
+              <div
+                id="registration1"
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-14 p-7 border border-gray-200 rounded-lg border-l-4 border-l-[#1E40AF]"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="p-2 bg-[#1E40AF33] rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M6.66406 1.6665V4.99984"
+                        stroke="#1E40AF"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M13.3359 1.6665V4.99984"
+                        stroke="#1E40AF"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M15.8333 3.33325H4.16667C3.24619 3.33325 2.5 4.07944 2.5 4.99992V16.6666C2.5 17.5871 3.24619 18.3333 4.16667 18.3333H15.8333C16.7538 18.3333 17.5 17.5871 17.5 16.6666V4.99992C17.5 4.07944 16.7538 3.33325 15.8333 3.33325Z"
+                        stroke="#1E40AF"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M2.5 8.33325H17.5"
+                        stroke="#1E40AF"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-base font-medium text-[#1E40AF] leading-[120%]"
+                    >
+                      Registration
+                    </div>
+                    <div
+                      class="text-base font-semibold text-[#2F2F2F] leading-[120%] pt-3"
+                    >
+                      September 6, 2025
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div
+                      class="text-base font-semibold leading-[120%] text-[#2F2F2F]"
+                    >
+                      Fall Semester Registration
+                    </div>
+                    <div
+                      class="text-base font-normal leading-[150%] text-[#3E3E3E] pt-3"
+                    >
+                      Registration period for all students for the Fall semester
+                      courses.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Orientation -->
+              <div
+                id="orientation1"
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-32 p-7 border border-gray-200 rounded-lg border-l-4 border-l-[#B11116]"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-[#B1111633] rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M6.66406 1.6665V4.99984"
+                        stroke="#B11116"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M13.3359 1.6665V4.99984"
+                        stroke="#B11116"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M15.8333 3.33325H4.16667C3.24619 3.33325 2.5 4.07944 2.5 4.99992V16.6666C2.5 17.5871 3.24619 18.3333 4.16667 18.3333H15.8333C16.7538 18.3333 17.5 17.5871 17.5 16.6666V4.99992C17.5 4.07944 16.7538 3.33325 15.8333 3.33325Z"
+                        stroke="#B11116"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M2.5 8.33325H17.5"
+                        stroke="#B11116"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-base leading-[120%] font-medium text-[ #B11116]"
+                    >
+                      Orientation
+                    </div>
+                    <div
+                      class="text-base font-semibold text-[#2F2F2F] leading-[120%] pt-3"
+                    >
+                      14,15,16 September 6, 2025
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div
+                      class="text-base font-semibold leading-[120%] text-[#2F2F2F]"
+                    >
+                      Orientation Days
+                    </div>
+                    <div
+                      class="text-base font-normal leading-[150%] text-[#3E3E3E] pt-3"
+                    >
+                      Orientation period for all students
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Classes for the first semester -->
+              <div
+                id="Classes_for_the_first_semester1"
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-12 p-7 border border-gray-200 rounded-lg border-l-4 border-l-[#038C05]"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-[#038C0533] rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="21"
+                      viewBox="0 0 20 21"
+                      fill="none"
+                    >
+                      <path
+                        d="M9.9974 17.1666H4.33073C3.39731 17.1666 2.9306 17.1666 2.57408 16.9849C2.26047 16.8251 2.00551 16.5702 1.84572 16.2566C1.66406 15.9 1.66406 15.4333 1.66406 14.4999V6.49992C1.66406 5.5665 1.66406 5.09979 1.84572 4.74327C2.00551 4.42966 2.26047 4.1747 2.57408 4.01491C2.9306 3.83325 3.39731 3.83325 4.33073 3.83325H4.66406C6.5309 3.83325 7.46433 3.83325 8.17736 4.19656C8.80457 4.51614 9.31451 5.02608 9.63408 5.65328C9.9974 6.36632 9.9974 7.29974 9.9974 9.16659M9.9974 17.1666V9.16659M9.9974 17.1666H15.6641C16.5975 17.1666 17.0642 17.1666 17.4207 16.9849C17.7343 16.8251 17.9893 16.5702 18.1491 16.2566C18.3307 15.9 18.3307 15.4333 18.3307 14.4999V6.49992C18.3307 5.5665 18.3307 5.09979 18.1491 4.74327C17.9893 4.42966 17.7343 4.1747 17.4207 4.01491C17.0642 3.83325 16.5975 3.83325 15.6641 3.83325H15.3307C13.4639 3.83325 12.5305 3.83325 11.8174 4.19656C11.1902 4.51614 10.6803 5.02608 10.3607 5.65328C9.9974 6.36632 9.9974 7.29974 9.9974 9.16659"
+                        stroke="#038C05"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-base leading-[120%] font-medium text-[#038C05]"
+                    >
+                      Classes for the first semester
+                    </div>
+                    <div
+                      class="text-base font-semibold text-[#2F2F2F] leading-[120%] pt-3"
+                    >
+                      September 20, 2025, To Thursday, January 1, 2026
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div
+                      class="text-base font-semibold leading-[120%] text-[#2F2F2F]"
+                    >
+                      Fall Semester Classes Begin
+                    </div>
+                    <div
+                      class="text-base font-normal leading-[150%] text-[#3E3E3E] pt-3"
+                    >
+                      First day of classes for the Fall semester.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mid-term Examinations -->
+              <div
+                id="Mid-term_Examinations1"
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-[#854D0E]"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-[#854D0E33] rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M17.8464 9.10156C17.9956 9.03575 18.1222 8.92762 18.2105 8.79056C18.2989 8.65351 18.345 8.49355 18.3434 8.33051C18.3417 8.16746 18.2922 8.00849 18.201 7.87329C18.1099 7.73809 17.9811 7.6326 17.8306 7.56989L10.6881 4.31656C10.4709 4.21751 10.2351 4.16626 9.99641 4.16626C9.75776 4.16626 9.52188 4.21751 9.30475 4.31656L2.16308 7.56656C2.01472 7.63153 1.88851 7.73834 1.79989 7.8739C1.71126 8.00947 1.66406 8.16793 1.66406 8.32989C1.66406 8.49186 1.71126 8.65031 1.79989 8.78588C1.88851 8.92144 2.01472 9.02825 2.16308 9.09322L9.30475 12.3499C9.52188 12.4489 9.75776 12.5002 9.99641 12.5002C10.2351 12.5002 10.4709 12.4489 10.6881 12.3499L17.8464 9.10156Z"
+                        stroke="#854D0E"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M18.3359 8.33325V13.3333"
+                        stroke="#854D0E"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5 10.4167V13.3334C5 13.9965 5.52678 14.6323 6.46447 15.1012C7.40215 15.57 8.67392 15.8334 10 15.8334C11.3261 15.8334 12.5979 15.57 13.5355 15.1012C14.4732 14.6323 15 13.9965 15 13.3334V10.4167"
+                        stroke="#854D0E"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-base leading-[120%] font-medium text-[#854D0E]"
+                    >
+                      Mid-term Examinations
+                    </div>
+                    <div
+                      class="text-base font-semibold text-[#2F2F2F] leading-[120%] pt-3"
+                    >
+                      Study Duration: 15 Weeks includes
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div
+                      class="text-base font-semibold leading-[120%] text-[#2F2F2F]"
+                    >
+                      Mid-term Examinations
+                    </div>
+                    <div
+                      class="text-base font-normal leading-[150%] text-[#3E3E3E] pt-3"
+                    >
+                      Mid-term examination period for all courses.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Mid-term Examinations -->
+              <div
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-[#854D0E]"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-[#854D0E33] rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="21"
+                      viewBox="0 0 20 21"
+                      fill="none"
+                    >
+                      <path
+                        d="M17.8464 9.60156C17.9956 9.53575 18.1222 9.42762 18.2105 9.29056C18.2989 9.15351 18.345 8.99355 18.3434 8.83051C18.3417 8.66746 18.2922 8.50849 18.201 8.37329C18.1099 8.23809 17.9811 8.1326 17.8306 8.06989L10.6881 4.81656C10.4709 4.71751 10.2351 4.66626 9.99641 4.66626C9.75776 4.66626 9.52188 4.71751 9.30475 4.81656L2.16308 8.06656C2.01472 8.13153 1.88851 8.23834 1.79989 8.3739C1.71126 8.50947 1.66406 8.66793 1.66406 8.82989C1.66406 8.99186 1.71126 9.15031 1.79989 9.28588C1.88851 9.42144 2.01472 9.52825 2.16308 9.59322L9.30475 12.8499C9.52188 12.9489 9.75776 13.0002 9.99641 13.0002C10.2351 13.0002 10.4709 12.9489 10.6881 12.8499L17.8464 9.60156Z"
+                        stroke="#854D0E"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M18.3359 8.83325V13.8333"
+                        stroke="#854D0E"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5 10.9167V13.8334C5 14.4965 5.52678 15.1323 6.46447 15.6012C7.40215 16.07 8.67392 16.3334 10 16.3334C11.3261 16.3334 12.5979 16.07 13.5355 15.6012C14.4732 15.1323 15 14.4965 15 13.8334V10.9167"
+                        stroke="#854D0E"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-base leading-[120%] font-medium text-[#854D0E]"
+                    >
+                      Mid-term Examinations
+                    </div>
+                    <div
+                      class="text-base font-semibold text-[#2F2F2F] leading-[120%] pt-3"
+                    >
+                      November 1, 2025, to November 13, 2025
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div
+                      class="text-base font-semibold leading-[120%] text-[#2F2F2F]"
+                    >
+                      Mid-term Examinations
+                    </div>
+                    <div
+                      class="text-base font-normal leading-[150%] text-[#3E3E3E] pt-3"
+                    >
+                      Mid-term examination period for all courses.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- withdrawal -->
+              <div
+                id="withdrawal1"
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-[#499FC0]"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-[#499FC033] rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M5 13.3334C5 15.1744 6.49238 16.6667 8.33333 16.6667H11.6667C13.5076 16.6667 15 15.1744 15 13.3334C15 11.4925 13.5076 10.0001 11.6667 10.0001H8.33333C6.49238 10.0001 5 8.5077 5 6.66675C5 4.8258 6.49238 3.33341 8.33333 3.33341H11.6667C13.5076 3.33341 15 4.8258 15 6.66675M10 1.66675V18.3334"
+                        stroke="#499FC0"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-base leading-[120%] font-medium text-[#499FC0]"
+                    >
+                      withdrawal
+                    </div>
+                    <div
+                      class="text-base font-semibold text-[#2F2F2F] leading-[120%] pt-3"
+                    >
+                      December 16 ,2025
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div
+                      class="text-base font-semibold leading-[120%] text-[#2F2F2F]"
+                    >
+                      Last date for withdrawal
+                    </div>
+                    <div
+                      class="text-base font-normal leading-[150%] text-[#3E3E3E] pt-3"
+                    >
+                      Last date for withdrawal for all students
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Final Exams -->
+              <div
+                id="Final_Examinations1"
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-[#854D0E]"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-red-[#854D0E33] rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="21"
+                      viewBox="0 0 20 21"
+                      fill="none"
+                    >
+                      <path
+                        d="M17.8464 9.60156C17.9956 9.53575 18.1222 9.42762 18.2105 9.29056C18.2989 9.15351 18.345 8.99355 18.3434 8.83051C18.3417 8.66746 18.2922 8.50849 18.201 8.37329C18.1099 8.23809 17.9811 8.1326 17.8306 8.06989L10.6881 4.81656C10.4709 4.71751 10.2351 4.66626 9.99641 4.66626C9.75776 4.66626 9.52188 4.71751 9.30475 4.81656L2.16308 8.06656C2.01472 8.13153 1.88851 8.23834 1.79989 8.3739C1.71126 8.50947 1.66406 8.66793 1.66406 8.82989C1.66406 8.99186 1.71126 9.15031 1.79989 9.28588C1.88851 9.42144 2.01472 9.52825 2.16308 9.59322L9.30475 12.8499C9.52188 12.9489 9.75776 13.0002 9.99641 13.0002C10.2351 13.0002 10.4709 12.9489 10.6881 12.8499L17.8464 9.60156Z"
+                        stroke="#854D0E"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M18.3359 8.83325V13.8333"
+                        stroke="#854D0E"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5 10.9167V13.8334C5 14.4965 5.52678 15.1323 6.46447 15.6012C7.40215 16.07 8.67392 16.3334 10 16.3334C11.3261 16.3334 12.5979 16.07 13.5355 15.6012C14.4732 15.1323 15 14.4965 15 13.8334V10.9167"
+                        stroke="#854D0E"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-base leading-[120%] font-medium text-[#854D0E]"
+                    >
+                      Final Exams
+                    </div>
+                    <div
+                      class="text-base font-semibold text-[#2F2F2F] leading-[120%] pt-3"
+                    >
+                      January 3, 2026, to January 22, 2026
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div
+                      class="text-base font-semibold leading-[120%] text-[#2F2F2F]"
+                    >
+                      Final Examinations
+                    </div>
+                    <div
+                      class="text-base font-normal leading-[150%] text-[#C50202] pt-3"
+                    >
+                      Dates to be considered when scheduling the final exams:
+                      January 6, 7, 8, 18, 19, 20/ 2026 Consider holidays of
+                      Christian brothers.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- holiday -->
+              <div
+                id="holiday1"
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-[#991B1B]"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-red-[#991B1B33] rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="21"
+                      viewBox="0 0 20 21"
+                      fill="none"
+                    >
+                      <path
+                        d="M17.8464 9.60156C17.9956 9.53575 18.1222 9.42762 18.2105 9.29056C18.2989 9.15351 18.345 8.99355 18.3434 8.83051C18.3417 8.66746 18.2922 8.50849 18.201 8.37329C18.1099 8.23809 17.9811 8.1326 17.8306 8.06989L10.6881 4.81656C10.4709 4.71751 10.2351 4.66626 9.99641 4.66626C9.75776 4.66626 9.52188 4.71751 9.30475 4.81656L2.16308 8.06656C2.01472 8.13153 1.88851 8.23834 1.79989 8.3739C1.71126 8.50947 1.66406 8.66793 1.66406 8.82989C1.66406 8.99186 1.71126 9.15031 1.79989 9.28588C1.88851 9.42144 2.01472 9.52825 2.16308 9.59322L9.30475 12.8499C9.52188 12.9489 9.75776 13.0002 9.99641 13.0002C10.2351 13.0002 10.4709 12.9489 10.6881 12.8499L17.8464 9.60156Z"
+                        stroke="#991B1B"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M18.3359 8.83325V13.8333"
+                        stroke="#991B1B"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5 10.9167V13.8334C5 14.4965 5.52678 15.1323 6.46447 15.6012C7.40215 16.07 8.67392 16.3334 10 16.3334C11.3261 16.3334 12.5979 16.07 13.5355 15.6012C14.4732 15.1323 15 14.4965 15 13.8334V10.9167"
+                        stroke="#991B1B"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-base leading-[120%] font-medium text-[#991B1B]"
+                    >
+                      holiday
+                    </div>
+                    <div
+                      class="text-base font-semibold text-[#2F2F2F] leading-[120%] pt-3"
+                    >
+                      January 24, 2026, to February 5, 2026
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div
+                      class="text-base font-semibold leading-[120%] text-[#2F2F2F]"
+                    >
+                      Mid-Year Vacation
+                    </div>
+                    <div
+                      class="text-base font-normal leading-[150%] text-[#3E3E3E] pt-3"
+                    >
+                      University closed in observance of the Mid-Year Vacation
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- holiday -->
+              <div
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-[#991B1B]"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-[#991B1B33] rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M17.8464 9.10156C17.9956 9.03575 18.1222 8.92762 18.2105 8.79056C18.2989 8.65351 18.345 8.49355 18.3434 8.33051C18.3417 8.16746 18.2922 8.00849 18.201 7.87329C18.1099 7.73809 17.9811 7.6326 17.8306 7.56989L10.6881 4.31656C10.4709 4.21751 10.2351 4.16626 9.99641 4.16626C9.75776 4.16626 9.52188 4.21751 9.30475 4.31656L2.16308 7.56656C2.01472 7.63153 1.88851 7.73834 1.79989 7.8739C1.71126 8.00947 1.66406 8.16793 1.66406 8.32989C1.66406 8.49186 1.71126 8.65031 1.79989 8.78588C1.88851 8.92144 2.01472 9.02825 2.16308 9.09322L9.30475 12.3499C9.52188 12.4489 9.75776 12.5002 9.99641 12.5002C10.2351 12.5002 10.4709 12.4489 10.6881 12.3499L17.8464 9.10156Z"
+                        stroke="#991B1B"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M18.3359 8.33325V13.3333"
+                        stroke="#991B1B"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5 10.4167V13.3334C5 13.9965 5.52678 14.6323 6.46447 15.1012C7.40215 15.57 8.67392 15.8334 10 15.8334C11.3261 15.8334 12.5979 15.57 13.5355 15.1012C14.4732 14.6323 15 13.9965 15 13.3334V10.4167"
+                        stroke="#991B1B"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-base leading-[120%] font-medium text-[#991B1B]"
+                    >
+                      holiday
+                    </div>
+                    <div
+                      class="text-base font-semibold text-[#2F2F2F] leading-[120%] pt-3"
+                    >
+                      October 6, 2025
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div
+                      class="text-base font-semibold leading-[120%] text-[#2F2F2F]"
+                    >
+                      Armed Forced Day
+                    </div>
+                    <div
+                      class="text-base font-normal leading-[150%] text-[#3E3E3E] pt-3"
+                    >
+                      University closed in observance of the national holiday.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- holiday -->
+              <div
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-[#991B1B]"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-[#991B1B33] rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M17.8464 9.10156C17.9956 9.03575 18.1222 8.92762 18.2105 8.79056C18.2989 8.65351 18.345 8.49355 18.3434 8.33051C18.3417 8.16746 18.2922 8.00849 18.201 7.87329C18.1099 7.73809 17.9811 7.6326 17.8306 7.56989L10.6881 4.31656C10.4709 4.21751 10.2351 4.16626 9.99641 4.16626C9.75776 4.16626 9.52188 4.21751 9.30475 4.31656L2.16308 7.56656C2.01472 7.63153 1.88851 7.73834 1.79989 7.8739C1.71126 8.00947 1.66406 8.16793 1.66406 8.32989C1.66406 8.49186 1.71126 8.65031 1.79989 8.78588C1.88851 8.92144 2.01472 9.02825 2.16308 9.09322L9.30475 12.3499C9.52188 12.4489 9.75776 12.5002 9.99641 12.5002C10.2351 12.5002 10.4709 12.4489 10.6881 12.3499L17.8464 9.10156Z"
+                        stroke="#991B1B"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M18.3359 8.33325V13.3333"
+                        stroke="#991B1B"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5 10.4167V13.3334C5 13.9965 5.52678 14.6323 6.46447 15.1012C7.40215 15.57 8.67392 15.8334 10 15.8334C11.3261 15.8334 12.5979 15.57 13.5355 15.1012C14.4732 14.6323 15 13.9965 15 13.3334V10.4167"
+                        stroke="#991B1B"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-base leading-[120%] font-medium text-[#991B1B]"
+                    >
+                      holiday
+                    </div>
+                    <div
+                      class="text-base font-semibold text-[#2F2F2F] leading-[120%] pt-3"
+                    >
+                      January 7, 2026
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div
+                      class="text-base font-semibold leading-[120%] text-[#2F2F2F]"
+                    >
+                      Coptic Christmas
+                    </div>
+                    <div
+                      class="text-base font-normal leading-[150%] text-[#3E3E3E] pt-3"
+                    >
+                      University closed in observance of the national holiday.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Legend -->
+              <div
+                class="flex items-center justify-center flex-wrap gap-8 pt-6"
+              >
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-[#B11116] rounded-full"></div>
+                  <span class="text-gray-600 text-sm">Orientation</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-[#3B82F6] rounded-full"></div>
+                  <span class="text-gray-600 text-sm">Registration</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-[#038C05] rounded-full"></div>
+                  <span class="text-gray-600 text-sm">Classes</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-[#EAB308] rounded-full"></div>
+                  <span class="text-gray-600 text-sm">Exams</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-[#499FC0] rounded-full"></div>
+                  <span class="text-gray-600 text-sm">withdrawal:</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-[#EF4444] rounded-full"></div>
+                  <span class="text-gray-600 text-sm">Holidays</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-[#A855F7] rounded-full"></div>
+                  <span class="text-gray-600 text-sm">Events</span>
+                </div>
+              </div>
+              <p
+                class="text-xl md:text-2xl font-normal text-[#C50202] leading-[150%] pt-6 md:pt-8 lg:pt-10"
+              >
+                **Note: All Vacations Days may be Moved to the end of the week
+                based on governmental Decision
+              </p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

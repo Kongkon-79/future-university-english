@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future University | Academic Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.js'></script>
+    <style>
+        .fc-daygrid-day-number {
+            color: #374151;
+        }
+
+        .fc-daygrid-day.fc-day-today {
+            background-color: #fefcbf;
+        }
+
+        .fc .fc-daygrid-day-top {
+            flex-direction: column;
+        }
+
+        .custom-event {
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+
+        .registration-event {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .orientation-event {
+            background-color: #dc2626;
+            color: white;
+        }
+
+        .class-begin-event {
+            background-color: #10b981;
+            color: white;
+        }
+
+        .fc-daygrid-day-events {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        #eventList {
+            display: none;
+        }
+
+        #eventList table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        #eventList th, #eventList td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #eventList th {
+            background-color: #f3f4f6;
+            font-weight: bold;
+        }
+
+        .active-btn {
+            background-color: #facc15 !important;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                initialDate: '2025-08-19',
+                headerToolbar: {
+                    left: '',
+                    center: 'title',
+                    right: 'prev,next'
+                },
+                events: [
+                    { title: 'Fall Semester Registration', date: '2025-08-06', className: 'custom-event registration-event' },
+                    { title: 'Orientation Days', date: '2025-08-14', className: 'custom-event orientation-event' },
+                    { title: 'Orientation Days', date: '2025-08-15', className: 'custom-event orientation-event' },
+                    { title: 'Orientation Days', date: '2025-08-16', className: 'custom-event orientation-event' },
+                    { title: 'Classes Begin', date: '2025-08-20', className: 'custom-event class-begin-event' },
+                    { title: 'Fall Semester Registration', date: '2025-09-06', className: 'custom-event registration-event' },
+                    { title: 'Orientation Days', date: '2025-09-14', className: 'custom-event orientation-event' },
+                    { title: 'Orientation Days', date: '2025-09-15', className: 'custom-event orientation-event' },
+                    { title: 'Orientation Days', date: '2025-09-16', className: 'custom-event orientation-event' },
+                    { title: 'Classes Begin', date: '2025-09-20', className: 'custom-event class-begin-event' },
+                    { title: 'Fall Semester Registration', date: '2025-10-06', className: 'custom-event registration-event' },
+                    { title: 'Orientation Days', date: '2025-10-14', className: 'custom-event orientation-event' },
+                    { title: 'Orientation Days', date: '2025-10-15', className: 'custom-event orientation-event' },
+                    { title: 'Orientation Days', date: '2025-10-16', className: 'custom-event orientation-event' },
+                    { title: 'Classes Begin', date: '2025-10-20', className: 'custom-event class-begin-event' }
+                ],
+                dayCellContent: function (arg) {
+                    return { html: arg.dayNumberText };
+                },
+                dayCellDidMount: function(info) {
+                    const dayEvents = info.el.querySelector('.fc-daygrid-day-events');
+                    if (dayEvents) {
+                        dayEvents.style.marginTop = '2rem';
+                        dayEvents.style.display = 'flex';
+                        dayEvents.style.flexDirection = 'column-reverse';
+                    }
+                }
+            });
+            calendar.render();
+
+            // Toggle between calendar and list view
+            const dayBtn = document.querySelector('button:contains("Day")');
+            const listBtn = document.querySelector('button:contains("List")');
+            const calendarDiv = document.getElementById('calendar');
+            const eventListDiv = document.getElementById('eventList');
+
+            // Set initial state
+            calendarDiv.style.display = 'block';
+            eventListDiv.style.display = 'none';
+            dayBtn.classList.add('active-btn');
+            listBtn.classList.remove('active-btn');
+
+            dayBtn.addEventListener('click', function() {
+                calendarDiv.style.display = 'block';
+                eventListDiv.style.display = 'none';
+                dayBtn.classList.add('active-btn');
+                listBtn.classList.remove('active-btn');
+            });
+
+            listBtn.addEventListener('click', function() {
+                calendarDiv.style.display = 'none';
+                eventListDiv.style.display = 'block';
+                listBtn.classList.add('active-btn');
+                dayBtn.classList.remove('active-btn');
+                populateEventList();
+            });
+
+            // Function to populate the event list
+            function populateEventList() {
+                const events = calendar.getEvents();
+                const tableBody = document.getElementById('eventListBody');
+                tableBody.innerHTML = '';
+                events.forEach(event => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${event.start.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</td><td>${event.title}</td>`;
+                    tableBody.appendChild(row);
+                });
+            }
+
+            // Custom :contains selector
+            Element.prototype.contains = function(text) {
+                return this.textContent.includes(text);
+            };
+        });
+    </script>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header -->
+    <nav class="bg-white shadow-sm w-full border-b border-gray-200 border-black/10 sticky top-0 z-50">
+        <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo and Language -->
+                <div class="flex items-center gap-10">
+                    <a href="index.html">
+                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/2d316bb90db8bdfd99985c7d8b9a3db4557ec01d?width=310"
+                            alt="Future University in Egypt" class="h-12 w-auto" />
+                    </a>
+                    <!-- Language Selector -->
+                    <div class="relative">
+                        <button id="languageBtn"
+                            class="bg-university-red text-white px-2 lg:px-4 py-2 rounded text-sm font-medium flex items-center hover:bg-red-700 transition-colors">
+                            Language: English
+                            <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="languageDropdown"
+                            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">English</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Arabic</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <!-- Navigation Links -->
+                    <div class="flex items-center space-x-6">
+                        <a href="#"
+                            class="text-gray-700 hover:text-university-red font-medium transition-colors">Home</a>
+
+                        <!-- Student Guide Dropdown -->
+                        <div class="relative">
+                            <button
+                                class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                                id="studentGuideBtn">
+                                Student Guide
+                                <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div id="studentGuideDropdown"
+                                class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Admission
+                                    Guide</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Course
+                                    Registration</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Student
+                                    Services</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Campus
+                                    Life</a>
+                            </div>
+                        </div>
+
+                        <!-- Study Plans Dropdown -->
+                        <div class="relative">
+                            <button
+                                class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                                id="studyPlansBtn">
+                                Study Plans
+                                <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div id="studyPlansDropdown"
+                                class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Undergraduate</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Graduate</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Doctoral</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Certificate
+                                    Programs</a>
+                            </div>
+                        </div>
+
+                        <!-- Academic Calendar Dropdown -->
+                        <div class="relative">
+                            <button
+                                class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                                id="academicCalendarBtn">
+                                Academic Calendar
+                                <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div id="academicCalendarDropdown"
+                                class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fall
+                                    Semester</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Spring
+                                    Semester</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summer
+                                    Session</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Important
+                                    Dates</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn"
+                        class="text-gray-700 hover:text-university-red focus:outline-none focus:text-university-red transition-colors">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path id="closeIcon" class="hidden" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-200">
+            <div class="px-4 pt-2 pb-3 space-y-1">
+                <!-- Language Selector Mobile -->
+                <div class="mb-4">
+                    <button id="mobileLanguageBtn"
+                        class="w-full bg-university-red text-white px-4 py-2 rounded text-sm font-medium flex items-center justify-between hover:bg-red-700 transition-colors">
+                        Language: English
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="mobileLanguageDropdown" class="mt-2 bg-gray-50 rounded-md hidden">
+                        <a href="#"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">English</a>
+                        <a href="#"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">Arabic</a>
+                        <a href="#"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">French</a>
+                    </div>
+                </div>
+
+                <a href="#"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">Home</a>
+
+                <!-- Mobile Student Guide -->
+                <div>
+                    <button id="mobileStudentGuideBtn"
+                        class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+                        Student Guide
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="mobileStudentGuideDropdown" class="ml-4 mt-2 space-y-1 hidden">
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Admission
+                            Guide</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Course
+                            Registration</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Student
+                            Services</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Campus
+                            Life</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Study Plans -->
+                <div>
+                    <button id="mobileStudyPlansBtn"
+                        class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+                        Study Plans
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="mobileStudyPlansDropdown" class="ml-4 mt-2 space-y-1 hidden">
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Undergraduate</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Graduate</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Doctoral</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Certificate
+                            Programs</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Academic Calendar -->
+                <div>
+                    <button id="mobileAcademicCalendarBtn"
+                        class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+                        Academic Calendar
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="mobileAcademicCalendarDropdown" class="ml-4 mt-2 space-y-1 hidden">
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Fall
+                            Semester</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Spring
+                            Semester</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Summer
+                            Session</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Important
+                            Dates</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-64 md:h-80 bg-cover bg-center" style="background-image: url('./images/academiv.jpg');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
+            <div class="text-center text-white">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">
+                    Academic <span class="text-[#FACC15]">Calendar</span>
+                </h1>
+                <p class="text-lg md:text-xl">Explore our diverse range of academic programs designed to prepare you for success in your chosen field</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Sidebar -->
+            <aside class="lg:w-2/5">
+                <div class="bg-white rounded-lg shadow-sm border sticky top-8">
+                    <div class="p-4">
+                        <div class="mb-4">
+                            <button
+                                class="sidebar-toggle w-full flex items-center justify-between p-3 bg-red-50 text-red-600 rounded-lg font-medium"
+                                data-target="study-system">
+                                <span>Study System</span>
+                                <svg class="h-5 w-5 transform transition-transform duration-200 rotate-180"
+                                    fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div id="study-system"
+                                class="dropdown-content mt-2 bg-[#B111161A] space-y-2 overflow-hidden transition-all duration-300 ease-in-out">
+                                <button
+                                    class="content-link block w-full text-left p-2 text-sm bg-red-50 text-gray-700 rounded"
+                                    data-content="credit-hour-system">
+                                    Credit Hour System
+                                </button>
+                                <button
+                                    class="content-link block w-full text-left p-2 text-sm bg-red-50 text-gray-700 rounded"
+                                    data-content="credit-hour-definition">
+                                    Definition of a Credit Hour
+                                </button>
+                                <button
+                                    class="content-link block w-full text-left p-2 text-sm bg-red-50 text-gray-700 rounded"
+                                    data-content="academic-semesters">
+                                    Academic Semesters
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- Main Content Area -->
+            <main class="lg:w-3/4">
+                <!-- Breadcrumb -->
+                <nav class="mb-[48px]">
+                    <div class=" ">
+                        <div class="flex items-center space-x-2 text-sm">
+                            <a href="#" class="text-gray-600 hover:text-university-red">Home</a>
+                            <svg class="h-4 w-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-900">Student Guide</span>
+                        </div>
+                    </div>
+                </nav>
+                <h1 class="text-2xl font-bold mb-[48px]">First Semester: Fall 2025</h1>
+                <div class="bg-red-600 text-white !bg-[#B11116] h-[85px] p-2 rounded-t-lg flex justify-between items-center">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <span>Fall 2025 Semester Summary:</span>
+                    </div>
+                    <div>
+                        <button class="bg-yellow-400 text-black px-3 py-1 rounded">List</button>
+                        <button class="bg-yellow-400 text-black px-3 py-1 rounded">Day</button>
+                    </div>
+                </div>
+                <div id='calendar' class="bg-white rounded-b-lg shadow-sm p-4"></div>
+                <div id='eventList' class="bg-white rounded-b-lg shadow-sm p-4 mt-4">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Event</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eventListBody"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+ 
+</body>
+
+</html>

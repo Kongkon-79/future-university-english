@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Show Result</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.441.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'university-red': '#B91C1C',
+          }
+        }
+      }
+    }
+  </script>
+
+</head>
+<body>
+        <!-- Header -->
+<div class="bg-white sticky top-0 z-50">
+      <nav
+      class=" max-w-[1560px] bg-red-white mx-auto shadow-sm border-b border-gray-200 border-black/10  ">
+      <div class="max-full mx-auto px-4 sm:px-6 lg:px-0">
+        <div class="flex justify-between items-center h-16">
+
+
+          <!-- Logo and Language -->
+          <div class="flex items-center gap-10">
+            <a href="index.html">
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/2d316bb90db8bdfd99985c7d8b9a3db4557ec01d?width=310"
+                alt="Future University in Egypt" class="h-12 w-auto" />
+            </a>
+
+            <!-- Language Selector -->
+            <div class="relative">
+              <button id="languageBtn"
+                class="bg-university-red text-white px-2 lg:px-4 py-2 rounded text-sm font-medium flex items-center hover:bg-red-700 transition-colors">
+                Language: English
+                <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="languageDropdown"
+                class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">English</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Arabic</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+
+
+            <!-- Navigation Links -->
+            <div class="flex items-center space-x-6">
+              <a href="#" class="text-gray-700 hover:text-university-red font-medium transition-colors">Home</a>
+
+              <!-- Student Guide Dropdown -->
+              <div class="relative">
+                <button class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                  id="studentGuideBtn">
+                  Student Guide
+                  <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div id="studentGuideDropdown"
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Admission Guide</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Course Registration</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Student Services</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Campus Life</a>
+                </div>
+              </div>
+
+              <!-- Study Plans Dropdown -->
+              <div class="relative">
+                <button class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                  id="studyPlansBtn">
+                  Study Plans
+                  <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div id="studyPlansDropdown"
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Undergraduate</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Graduate</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Doctoral</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Certificate Programs</a>
+                </div>
+              </div>
+
+              <!-- Academic Calendar Dropdown -->
+              <div class="relative">
+                <button class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                  id="academicCalendarBtn">
+                  Academic Calendar
+                  <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div id="academicCalendarDropdown"
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fall Semester</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Spring Semester</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summer Session</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Important Dates</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button id="mobileMenuBtn"
+              class="text-gray-700 hover:text-university-red focus:outline-none focus:text-university-red transition-colors">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
+                <path id="closeIcon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-200">
+        <div class="px-4 pt-2 pb-3 space-y-1">
+          <!-- Language Selector Mobile -->
+          <div class="mb-4">
+            <button id="mobileLanguageBtn"
+              class="w-full bg-university-red text-white px-4 py-2 rounded text-sm font-medium flex items-center justify-between hover:bg-red-700 transition-colors">
+              Language: English
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobileLanguageDropdown" class="mt-2 bg-gray-50 rounded-md hidden">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">English</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">Arabic</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">French</a>
+            </div>
+          </div>
+
+          <a href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">Home</a>
+
+          <!-- Mobile Student Guide -->
+          <div>
+            <button id="mobileStudentGuideBtn"
+              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+              Student Guide
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobileStudentGuideDropdown" class="ml-4 mt-2 space-y-1 hidden">
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Admission
+                Guide</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Course
+                Registration</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Student
+                Services</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Campus
+                Life</a>
+            </div>
+          </div>
+
+          <!-- Mobile Study Plans -->
+          <div>
+            <button id="mobileStudyPlansBtn"
+              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+              Study Plans
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobileStudyPlansDropdown" class="ml-4 mt-2 space-y-1 hidden">
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Undergraduate</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Graduate</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Doctoral</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Certificate
+                Programs</a>
+            </div>
+          </div>
+
+          <!-- Mobile Academic Calendar -->
+          <div>
+            <button id="mobileAcademicCalendarBtn"
+              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+              Academic Calendar
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobileAcademicCalendarDropdown" class="ml-4 mt-2 space-y-1 hidden">
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Fall
+                Semester</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Spring
+                Semester</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Summer
+                Session</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Important
+                Dates</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+</div>
+
+
+
+    <!-- Hero Section -->
+    <section class="relative h-64 md:h-80 bg-cover bg-center" style="background-image: url('./images/notfound.png');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
+            <div class="text-center text-white">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">
+                    Search <span class="text-university-gold text-[#FACC15]">Results</span>
+                </h1>
+                <p class="text-lg md:text-xl">Everything you need to know about student life at Future University</p>
+            </div>
+        </div>
+    </section>
+
+ <!-- Container -->
+  <div class="max-w-5xl mx-auto px-4 py-8">
+
+    <!-- Header -->
+    <h2 class="text-2xl font-bold text-red-600 mb-2">Search Results</h2>
+    <p class="text-sm text-gray-600 mb-6">
+      <span class="text-red-600 font-semibold">3</span> results were found for the search for 
+      <span class="text-red-600 font-semibold">Lorem Ipsum</span>
+    </p>
+    <hr class="mb-8">
+
+    <!-- Search Result Item -->
+    <div class="space-y-8">
+      <!-- Item 1 -->
+      <div>
+      <a href="your-link-here.html" class="block">
+    <h3 class="text-xl font-semibold mb-2  text-red-600 hover:text-red-500 hover:underline transition-all cursor-pointer">
+      Lorem Ipsum
+    </h3>
+  </a>
+        <p class="text-gray-700 leading-relaxed">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
+          the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley 
+          of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+          but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised 
+          in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently 
+          with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+
+      <!-- Item 2 -->
+      <div>
+  <a href="your-link-here.html" class="block">
+    <h3 class="text-xl font-semibold mb-2  text-red-600 hover:text-red-500 hover:underline transition-all cursor-pointer">
+      Lorem Ipsum
+    </h3>
+  </a>
+        <p class="text-gray-700 leading-relaxed">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
+          the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley 
+          of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+          but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised 
+          in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently 
+          with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+
+      <!-- Item 3 -->
+      <div>
+     <a href="your-link-here.html" class="block">
+    <h3 class="text-xl font-semibold mb-2  text-red-600 hover:text-red-500 hover:underline transition-all cursor-pointer">
+      Lorem Ipsum
+    </h3>
+  </a>
+        <p class="text-gray-700 leading-relaxed">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
+          the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley 
+          of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+          but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised 
+          in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently 
+          with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+
+      <!-- Footer -->
+    <footer class="bg-[#A10F14] text-white py-16">
+      <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0">
+        <div class="grid lg:grid-cols-3 gap-12">
+          <!-- Logo and Description -->
+          <div class="space-y-6">
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/c7940c3d5ab907b4ee635cd3bd8f84a79fbc3a28?width=520"
+              alt="Future University in Egypt" class="h-20 w-auto" />
+            <p class="text-white/90 leading-relaxed">
+              Future University in Egypt is dedicated to providing quality
+              education and preparing students for successful careers in a
+              global environment.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="space-y-6">
+            <h3 class="text-xl font-medium">Quick Links</h3>
+            <div class="space-y-3">
+              <a href="/" class="block hover:text-gray-300 transition-colors">Home</a>
+              <a href="/student-guide" class="block hover:text-gray-300 transition-colors">Student Guide</a>
+              <a href="/study-plans" class="block hover:text-gray-300 transition-colors">Study Plans</a>
+              <a href="/academic-calendar" class="block hover:text-gray-300 transition-colors">Academic Calendar</a>
+            </div>
+          </div>
+
+          <!-- Contact Us -->
+          <div class="space-y-6">
+            <h3 class="text-xl font-medium">Contact Us</h3>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <i data-lucide="map-pin" class="w-5 h-5 text-white mt-0.5 flex-shrink-0"></i>
+                <span class="leading-relaxed">Future University Campus, End of 90th St., Fifth
+                  Settlement, New Cairo</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="phone" class="w-5 h-5 text-white"></i>
+                <span>+20 2 26189900</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="mail" class="w-5 h-5 text-white"></i>
+                <span>info@fue.edu.eg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-12 mt-12 border-t border-white/20">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-white/90">
+              © 2025 FUTURE UNIVERSITY IN EGYPT. All rights reserved.
+            </p>
+            <div class="flex gap-6">
+              <a href="/privacy" class="text-white/90 hover:text-white transition-colors">Privacy Policy</a>
+              <a href="/terms" class="text-white/90 hover:text-white transition-colors">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
