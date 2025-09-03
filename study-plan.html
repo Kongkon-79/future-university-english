@@ -142,361 +142,318 @@
 
         <!-- Header -->
 
-        <div class="bg-white sticky top-0 z-50 px-2 md:px-8 lg:px-12">
-            <nav class="max-w-[1560px] mx-auto shadow-sm border-b border-gray-200 border-black/10">
-                <div class="max-full mx-auto px-4 sm:px-6 lg:px-0">
-                    <div class="flex justify-between items-center h-16">
-                        <!-- Logo and Language -->
-                        <div class="flex items-center gap-10">
-                            <a href="index.html">
-                                <img src="https://api.builder.io/api/v1/image/assets/TEMP/2d316bb90db8bdfd99985c7d8b9a3db4557ec01d?width=310"
-                                    alt="Future University in Egypt" class="h-12 w-auto" />
-                            </a>
+          <div class="bg-white sticky top-0 z-50 px-2 md:px-8 lg:px-12">
+    <nav class="max-w-[1560px] mx-auto shadow-sm border-b border-gray-200 border-black/10">
+      <div class="max-full mx-auto px-4 sm:px-6 lg:px-0">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo and Language -->
+          <div class="flex items-center gap-10">
+            <a href="index.html">
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/2d316bb90db8bdfd99985c7d8b9a3db4557ec01d?width=310"
+                alt="Future University in Egypt" class="h-12 w-auto" />
+            </a>
 
-                            <!-- Language Selector -->
-                            <div class="relative">
-                                <button id="languageBtn"
-                                    class="bg-university-red text-white px-2 lg:px-4 py-2 rounded text-sm font-medium flex items-center bg-red-700 hover:bg-red-700 transition-colors">
-                                    En
-                                    <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div id="languageDropdown"
-                                    class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">English</a>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Arabic</a>
-                                </div>
-                            </div>
+            <!-- Language Selector -->
+            <div class="relative">
+              <button id="languageBtn"
+                class="bg-university-red text-white px-2 lg:px-4 py-2 rounded text-sm font-medium flex items-center bg-red-700 hover:bg-red-700 transition-colors">
+                En
+                <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="languageDropdown"
+                class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">English</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Arabic</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <!-- Navigation Links -->
+            <div class="flex items-center space-x-6">
+              <a href="#" class="text-gray-700 hover:text-university-red font-medium transition-colors">Home</a>
+
+              <!-- Student Guide Dropdown -->
+              <div class="relative">
+                <button class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                  id="studentGuideBtn">
+                  Student Guide
+                  <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div id="studentGuideDropdown"
+                  class="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 z-50 hidden overflow-hidden">
+                  <!-- Admission Policies & Procedures -->
+                  <div class="group">
+                    <a href="#"
+                      class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                      <span>Admission Policies & Procedures</span>
+                      <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                    <div class="hidden group-hover:block bg-gray-50 border-t">
+                      <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
+                        <div class="font-medium cursor-pointer">
+                          Admission Policy at FUE
                         </div>
-
-                        <!-- Desktop Navigation -->
-                        <div class="hidden md:flex items-center space-x-8">
-                            <!-- Navigation Links -->
-                            <div class="flex items-center space-x-6">
-                                <a href="#"
-                                    class="text-gray-700 hover:text-university-red font-medium transition-colors">Home</a>
-
-                                <!-- Student Guide Dropdown -->
-                                <div class="relative">
-                                    <button
-                                        class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
-                                        id="studentGuideBtn">
-                                        Student Guide
-                                        <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div id="studentGuideDropdown"
-                                        class="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 z-50 hidden overflow-hidden">
-                                        <!-- Admission Policies & Procedures -->
-                                        <div class="group">
-                                            <a href="#"
-                                                class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
-                                                <span>Admission Policies & Procedures</span>
-                                                <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </a>
-                                            <div class="hidden group-hover:block bg-gray-50 border-t">
-                                                <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
-                                                    <div class="font-medium">
-                                                        Admission Policy at FUE
-                                                    </div>
-                                                    <div>General Framework of Admission Policies</div>
-                                                    <div>FUE Application Procedures</div>
-                                                    <div>Booking Admission Tests</div>
-                                                    <div>Final Admission Procedures</div>
-                                                    <div>General Documents Required</div>
-                                                    <div>General Admission Rules</div>
-                                                    <div>Applicant Selection Criteria</div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Study System -->
-                                        <div class="group">
-                                            <a href="#"
-                                                class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
-                                                <span>Study System</span>
-                                                <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </a>
-                                            <div class="hidden group-hover:block bg-gray-50 border-t">
-                                                <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
-                                                    <div>Credit Hour System</div>
-                                                    <div>Definition of a Credit Hour</div>
-                                                    <div>Academic Semesters</div>
-                                                    <div>Student Assessment Policy</div>
-                                                    <div>Student Examination</div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Student Rights & Responsibilities -->
-                                        <div class="group">
-                                            <a href="#"
-                                                class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
-                                                <span>Student Rights & Responsibilities</span>
-                                                <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </a>
-                                            <div class="hidden group-hover:block bg-gray-50 border-t">
-                                                <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
-                                                    <div>Student Conduct</div>
-                                                    <div>Complaints and Grievance</div>
-                                                    <div>Student Rights</div>
-                                                    <div>Student Responsibilities</div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Online Communication Platforms -->
-                                        <div class="group">
-                                            <a href="#"
-                                                class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
-                                                <span>Online Platforms</span>
-                                                <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </a>
-                                            <div class="hidden group-hover:block bg-gray-50 border-t">
-                                                <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
-                                                    <div>Moodle Platform</div>
-                                                    <div>Student Portal</div>
-                                                    <div>University Email</div>
-                                                    <div>Zoom for Virtual Lectures</div>
-                                                    <div>Technical Support</div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Student Support -->
-                                        <div class="group">
-                                            <a href="#"
-                                                class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
-                                                <span>Student Support</span>
-                                                <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </a>
-                                            <div class="hidden group-hover:block bg-gray-50 border-t">
-                                                <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
-                                                    <div>Computer & IT Resources</div>
-                                                    <div>Internet Usage Policies</div>
-                                                    <div>Student Services</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Study Plans Dropdown -->
-                                <div class="relative">
-                                    <button
-                                        class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
-                                        id="studyPlansBtn">
-                                        Study Plans
-                                        <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div id="studyPlansDropdown"
-                                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
-                                        <a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of
-                                            Oral & Dental
-                                            Medicine</a>
-                                        <a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of
-                                            Pharmacy</a>
-                                        <a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of
-                                            Engineering &
-                                            Technology</a>
-                                        <a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty Of
-                                            Computers &
-                                            Information Technology</a>
-                                        <a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of
-                                            Economics &
-                                            Political Science</a>
-                                        <a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of
-                                            Commerce &
-                                            Business Administration</a>
-                                    </div>
-                                </div>
-
-                                <!-- Academic Calendar Dropdown -->
-                                <div class="relative">
-                                    <button
-                                        class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
-                                        id="academicCalendarBtn">
-                                        Academic Calendar
-                                        <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div id="academicCalendarDropdown"
-                                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
-                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fall
-                                            2025 Semester
-                                            Summary</a>
-                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fall
-                                            2025
-                                            Highlights.</a>
-                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fall
-                                            2025 Semester
-                                            Details</a>
-                                        <a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Spring 2026
-                                            Semester
-                                            Summary</a>
-                                        <a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Spring 2026
-                                            Highlights</a>
-                                        <a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Spring 2026
-                                            Semester
-                                            Details</a>
-                                        <a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summer 2026
-                                            Semester
-                                            Summary</a>
-                                        <a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summer 2026
-                                            Highlights</a>
-                                        <a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summer 2026
-                                            Semester
-                                            Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Mobile menu button -->
-                        <div class="md:hidden">
-                            <button id="mobileMenuBtn"
-                                class="text-gray-700 hover:text-university-red focus:outline-none focus:text-university-red transition-colors">
-                                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 6h16M4 12h16M4 18h16"></path>
-                                    <path id="closeIcon" class="hidden" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                            </button>
-                        </div>
+                        <div class="cursor-pointer">General Framework of Admission Policies</div>
+                        <div class="cursor-pointer">FUE Application Procedures</div>
+                        <div class="cursor-pointer">Booking Admission Tests</div>
+                        <div class="cursor-pointer">Final Admission Procedures</div>
+                        <div class="cursor-pointer">General Documents Required</div>
+                        <div class="cursor-pointer">General Admission Rules</div>
+                        <div class="cursor-pointer">Applicant Selection Criteria</div>
+                      </div>
                     </div>
-                </div>
+                  </div>
 
-                <!-- Mobile Navigation Menu -->
-                <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-200">
-                    <div class="px-4 pt-2 pb-3 space-y-1">
-                        <!-- Language Selector Mobile -->
-                     
-
-                        <a href="#"
-                            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">Home</a>
-
-                        <!-- Mobile Student Guide -->
-                        <div>
-                            <button id="mobileStudentGuideBtn"
-                                class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
-                                Student Guide
-                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
-                            <div id="mobileStudentGuideDropdown" class="ml-4 mt-2 space-y-1 hidden">
-                                <a href="#"
-                                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Admission
-                                    Guide</a>
-                                <a href="#"
-                                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Course
-                                    Registration</a>
-                                <a href="#"
-                                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Student
-                                    Services</a>
-                                <a href="#"
-                                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Campus
-                                    Life</a>
-                            </div>
-                        </div>
-
-                        <!-- Mobile Study Plans -->
-                        <div>
-                            <button id="mobileStudyPlansBtn"
-                                class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
-                                Study Plans
-                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
-                            <div id="mobileStudyPlansDropdown" class="ml-4 mt-2 space-y-1 hidden">
-                                <a href="#"
-                                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Undergraduate</a>
-                                <a href="#"
-                                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Graduate</a>
-                                <a href="#"
-                                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Doctoral</a>
-                                <a href="#"
-                                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Certificate
-                                    Programs</a>
-                            </div>
-                        </div>
-
-                        <!-- Mobile Academic Calendar -->
-                        <div>
-                            <button id="mobileAcademicCalendarBtn"
-                                class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
-                                Academic Calendar
-                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
-                            <div id="mobileAcademicCalendarDropdown" class="ml-4 mt-2 space-y-1 hidden">
-                                <a href="#"
-                                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Fall
-                                    Semester</a>
-                                <a href="#"
-                                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Spring
-                                    Semester</a>
-                                <a href="#"
-                                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Summer
-                                    Session</a>
-                                <a href="#"
-                                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Important
-                                    Dates</a>
-                            </div>
-                        </div>
+                  <!-- Study System -->
+                  <div class="group">
+                    <a href="#"
+                      class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                      <span>Study System</span>
+                      <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                    <div class="hidden group-hover:block bg-gray-50 border-t">
+                      <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
+                        <div class="cursor-pointer">Credit Hour System</div>
+                        <div class="cursor-pointer">Definition of a Credit Hour</div>
+                        <div class="cursor-pointer">Academic Semesters</div>
+                        <div class="cursor-pointer">Student Assessment Policy</div>
+                        <div class="cursor-pointer">Student Examination</div>
+                      </div>
                     </div>
+                  </div>
+
+                  <!-- Student Rights & Responsibilities -->
+                  <div class="group">
+                    <a href="#"
+                      class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                      <span>Student Rights & Responsibilities</span>
+                      <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                    <div class="hidden group-hover:block bg-gray-50 border-t">
+                      <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
+                        <div class="cursor-pointer">Student Conduct</div>
+                        <div class="cursor-pointer">Complaints and Grievance</div>
+                        <div class="cursor-pointer">Student Rights</div>
+                        <div class="cursor-pointer">Student Responsibilities</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Online Communication Platforms -->
+                  <div class="group">
+                    <a href="#"
+                      class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                      <span>Online Platforms</span>
+                      <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                    <div class="hidden group-hover:block bg-gray-50 border-t">
+                      <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
+                        <div class="cursor-pointer">Moodle Platform</div>
+                        <div class="cursor-pointer">Student Portal</div>
+                        <div class="cursor-pointer">University Email</div>
+                        <div class="cursor-pointer">Zoom for Virtual Lectures</div>
+                        <div class="cursor-pointer">Technical Support</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Student Support -->
+                  <div class="group">
+                    <a href="#"
+                      class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                      <span>Student Support</span>
+                      <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                    <div class="hidden group-hover:block bg-gray-50 border-t">
+                      <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
+                        <div class="cursor-pointer">Computer & IT Resources</div>
+                        <div class="cursor-pointer">Internet Usage Policies</div>
+                        <div class="cursor-pointer">Student Services</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            </nav>
+              </div>
+
+              <!-- Study Plans Dropdown -->
+              <div class="relative">
+                <button class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                  id="studyPlansBtn">
+                  Study Plans
+                  <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div id="studyPlansDropdown"
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of Oral & Dental
+                    Medicine</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of Pharmacy</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of Engineering &
+                    Technology</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty Of Computers &
+                    Information Technology</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of Economics &
+                    Political Science</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of Commerce &
+                    Business Administration</a>
+                </div>
+              </div>
+
+              <!-- Academic Calendar Dropdown -->
+              <div class="relative">
+                <button class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                  id="academicCalendarBtn">
+                  Academic Calendar
+                  <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div id="academicCalendarDropdown"
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fall 2025 Semester
+                    Summary</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fall 2025
+                    Highlights.</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fall 2025 Semester
+                    Details</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Spring 2026 Semester
+                    Summary</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Spring 2026
+                    Highlights</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Spring 2026 Semester
+                    Details</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summer 2026 Semester
+                    Summary</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summer 2026
+                    Highlights</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summer 2026 Semester
+                    Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button id="mobileMenuBtn"
+              class="text-gray-700 hover:text-university-red focus:outline-none focus:text-university-red transition-colors">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
+                <path id="closeIcon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
         </div>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-200">
+        <div class="px-4 pt-2 pb-3 space-y-1">
+          <!-- Language Selector Mobile -->
+
+          <a href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">Home</a>
+
+          <!-- Mobile Student Guide -->
+          <div>
+            <button id="mobileStudentGuideBtn"
+              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+              Student Guide
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobileStudentGuideDropdown" class="ml-4 mt-2 space-y-1 hidden">
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Admission
+                Guide</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Course
+                Registration</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Student
+                Services</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Campus
+                Life</a>
+            </div>
+          </div>
+
+          <!-- Mobile Study Plans -->
+          <div>
+            <button id="mobileStudyPlansBtn"
+              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+              Study Plans
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobileStudyPlansDropdown" class="ml-4 mt-2 space-y-1 hidden">
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Undergraduate</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Graduate</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Doctoral</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Certificate
+                Programs</a>
+            </div>
+          </div>
+
+          <!-- Mobile Academic Calendar -->
+          <div>
+            <button id="mobileAcademicCalendarBtn"
+              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
+              Academic Calendar
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobileAcademicCalendarDropdown" class="ml-4 mt-2 space-y-1 hidden">
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Fall
+                Semester</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Spring
+                Semester</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Summer
+                Session</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Important
+                Dates</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
         <!-- Hero Section -->
         <section class="relative h-64 md:h-80 lg:h-[568px] bg-cover bg-center px-2 md:px-8 lg:px-12"
             style="background-image: url('./images/studyplan.png');">
