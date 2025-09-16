@@ -230,12 +230,12 @@ body {
 }
 
 .total-row {
-    background: #f8f9fa !important;
+    /* background: #f8f9fa !important; */
     font-weight: 600;
 }
 
 .total-row td {
-    border-top: 2px solid #e8b4cb;
+    /* border-top: 2px solid #e8b4cb; */
     color: #333;
 }
 
